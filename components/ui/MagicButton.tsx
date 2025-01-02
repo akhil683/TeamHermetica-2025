@@ -1,18 +1,37 @@
-import React from 'react'
+import React from "react";
+import { ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-const MagicButton = ({title,icon,position,handleClick,otherClasses}:{
-  title:string, icon:React.ReactNode, position:string, handleClick?:()=>void,  otherClasses?:string
-}) => {
-  return (
-    <button className=" w-full relative inline-flex h-12 overflow-hidden rounded-lg p-[1px] focus:outline-none md:w-60 md:mt-10">
-  <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-  <span className={`inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-slate-950 px-7  text-sm font-medium text-white gap-2 backdrop-blur-3xl ${otherClasses}`}   onClick={handleClick}>
-    {position==='left' && icon}
-    {title}
-    {position==='right' && icon}
-  </span>
-</button>
-  )
+interface InteractiveHoverButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  text?: string;
 }
 
-export default MagicButton
+const InteractiveHoverButton = React.forwardRef<
+  HTMLButtonElement,
+  InteractiveHoverButtonProps
+>(({ text = "Button", className, ...props }, ref) => {
+  return (
+    <button
+      ref={ref}
+      className={cn(
+        "group relative w-32 cursor-pointer overflow-hidden rounded-full border bg-background p-2 text-center font-semibold",
+        className,
+      )}
+      {...props}
+    >
+      <span className="inline-block translate-x-1 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
+        {text}
+      </span>
+      <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-primary-foreground opacity-0 transition-all duration-300 group-hover:-translate-x-1 group-hover:opacity-100">
+        <span>{text}</span>
+        <ArrowRight />
+      </div>
+      <div className="absolute left-[20%] top-[40%] h-2 w-2 scale-[1] rounded-lg bg-primary transition-all duration-300 group-hover:left-[0%] group-hover:top-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8] group-hover:bg-primary"></div>
+    </button>
+  );
+});
+
+InteractiveHoverButton.displayName = "InteractiveHoverButton";
+
+export default InteractiveHoverButton;
