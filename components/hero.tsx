@@ -3,11 +3,12 @@ import React from 'react'
 import { motion } from 'motion/react'
 import { Button } from './ui/Button'
 import { FlaskRoundIcon as Flask, Atom, Beaker, Pipette, Microscope, Thermometer, Droplet, Gauge, TestTube } from 'lucide-react'
+import Link from 'next/link'
 
 const ChemIcon = ({ icon: Icon, color, size, delay }: { icon: typeof Flask; color: string; size: number; delay: number }) => {
   return (
     <motion.div
-      className={`absolute ${color}`}
+      className={`absolute opacity-30 md:opacity-50 ${color}`}
       style={{
         top: `${Math.random() * 100}%`,
         left: `${Math.random() * 100}%`,
@@ -32,14 +33,12 @@ const ChemIcon = ({ icon: Icon, color, size, delay }: { icon: typeof Flask; colo
 
 const MovingBackground = () => {
   const icons = [
-    { Icon: TestTube, color: "text-yellow-500", size: 64 },
-    { Icon: Flask, color: "text-blue-600", size: 56 },
-    { Icon: Atom, color: "text-green-600", size: 68 },
-    { Icon: Beaker, color: "text-purple-500", size: 60 },
+    { Icon: TestTube, color: "text-yellow-500", size: 48 },
+    { Icon: Flask, color: "text-blue-600", size: 64 },
+    { Icon: Atom, color: "text-green-600", size: 48 },
+    { Icon: Beaker, color: "text-purple-500", size: 72 },
     { Icon: Gauge, color: "text-purple-500", size: 52 },
-    { Icon: Pipette, color: "text-yellow-400", size: 56 },
     { Icon: Microscope, color: "text-red-500", size: 64 },
-    { Icon: Thermometer, color: "text-orange-500", size: 56 },
     { Icon: Droplet, color: "text-green-500", size: 56 },
   ]
 
@@ -67,16 +66,16 @@ export function Hero() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-5xl md:text-6xl font-bold mb-6 text-gray-800 drop-shadow-lg"
+          className="text-3xl md:text-6xl font-bold mb-6 text-gray-800 drop-shadow-lg"
         >
           <span>Team Hermetica</span>
-          <h1 className="mt-4 text-primaryOrange text-7xl">We React To What Matters !</h1>
+          <h1 className="mt-4 text-primaryOrange text-5xl  md:text-7xl">We React To What Matters !</h1>
         </motion.div>
         <motion.p
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl md:text-xl mb-8 text-gray-700 drop-shadow"
+          className="text-lg px-4 md:text-xl mb-8 text-gray-700 drop-shadow"
         >
           Team Hermetica, established in 2014, represents the Department of Chemical Engineering, in the annual tech-fest NIMBUS at National Institite of Technology, Hamirpur.
         </motion.p>
@@ -84,14 +83,14 @@ export function Hero() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="space-x-4"
+          className="flex gap-4 max-sm:flex-col justify-center items-center max-sm:px-12"
         >
-          <Button size="lg" className="bg-primaryOrange text-white hover:bg-blue-700 shadow-lg">
-            Explore Research
-          </Button>
-          <Button size="lg" variant="outline" className="bg-white bg-opacity-50 text-green-700 border-green-600 hover:bg-green-100 shadow-lg">
-            Our Technologies
-          </Button>
+          <Link href={'/projects'} className='w-full max-w-52'>
+            <p className='px-6 py-2 bg-orange-500 max-sm:w-full text-white rounded-lg hover:text-orange-700 border border-orange-500 hover:bg-orange-500/10 duration-200'>Explore Projects</p>
+          </Link>
+          <Link href={"/about-us"} className='w-full max-w-52'>
+            <p className='px-6 max-sm:w-full hover:bg-green-700 hover:text-white py-2 text-green-700 rounded-lg border border-green-600 bg-green-600/10 duration-200'>About Us</p>
+          </Link>
         </motion.div>
       </div>
     </div>
