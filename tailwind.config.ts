@@ -13,6 +13,7 @@ export default {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         primaryOrange: "rgb(249, 115 ,22)",
+        border: '#fff',
       },
       borderRadius: {
         lg: 'var(--radius)',
