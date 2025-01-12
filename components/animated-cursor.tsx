@@ -1,4 +1,4 @@
-"'use client'"
+"use client"
 
 import { useEffect, useState } from "react"
 
@@ -10,8 +10,8 @@ export default function AnimatedCursor() {
       setPosition({ x: e.clientX, y: e.clientY })
     }
 
-    window.addEventListener("'mousemove'", handleMouseMove)
-    return () => window.removeEventListener("'mousemove'", handleMouseMove)
+    window.addEventListener("mousemove", handleMouseMove)
+    return () => window.removeEventListener("mousemove", handleMouseMove)
   }, [])
 
   return (
