@@ -81,6 +81,10 @@
 }
 
 @layer utilities {
+  .border-border {
+    border-color: var(--your-border-color);
+  }
+
   .heading {
     @apply font-bold text-4xl md:text-5xl text-center;
   }
