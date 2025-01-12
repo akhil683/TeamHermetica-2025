@@ -3,37 +3,37 @@ import React from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import { Target, Lightbulb, FlaskRoundIcon as Flask, Atom, Beaker, Microscope } from 'lucide-react'
 
-const MovingBackground = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className="relative overflow-hidden w-full h-full">
-      {[...Array(3)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute inset-0"
-          initial={{
-            backgroundPosition: `${Math.random() * 100}% ${Math.random() * 100}%`,
-            opacity: 0.01
-          }}
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-            opacity: [0.1, 0.3, 0.1]
-          }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "reverse",
-            duration: 20 + i * 5,
-            ease: "linear"
-          }}
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,165,0,0.2) 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
-          }}
-        />
-      ))}
-      {children}
-    </div>
-  )
-}
+// const MovingBackground = ({ children }: { children: React.ReactNode }) => {
+//   return (
+//     <div className="relative overflow-hidden w-full h-full">
+//       {[...Array(3)].map((_, i) => (
+//         <motion.div
+//           key={i}
+//           className="absolute inset-0"
+//           initial={{
+//             backgroundPosition: `${Math.random() * 100}% ${Math.random() * 100}%`,
+//             opacity: 0.01
+//           }}
+//           animate={{
+//             backgroundPosition: ['0% 0%', '100% 100%'],
+//             opacity: [0.1, 0.3, 0.1]
+//           }}
+//           transition={{
+//             repeat: Infinity,
+//             repeatType: "reverse",
+//             duration: 20 + i * 5,
+//             ease: "linear"
+//           }}
+//           style={{
+//             backgroundImage: 'radial-gradient(circle, rgba(255,165,0,0.2) 1px, transparent 1px)',
+//             backgroundSize: '40px 40px',
+//           }}
+//         />
+//       ))}
+//       {children}
+//     </div>
+//   )
+// }
 
 const FeatureCard = ({
   icon: Icon,
@@ -68,89 +68,56 @@ const FeatureCard = ({
       viewport={{ once: true }}
       className="relative p-12 rounded-2xl bg-white/80 backdrop-blur-sm  border-2 border-orange-500 transition-all duration-300 overflow-hidden group hover:rotate-12 hover:bg-orange-600/20 hover:text-white cursor-pointer"
     >
-      <MovingBackground>
+      {/* <MovingBackground> */}
+      <div className="relative z-10">
+        <motion.div
+          className="absolute inset-0 z-0"
+          animate={{
+            backgroundPosition: ['0% 0%', '100% 100%'],
+          }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "reverse",
+            duration: 20,
+            ease: "linear"
+          }}
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(0,255,0,0.2) 3px, transparent 3px)',
+            backgroundSize: '40px 40px',
+          }}
+        />
         <div className="relative z-10">
           <motion.div
-            className="absolute inset-0 z-0"
-            animate={{
-              backgroundPosition: ['0% 0%', '100% 100%'],
-            }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "reverse",
-              duration: 20,
-              ease: "linear"
-            }}
-            style={{
-              backgroundImage: 'radial-gradient(circle, rgba(0,255,0,0.2) 3px, transparent 3px)',
-              backgroundSize: '40px 40px',
-            }}
-          />
-          <div className="relative z-10">
-            <motion.div
-              initial={{ scale: 0, rotate: -45 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ delay: delay + 0.1, duration: 0.5 }}
-              className="w-28 h-28 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-lg transform transition-transform duration-500 group-hover:rotate-45"
-            >
-              <Icon className="w-16 h-16 text-white" />
-            </motion.div>
-            <motion.h3
-              className="text-3xl text-center font-bold text-gray-800 mb-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: delay + 0.3, duration: 0.5 }}
-            >
-              {title}
-            </motion.h3>
-            <motion.p
-              className="text-lg text-gray-600 group-hover:text-gray-700 transition-colors duration-300 text-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: delay + 0.4, duration: 0.5 }}
-            >
-              {description}
-            </motion.p>
-          </div>
+            initial={{ scale: 0, rotate: -45 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ delay: delay + 0.1, duration: 0.5 }}
+            className="w-28 h-28 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-lg transform transition-transform duration-500 group-hover:rotate-45"
+          >
+            <Icon className="w-16 h-16 text-white" />
+          </motion.div>
+          <motion.h3
+            className="text-3xl text-center font-bold text-gray-800 mb-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: delay + 0.3, duration: 0.5 }}
+          >
+            {title}
+          </motion.h3>
+          <motion.p
+            className="text-lg text-gray-600 group-hover:text-gray-700 transition-colors duration-300 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: delay + 0.4, duration: 0.5 }}
+          >
+            {description}
+          </motion.p>
         </div>
-      </MovingBackground>
-    </motion.div>
+      </div>
+      {/* </MovingBackground> */}
+    </motion.div >
   )
 }
 
-const AnimatedBackground = () => {
-  const icons = [Flask, Atom, Beaker, Microscope]
-  return (
-    <div className="absolute inset-0 overflow-hidden opacity-5">
-      {[...Array(20)].map((_, i) => {
-        const Icon = icons[i % icons.length]
-        return (
-          <motion.div
-            key={i}
-            className="absolute text-orange-500"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, Math.random() * 40 - 20, 0],
-              rotate: [0, 360],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 10 + Math.random() * 10,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          >
-            <Icon size={24 + Math.random() * 24} />
-          </motion.div>
-        )
-      })}
-    </div>
-  )
-}
 
 export function Nimbus() {
   const features = [
@@ -176,7 +143,6 @@ export function Nimbus() {
 
   return (
     <section className="py-20 bg-gradient-to-b from-orange-50 to-white relative overflow-hidden">
-      <AnimatedBackground />
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0 }}
