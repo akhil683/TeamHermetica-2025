@@ -12,7 +12,7 @@ export default function WavyLine() {
         d="M200 0C200 100 300 200C300 200 400"
         stroke="currentColor"
         strokeWidth="2"
-        className="text-purple-300"
+        className="text-green-600"
         strokeDasharray="5,5"
       >
         <animateTransform

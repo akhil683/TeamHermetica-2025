@@ -1,3 +1,4 @@
+import { filter } from "framer-motion/client";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -21,10 +22,11 @@ export default {
         sm: 'calc(var(--radius) - 4px)'
       },
       animation: {
-        blob: "blob 7s infinite",
-        "'spin-slow'": "'spin 20s linear infinite'",
-        "'bounce-slow'": "'bounce 3s infinite'",
-        "'float'": "'float 6s ease-in-out infinite'",
+        blob: 'blob 7s infinite',
+        'spin-slow': 'spin 20s linear infinite',
+        'bounce-slow': 'bounce 3s infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'appear': 'appear 0.5s ease-in-out',
       },
       keyframes: {
         blob: {
@@ -42,9 +44,19 @@ export default {
           },
         },
         float: {
-          "'0%, 100%'": { transform: "'translateY(0)'" },
-          "'50%'": { transform: "'translateY(-20px)'" },
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-20px)" },
         },
+        appear: {
+          from: {
+            opacity: '0',
+            filter: 'blur(4px)'
+          },
+          to: {
+            opacity: '1',
+            filter: 'blue(0px)'
+          }
+        }
       },
     }
   },
