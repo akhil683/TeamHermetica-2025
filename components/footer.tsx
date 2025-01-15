@@ -25,7 +25,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-indigo-200 to-purple-300">
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-indigo-900/30 bg-opacity-30 to-black">
         <div className="absolute inset-0">
           {/* Animated gradient orbs */}
           <motion.div
@@ -59,19 +59,19 @@ export default function Footer() {
 
       {/* Content */}
       <div className="container mx-auto px-6 py-16 relative z-10">
-        <div className="grid md:grid-cols-3 gap-12 text-gray-800">
+        <div className="grid md:grid-cols-3 gap-12 text-gray-400">
           {/* Team Info */}
           <div>
             <motion.h2
-              className="text-2xl font-bold mb-4 text-purple-800"
+              className="text-2xl font-bold mb-4 text-indigo-700"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Team <span className="text-purple-400">Hermetica</span>
+              Team <span className="text-indigo-400">Hermetica</span>
             </motion.h2>
             <motion.p
-              className="text-gray-600 mb-6"
+              className="text-gray-400 mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -100,12 +100,12 @@ export default function Footer() {
           {/* Team Work */}
           <div>
             <motion.h2
-              className="text-2xl font-bold mb-4 text-purple-800"
+              className="text-2xl font-bold mb-4 text-indigo-700"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Team <span className="text-purple-400">Work</span>
+              Team <span className="text-indigo-400">Work</span>
             </motion.h2>
             <ul className="space-y-2">
               {workLinks.map((link, index) => (
@@ -130,12 +130,12 @@ export default function Footer() {
           {/* Contact Form */}
           <div>
             <motion.h2
-              className="text-2xl font-bold mb-4 text-purple-800"
+              className="text-2xl font-bold mb-4 text-indigo-700"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Contact <span className="text-purple-400">Us</span>
+              Contact <span className="text-indigo-400">Us</span>
             </motion.h2>
             <motion.form
               className="space-y-4"
@@ -160,7 +160,7 @@ export default function Footer() {
               />
               <Button
                 type="submit"
-                className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white"
               >
                 SEND
               </Button>

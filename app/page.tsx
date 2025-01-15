@@ -21,7 +21,7 @@ export default function LandingPage() {
       <AchievementCarousel />
 
       {/* Domains Section */}
-      <DomainsSection />
+      {/* <DomainsSection /> */}
 
       {/* Footer */}
       <Footer />

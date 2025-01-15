@@ -15,7 +15,7 @@ export function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 flex justify-center p-4 z-50" >
-        <nav className="flex items-center justify-between px-8 py-2 bg-gray-200/60  text-black backdrop-blur-md rounded-full w-[95%]">
+        <nav className="flex items-center justify-between px-3 md:px-8 py-2 bg-gray-200/60  text-black backdrop-blur-md rounded-full w-[95%]">
           <Link href={"/"} className="flex items-center gap-2">
             <Flask className="h-8 w-8 text-white" />
             <span className="text-xl font-bold">
@@ -24,7 +24,7 @@ export function Navbar() {
           </Link>
           <div className="flex items-center gap-4">
             <Button
-              className="bg-indigo-700 text-white hover:bg-gray-800 px-6 md:py-5 py-3 rounded-full group relative overflow-hidden"
+              className="max-md:hidden bg-indigo-700 text-white hover:bg-gray-800 px-6 md:py-5 py-3 rounded-full group relative overflow-hidden"
             >
               <span className="relative z-10">SIGN UP</span>
               <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
