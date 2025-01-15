@@ -1,4 +1,4 @@
-"'use client'"
+"use client"
 
 import { motion } from "framer-motion"
 import { Zap, Eye, Target } from "lucide-react"
@@ -44,29 +44,6 @@ function AboutCard({ card, index }: { card: typeof aboutCards[0], index: number 
       whileHover={{ scale: 1.02 }}
     >
       <Card className="relative overflow-hidden h-full bg-gray-900/50 backdrop-blur-xl border-purple-500/20">
-        {/* Animated Background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-indigo-500/20" />
-          <div className="absolute top-1/4 left-1/4 w-12 h-12 bg-purple-500/10 rounded-full animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-16 h-16 bg-indigo-400/10 rounded-lg rotate-45 animate-bounce-slow" />
-          <svg className="absolute inset-0" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0,50 Q25,25 50,50 T100,50"
-              fill="none"
-              stroke="rgba(139, 92, 246, 0.1)"
-              strokeWidth="2"
-              className="w-full h-full"
-            >
-              <animate
-                attributeName="d"
-                values="M0,50 Q25,25 50,50 T100,50; Q25,75 T100,50"
-                dur="10s"
-                repeatCount="indefinite"
-              />
-            </path>
-          </svg>
-        </div>
-
         {/* Content */}
         <div className="relative p-8 text-center">
           <motion.div
@@ -99,17 +76,7 @@ function AboutCard({ card, index }: { card: typeof aboutCards[0], index: number 
 
 export default function AboutSection() {
   return (
-    <section className="relative py-24 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/60 via-indigo-500 to-purple-500/60" />
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-white/10 backdrop-blur-3xl" />
-        {/* Animated shapes */}
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-400/30 rounded-full mix-blend-multiply filter blur-xl animate-blob" />
-        <div className="absolute top-3/4 right-1/4 w-64 h-64 bg-indigo-400/30 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000" />
-        <div className="absolute bottom-1/4 left-1/2 w-48 h-48 bg-blue-400/30 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000" />
-      </div>
-
+    <section className="min-h-screen bg-gradient-to-b from-black via-indigo-600/30 to-black relative py-24 overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           className="text-center mb-16"
@@ -118,7 +85,7 @@ export default function AboutSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            About <span className="text-purple-300">Us</span>
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Us</span>
           </h2>
         </motion.div>
 

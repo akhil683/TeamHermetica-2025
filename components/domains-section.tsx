@@ -1,4 +1,4 @@
-"'use client'"
+"use client"
 
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion"
 import { Code, Film, Paintbrush, PenTool } from "lucide-react"
@@ -132,7 +132,7 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
 
 export default function DomainsSection() {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="min-h-screen relative flex flex-col justify-center items-center py-24 overflow-hidden">
       {/* Background Effects */}
 
       <SpaceBackground />

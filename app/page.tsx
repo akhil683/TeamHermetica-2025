@@ -1,21 +1,20 @@
-"use client"
-import BackgroundShapes from "../components/background-shapes"
+// import BackgroundShapes from "../components/background-shapes"
 import { AchievementCarousel } from "@/components/home/Achievements-carousel"
 import DomainsSection from "../components/domains-section"
-import Footer from "../components/footer"
 import HeroSection from "@/components/home/Hero"
+import AboutSection from "@/components/about-section"
 
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-black overflow-hidden font-['Space_Grotesk'] relative animate-appear">
-      <BackgroundShapes />
+      {/* <BackgroundShapes /> */}
 
       {/* Hero Section */}
       <HeroSection />
 
       {/* About Section */}
-      {/* <AboutSection /> */}
+      <AboutSection />
 
       {/* Achievements Section */}
       <AchievementCarousel />
@@ -23,8 +22,6 @@ export default function LandingPage() {
       {/* Domains Section */}
       <DomainsSection />
 
-      {/* Footer */}
-      <Footer />
     </div>
   )
 }

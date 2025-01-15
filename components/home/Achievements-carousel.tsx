@@ -77,25 +77,6 @@ export function AchievementCarousel() {
   return (
     <section id="achievements" className="relative py-20 overflow-hidden">
       <SpaceBackground />
-      {/* Background Pattern */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute inset-0"
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-          }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "reverse",
-            duration: 20,
-            ease: "linear"
-          }}
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,90,0,0.1) 1px, transparent 1px)',
-            backgroundSize: '50px 50px',
-          }}
-        />
-      </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-12 md:py-20">
