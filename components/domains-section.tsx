@@ -100,30 +100,30 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
           </motion.p>
 
           {/* Floating Particles */}
-          <div className="absolute inset-0 pointer-events-none">
-            {[...Array(3)].map((_, i) => (
-              <motion.div
-                key={i}
-                className={`absolute w-2 h-2 rounded-full bg-gradient-to-br ${domain.gradient}`}
-                initial={{
-                  x: Math.random() * 100,
-                  y: Math.random() * 100,
-                  opacity: 0
-                }}
-                animate={{
-                  x: Math.random() * 100,
-                  y: Math.random() * 100,
-                  opacity: [0, 1, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  delay: i * 0.8,
-                  ease: "easeInOut"
-                }}
-              />
-            ))}
-          </div>
+          {/* <div className="absolute inset-0 pointer-events-none"> */}
+          {/*   {[...Array(3)].map((_, i) => ( */}
+          {/*     <motion.div */}
+          {/*       key={i} */}
+          {/*       className={`absolute w-2 h-2 rounded-full bg-gradient-to-br ${domain.gradient}`} */}
+          {/*       initial={{ */}
+          {/*         x: Math.random() * 100, */}
+          {/*         y: Math.random() * 100, */}
+          {/*         opacity: 0 */}
+          {/*       }} */}
+          {/*       animate={{ */}
+          {/*         x: Math.random() * 100, */}
+          {/*         y: Math.random() * 100, */}
+          {/*         opacity: [0, 1, 0], */}
+          {/*       }} */}
+          {/*       transition={{ */}
+          {/*         duration: 3, */}
+          {/*         repeat: Infinity, */}
+          {/*         delay: i * 0.8, */}
+          {/*         ease: "easeInOut" */}
+          {/*       }} */}
+          {/*     /> */}
+          {/*   ))} */}
+          {/* </div> */}
         </div>
       </div>
     </motion.div>
@@ -134,11 +134,10 @@ export default function DomainsSection() {
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background Effects */}
-      {/* <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800" /> */}
 
       <SpaceBackground />
       <div className="absolute inset-0">
-        {/* <div className="absolute inset-0 bg-purple-500/5 backdrop-blur-3xl" /> */}
+        <div className="absolute inset-0 bg-purple-500/5 backdrop-blur-3xl" />
         {/* Animated background shapes */}
         <motion.div
           className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-400/10 rounded-full mix-blend-overlay filter blur-xl"
