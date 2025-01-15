@@ -15,10 +15,10 @@ export function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 flex justify-center p-4 z-50" >
-        <nav className="flex items-center justify-between px-3 md:px-8 py-2 bg-gray-200/60  text-black backdrop-blur-md rounded-full w-[95%]">
+        <nav className="flex items-center justify-between px-3 md:px-8 py-2 bg-gray-800/80  text-black backdrop-blur-md rounded-full w-[95%]">
           <Link href={"/"} className="flex items-center gap-2">
             <Flask className="h-8 w-8 text-white" />
-            <span className="text-xl font-bold">
+            <span className="text-xl font-bold text-white">
               Team Hermetica
             </span>
           </Link>
@@ -50,7 +50,8 @@ export function Navbar() {
               initial={{ opacity: 0, y: "100%" }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              transition={{ type: "spring", damping: 40, stiffness: 500 }}
+
               className="fixed bottom-0 left-0 right-0 bg-gray-900/80 text-white backdrop-blur-xl p-6 rounded-t-3xl border border-neutral-200 border-purple-500/20 z-50 dark:border-neutral-800"
             >
               <div className="flex flex-col gap-4">

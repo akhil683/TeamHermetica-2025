@@ -69,7 +69,7 @@ export default function ProjectGrid() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: project.id * 0.1 }}
         >
-          <Card className="min-h-96 group relative overflow-hidden rounded-xl border-transparent bg-gray-600/80 backdrop-blur-sm transition-all duration-300 hover:bg-gray-400 hover:scale-105">
+          <Card className="min-h-96 group relative overflow-hidden rounded-xl border-transparent bg-gradient-to-tr from-gray-900 via-indigo-800/30 to-gray-900 bg-opacity-20 transition-all duration-300 hover:scale-105">
             {/* Project Image */}
             <div className="aspect-[4/3] overflow-hidden">
               <Image

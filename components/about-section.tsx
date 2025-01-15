@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion"
 import { Zap, Eye, Target } from "lucide-react"
-import { Card } from "@/components/ui/card"
 
 const aboutCards = [
   {
@@ -42,8 +41,9 @@ function AboutCard({ card, index }: { card: typeof aboutCards[0], index: number 
       }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.02 }}
+      className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/20 to-purple-900/10 bg-opacity-50 p-6 md:p-12 rounded-lg shadow-lg backdrop-blur-sm border border-gray-700 flex flex-col hover:bg-indigo-700/10 hover:border-indigo-300 duration-300"
     >
-      <Card className="relative overflow-hidden h-full bg-gray-900/50 backdrop-blur-xl border-purple-500/20">
+      <div className="relative overflow-hidden h-full bg-transparent border-transparent hover:border-transparent">
         {/* Content */}
         <div className="relative p-8 text-center">
           <motion.div
@@ -66,10 +66,7 @@ function AboutCard({ card, index }: { card: typeof aboutCards[0], index: number 
             ))}
           </div>
         </div>
-
-        {/* Border Gradient */}
-        <div className="absolute inset-0 border-2 border-transparent hover:border-purple-400/50 rounded-lg transition-colors duration-300" />
-      </Card>
+      </div>
     </motion.div>
   )
 }
@@ -89,7 +86,7 @@ export default function AboutSection() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-16 md:gap-8 max-w-7xl mx-auto px-3">
           {aboutCards.map((card, index) => (
             <AboutCard key={card.title} card={card} index={index} />
           ))}

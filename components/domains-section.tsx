@@ -136,33 +136,6 @@ export default function DomainsSection() {
       {/* Background Effects */}
 
       <SpaceBackground />
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-purple-500/5 backdrop-blur-3xl" />
-        {/* Animated background shapes */}
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-400/10 rounded-full mix-blend-overlay filter blur-xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.2, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-blue-400/10 rounded-full mix-blend-overlay filter blur-xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.3, 0.2],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-          }}
-        />
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           className="text-center mb-16"

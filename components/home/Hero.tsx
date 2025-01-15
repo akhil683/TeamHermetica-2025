@@ -16,6 +16,13 @@ const HeroSection = () => {
           We React to What Matters!
         </p>
 
+        {/* Description */}
+        <div className="md:hidden mb-16 max-w-3xl mx-auto text-center">
+          <p className="text-gray-300 text-lg">
+            Team Hermetica, established in 2014, represents the Department of Chemical Engineering in the annual tech-fest NIMBUS at National Institute of Technology, Hamirpur.
+          </p>
+        </div>
+
         {/* Cards Section */}
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto relative">
           {/* Card 1 */}
@@ -44,7 +51,7 @@ const HeroSection = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-white rounded-3xl p-8 flex flex-col items-center justify-center transform transition-transform hover:scale-105 overflow-hidden">
+          <div className="max-md:hidden  bg-white rounded-3xl p-8 flex flex-col items-center justify-center transform transition-transform hover:scale-105 overflow-hidden">
             <Award className="h-12 w-12 text-yellow-500 mb-4 animate-spin-slow" />
             <h2 className="text-4xl font-bold mb-2">4.9</h2>
             <p className="text-gray-600">#satisfied members<br />worldwide</p>
@@ -53,7 +60,7 @@ const HeroSection = () => {
         </div>
 
         {/* Description */}
-        <div className="mt-16 max-w-3xl mx-auto text-center">
+        <div className="max-md:hidden mt-16 max-w-3xl mx-auto text-center">
           <p className="text-gray-300 text-lg">
             Team Hermetica, established in 2014, represents the Department of Chemical Engineering in the annual tech-fest NIMBUS at National Institute of Technology, Hamirpur.
           </p>
