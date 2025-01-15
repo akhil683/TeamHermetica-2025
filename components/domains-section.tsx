@@ -3,6 +3,7 @@
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion"
 import { Code, Film, Paintbrush, PenTool } from "lucide-react"
 import { MouseEvent } from "react"
+import { SpaceBackground } from "./SpaceBackground"
 
 const domains = [
   {
@@ -133,9 +134,11 @@ export default function DomainsSection() {
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800" />
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800" /> */}
+
+      <SpaceBackground />
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-purple-500/5 backdrop-blur-3xl" />
+        {/* <div className="absolute inset-0 bg-purple-500/5 backdrop-blur-3xl" /> */}
         {/* Animated background shapes */}
         <motion.div
           className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-400/10 rounded-full mix-blend-overlay filter blur-xl"

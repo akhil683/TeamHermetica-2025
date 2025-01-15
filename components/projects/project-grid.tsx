@@ -3,6 +3,8 @@
 import { motion } from "framer-motion"
 import { Star } from 'lucide-react'
 import { Card } from "@/components/ui/card"
+import image from "../../public/achievement.jpg"
+import Image from "next/image"
 
 interface Project {
   id: number
@@ -67,11 +69,12 @@ export default function ProjectGrid() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: project.id * 0.1 }}
         >
-          <Card className="min-h-96 group relative overflow-hidden rounded-xl border-purple-100 bg-white/80 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg">
+          <Card className="min-h-96 group relative overflow-hidden rounded-xl border-transparent bg-gray-600/80 backdrop-blur-sm transition-all duration-300 hover:bg-gray-400 hover:scale-105">
             {/* Project Image */}
             <div className="aspect-[4/3] overflow-hidden">
-              <img
-                src={project.image}
+              <Image
+                // src={project.image}
+                src={image}
                 alt={project.title}
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
@@ -83,7 +86,7 @@ export default function ProjectGrid() {
                 <StarRating rating={project.rating} />
                 <span className="text-gray-500 text-sm">({project.reviews})</span>
               </div>
-              <h3 className="text-gray-800 font-medium line-clamp-2 group-hover:text-purple-600 transition-colors">
+              <h3 className="text-gray-300 text-lg font-medium line-clamp-2 group-hover:text-purple-600 transition-colors">
                 {project.title}
               </h3>
             </div>

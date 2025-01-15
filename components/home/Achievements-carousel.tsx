@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '../ui/Button'
 import Image from 'next/image'
 import image from "../../public/achievement.jpg"
+import { SpaceBackground } from '../SpaceBackground'
 
 interface Achievement {
   id: number
@@ -74,7 +75,8 @@ export function AchievementCarousel() {
   }, [])
 
   return (
-    <section id="achievements" className="relative py-20 bg-gradient-to-b from-indigo-900 to-indigo-300 overflow-hidden">
+    <section id="achievements" className="relative py-20 overflow-hidden">
+      <SpaceBackground />
       {/* Background Pattern */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -98,7 +100,7 @@ export function AchievementCarousel() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-12 md:py-20">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white text-center">
-          Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Domains</span>
+          Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Achievements</span>
         </h2>
 
         <div className="relative h-[400px] md:h-[500px] flex items-center justify-center mb-16">

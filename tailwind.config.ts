@@ -26,7 +26,7 @@ export default {
         'spin-slow': 'spin 20s linear infinite',
         'bounce-slow': 'bounce 3s infinite',
         'float': 'float 6s ease-in-out infinite',
-        'appear': 'appear 0.5s ease-in-out',
+        'appear': 'appear 0 ease-in-out',
       },
       keyframes: {
         blob: {

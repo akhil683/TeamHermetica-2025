@@ -1,28 +1,24 @@
 
 import { Button } from "@/components/ui/Button"
 import { FlaskRoundIcon as Flask, Award } from "lucide-react"
-import WavyLine from "../../components/wavy-line"
-import AnimatedCharacter from "../../components/animated-character"
-import MovingShapes from "../../components/moving-shapes"
 import CardBackgroundShapes from "../../components/card-background-shapes"
+import { SpaceBackground } from "../SpaceBackground"
 
 const HeroSection = () => {
   return (
-    <main className="min-h-screen container mx-auto px-6 py-12 pt-32 text-center relative">
-      <WavyLine />
+    <main className="min-h-screen mx-auto py-12 pt-32 text-center relative">
+      <SpaceBackground />
 
       <div className="relative z-10">
-        <h1 className="text-5xl md:text-4xl font-black tracking-tight mb-6 leading-none">
+        <h1 className="text-5xl md:text-4xl tracking-tight mb-6 leading-none text-white">
           Team Hermetica
         </h1>
-        <p className="text-2xl md:text-7xl font-semibold text-purple-600 mb-12">
+        <p className="text-2xl md:text-7xl font-semibold text-purple-600 mb-12 text-transparent bg-gradient-to-b from-indigo-300 to-indigo-500 bg-clip-text">
           We React to What Matters!
         </p>
 
         {/* Cards Section */}
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto relative">
-          <MovingShapes />
-          <AnimatedCharacter />
           {/* Card 1 */}
           <div className="relative bg-purple-200 rounded-3xl p-8 transform transition-transform hover:scale-105 z-10 overflow-hidden">
             <CardBackgroundShapes />
@@ -62,7 +58,7 @@ const HeroSection = () => {
 
         {/* Description */}
         <div className="mt-16 max-w-3xl mx-auto text-center">
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-300 text-lg">
             Team Hermetica, established in 2014, represents the Department of Chemical Engineering in the annual tech-fest NIMBUS at National Institute of Technology, Hamirpur.
           </p>
         </div>
