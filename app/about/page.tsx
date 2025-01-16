@@ -1,140 +1,68 @@
-
-'use client'
-import Image from 'next/image'
-import { Star } from 'lucide-react'
-import { useState } from 'react'
-import { Button } from '@/components/ui/Button'
-import { Textarea } from "@/components/ui/textarea"
-import { Input } from '@/components/ui/input'
+import { BeakerIcon, Rocket, BookOpen, Users } from 'lucide-react'
 import { Card } from "@/components/ui/card"
-import image from "../../public/achievement.jpg"
-import BackgroundShapes from '@/components/background-shapes'
 
-export default function ProjectDetail() {
-  const [rating, setRating] = useState(0)
-  const [hoveredRating, setHoveredRating] = useState(0)
-
-  const reviews = [
-    {
-      id: 1,
-      author: "Rahul Kumar",
-      rating: 5,
-      comment: "Excellent research on sustainable construction materials. The combination of agro-waste and fly ash shows promising results.",
-      date: "2024-01-15"
-    },
-    {
-      id: 2,
-      author: "Priya Singh",
-      rating: 4,
-      comment: "Very innovative approach to eco-friendly construction materials. Would love to see more detailed results.",
-      date: "2024-01-14"
-    }
-  ]
-
+export default function AboutUs() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-indigo-600/20 to-black">
       <main className="container mx-auto px-6 py-20">
-        <div className='min-h-screen flex justify-center items-center'>
-          <div>
-            {/* Project Title */}
-            <h1 className="text-2xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-b from-indigo-200 to-indigo-500 bg-clip-text text-transparent">
-              Cementitious Material from Agro-waste and fly ash
-            </h1>
+        {/* Header Section */}
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white text-center my-6">
+          Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Domains</span>
+        </h2>
 
-            <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-20">
-              {/* Project Image */}
-              <div className="relative h-[500px] rounded-3xl overflow-hidden">
-                <Image
-                  src={image}
-                  alt="Cementitious Material Project"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              {/* Project Details */}
-              <div className="space-y-6">
-                {/* Proposer Info */}
-                <div className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/20 to-purple-900/20 bg-opacity-50 hover:bg-indigo-600/10 duration-300 rounded-3xl p-6">
-                  <div className="flex max-md:flex-col-reverse md:items-center justify-between mb-4 max-md:gap-2">
-                    <h2 className="text-xl text-white">Proposed By: <span className="text-[#b794f4]">Abhinav Chahar</span></h2>
-                    <div className="flex gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-5 w-5 fill-[#ffd700] text-[#ffd700]" />
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Project Description */}
-                  <p className="text-gray-400 leading-relaxed mb-4">
-                    The utilization of agro-waste and industrial byproducts in cementitious materials has gained significant attention as a sustainable and environmentally friendly approach to construction. This abstract presents an overview of the research and development of cementitious materials derived from a combination of agro-waste and fly ash. askdflaskdflaksdh flaksndf laknsd flkand flaksdn fklsldkfj asldkfn alskdnf askdlf als;dfn askldfh askllskdfna;lsdnfal sdnf;lak sdnf;lkansd flkans dfkl;n aklsdflsadf
-                  </p>
-                  <button className="text-[#b794f4] hover:text-[#9f7aea] transition-colors">
-                    Read more
-                  </button>
-                </div>
-
-                {/* Team Members */}
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/20 to-purple-900/20 bg-opacity-50 hover:bg-indigo-600/10 duration-300 rounded-3xl p-6">
-                    <h3 className="text-white text-lg mb-2">Constructed By</h3>
-                    <p className="text-gray-400">Akhilesh, Abhinav</p>
-                  </div>
-                  <div className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/20 to-purple-900/20 bg-opacity-50 hover:bg-indigo-600/10 duration-300 rounded-3xl p-6">
-                    <h3 className="text-white text-lg mb-2">Volunteer</h3>
-                    <p className="text-gray-400">Mohit, Geetanjly</p>
-                  </div>
-                </div>
-              </div>
+        {/* About Cards Grid */}
+        <div className="grid gap-8 max-w-5xl mx-auto my-16">
+          {/* Establishment Card */}
+          <Card className="bg-[#f3e5ff]/10 border-none p-8 rounded-3xl">
+            <div className="flex items-start gap-4">
+              <BeakerIcon className="w-8 h-8 text-[#b794f4] flex-shrink-0" />
+              <p className="text-gray-300 leading-relaxed">
+                Team Hermetica, was established as the departmental team of Chemical Engineering, at the National Institute of Technology, Hamirpur in the year 2014.
+              </p>
             </div>
-          </div>
+          </Card>
+
+          {/* Mission Card */}
+          <Card className="bg-[#fff4b0]/10 border-none p-8 rounded-3xl">
+            <div className="flex items-start gap-4">
+              <Rocket className="w-8 h-8 text-[#ffd700] flex-shrink-0" />
+              <p className="text-gray-300 leading-relaxed">
+                "We React To What Matters" to nurture adroit intellect in the field of Chemical Engineering. We play an important role in emergent and planned development by conducting advanced research in splendid way.
+              </p>
+            </div>
+          </Card>
+
+          {/* Projects Card */}
+          <Card className="bg-white/10 border-none p-8 rounded-3xl">
+            <div className="flex items-start gap-4">
+              <BookOpen className="w-8 h-8 text-white flex-shrink-0" />
+              <p className="text-gray-300 leading-relaxed">
+                We provide a venue for directing technical and non-technical ideas. Team Hermetica collaborates on initiatives such as BioLume AquaScape, Noise Proofing by Upcycling Agro-waste, Ink from Carbon Soot, Industrial Pipe Cleaning Automated Machine and many more projects with the use of modern technologies.
+              </p>
+            </div>
+          </Card>
+
+          {/* Activities Card */}
+          <Card className="bg-[#4e54ff]/10 border-none p-8 rounded-3xl">
+            <div className="flex items-start gap-4">
+              <Users className="w-8 h-8 text-[#4e54ff] flex-shrink-0" />
+              <p className="text-gray-300 leading-relaxed">
+                Along with projects, we have enthralling and wonderful activities like Aqua Rocket, Cascading Chest, Vaccuum Gun, Octopus Tickles which gives platform to young minds to showcase their innovative ideas. We also conduct seminars and exhibitions that give students with a variety of possibilities to enlighten their intriguing minds.
+              </p>
+            </div>
+          </Card>
         </div>
 
-        {/* Review Section */}
+        {/* Video Section */}
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-[#4e54ff] to-[#7c86ff] bg-clip-text text-transparent">
-            Project Reviews
-          </h2>
-
-          {/* Review Form */}
-          <div className='space-y-4 my-12'>
-            <Input
-              className='bg-gray-500/20 py-2 text-xl placeholder:text-gray-300 border-gray-500 focus:border-gray-300 text-white'
-              placeholder='Give a Review'
+          <div className="relative pb-[56.25%] h-0 rounded-3xl overflow-hidden bg-[#f3e5ff]/10">
+            <iframe
+              src="https://www.youtube.com/embed/UzC3rqu9Ysg?si=4JZjBbyPTUz-D-hR"
+              title="Team Hermetica Introduction"
+              className="absolute top-0 left-0 w-full h-full rounded-3xl"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
             />
-            <Button className='w-full bg-gradient-to-tr from-indigo-500 via-indigo-800 to-indigo-500 text-xl py-4'>
-              SUBMIT
-            </Button>
-          </div>
-
-          {/* Reviews List */}
-          <div className="space-y-6">
-            <span className='text-2xl text-white'>Reviews</span>
-            {reviews.map((review) => (
-              <Card key={review.id} className="bg-white/5 border-none p-6 rounded-3xl">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h4 className="text-white font-medium mb-1">{review.author}</h4>
-                    <div className="flex gap-1">
-                      {[...Array(5)].map((_, index) => (
-                        <Star
-                          key={index}
-                          className={`h-4 w-4 ${index < review.rating
-                            ? 'fill-[#ffd700] text-[#ffd700]'
-                            : 'fill-none text-gray-400'
-                            }`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                  <span className="text-sm text-gray-400">
-                    {/* {new Date(review.date).toLocaleDateString()} */}
-                    1/15/2025
-                  </span>
-                </div>
-                <p className="text-gray-300">{review.comment}</p>
-              </Card>
-            ))}
           </div>
         </div>
       </main>
