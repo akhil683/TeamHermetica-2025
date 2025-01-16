@@ -5,6 +5,7 @@ import { Star } from 'lucide-react'
 import { Card } from "@/components/ui/card"
 import image from "../../public/achievement.jpg"
 import Image from "next/image"
+import Link from "next/link"
 
 interface Project {
   id: number
@@ -69,30 +70,32 @@ export default function ProjectGrid() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: project.id * 0.1 }}
         >
-          <Card className="min-h-96 group relative overflow-hidden rounded-xl border-transparent bg-gradient-to-tr from-gray-900 via-indigo-800/30 to-gray-900 bg-opacity-20 transition-all duration-300 hover:scale-105">
-            {/* Project Image */}
-            <div className="aspect-[4/3] overflow-hidden">
-              <Image
-                // src={project.image}
-                src={image}
-                alt={project.title}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-            </div>
-
-            {/* Project Info */}
-            <div className="p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <StarRating rating={project.rating} />
-                <span className="text-gray-500 text-sm">({project.reviews})</span>
+          <Card className="min-h-96 group relative overflow-hidden rounded-xl border-transparent bg-gradient-to-tr from-gray-900 via-indigo-900/50 to-gray-900 bg-opacity-20 transition-all duration-300 hover:scale-105">
+            <Link href={"/projects/1"}>
+              {/* Project Image */}
+              <div className="aspect-[4/3] overflow-hidden">
+                <Image
+                  // src={project.image}
+                  src={image}
+                  alt={project.title}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
               </div>
-              <h3 className="text-gray-300 text-lg font-medium line-clamp-2 group-hover:text-purple-600 transition-colors">
-                {project.title}
-              </h3>
-            </div>
 
-            {/* Hover Overlay */}
-            <div className="absolute inset-0 border-2 border-purple-500/0 group-hover:border-purple-500/50 rounded-xl transition-colors duration-300" />
+              {/* Project Info */}
+              <div className="p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <StarRating rating={project.rating} />
+                  <span className="text-gray-500 text-sm">({project.reviews})</span>
+                </div>
+                <h3 className="text-gray-300 text-lg font-medium line-clamp-2 group-hover:text-purple-600 transition-colors">
+                  {project.title}
+                </h3>
+              </div>
+
+              {/* Hover Overlay */}
+              <div className="absolute inset-0 border-2 border-purple-500/0 group-hover:border-purple-500/50 rounded-xl transition-colors duration-300" />
+            </Link>
           </Card>
         </motion.div>
       ))}

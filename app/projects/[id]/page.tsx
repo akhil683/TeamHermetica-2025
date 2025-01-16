@@ -4,11 +4,9 @@ import Image from 'next/image'
 import { Star } from 'lucide-react'
 import { useState } from 'react'
 import { Button } from '@/components/ui/Button'
-import { Textarea } from "@/components/ui/textarea"
 import { Input } from '@/components/ui/input'
 import { Card } from "@/components/ui/card"
-import image from "../../public/achievement.jpg"
-import BackgroundShapes from '@/components/background-shapes'
+import image from "../../../public/achievement.jpg"
 
 export default function ProjectDetail() {
   const [rating, setRating] = useState(0)
