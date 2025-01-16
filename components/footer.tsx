@@ -5,6 +5,7 @@ import { Instagram, Linkedin, Youtube } from "lucide-react"
 import { Button } from "./ui/Button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import Link from "next/link"
 
 const socialLinks = [
   { icon: Instagram, href: "#", label: "Instagram" },
@@ -35,7 +36,7 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Team <span className="text-indigo-400">Hermetica</span>
+              Team <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Hermetica</span>
             </motion.h2>
             <motion.p
               className="text-gray-400 mb-6"
@@ -48,18 +49,13 @@ export default function Footer() {
             </motion.p>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => (
-                <motion.a
+                <a
                   key={social.label}
                   href={social.href}
-                  className="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center hover:bg-purple-600 transition-colors"
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.1 }}
+                  className="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center hover:bg-purple-600 transition-colors hover:scale-110 duration-200"
                 >
                   <social.icon className="w-5 h-5 text-white" />
-                </motion.a>
+                </a>
               ))}
             </div>
           </div>
@@ -72,7 +68,7 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Team <span className="text-indigo-400">Work</span>
+              Team <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Work</span>
             </motion.h2>
             <ul className="space-y-2">
               {workLinks.map((link, index) => (
@@ -83,12 +79,12 @@ export default function Footer() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <a
+                  <Link
                     href="#"
                     className="text-gray-400 hover:text-purple-400 transition-colors"
                   >
                     {link}
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
             </ul>
@@ -102,7 +98,7 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Contact <span className="text-indigo-400">Us</span>
+              Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Us</span>
             </motion.h2>
             <motion.form
               className="space-y-4"

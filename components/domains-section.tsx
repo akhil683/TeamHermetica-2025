@@ -98,32 +98,6 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
           >
             {domain.description}
           </motion.p>
-
-          {/* Floating Particles */}
-          {/* <div className="absolute inset-0 pointer-events-none"> */}
-          {/*   {[...Array(3)].map((_, i) => ( */}
-          {/*     <motion.div */}
-          {/*       key={i} */}
-          {/*       className={`absolute w-2 h-2 rounded-full bg-gradient-to-br ${domain.gradient}`} */}
-          {/*       initial={{ */}
-          {/*         x: Math.random() * 100, */}
-          {/*         y: Math.random() * 100, */}
-          {/*         opacity: 0 */}
-          {/*       }} */}
-          {/*       animate={{ */}
-          {/*         x: Math.random() * 100, */}
-          {/*         y: Math.random() * 100, */}
-          {/*         opacity: [0, 1, 0], */}
-          {/*       }} */}
-          {/*       transition={{ */}
-          {/*         duration: 3, */}
-          {/*         repeat: Infinity, */}
-          {/*         delay: i * 0.8, */}
-          {/*         ease: "easeInOut" */}
-          {/*       }} */}
-          {/*     /> */}
-          {/*   ))} */}
-          {/* </div> */}
         </div>
       </div>
     </motion.div>

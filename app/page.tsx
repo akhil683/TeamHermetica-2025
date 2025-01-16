@@ -1,4 +1,4 @@
-// import BackgroundShapes from "../components/background-shapes"
+import BackgroundShapes from "../components/background-shapes"
 import { AchievementCarousel } from "@/components/home/Achievements-carousel"
 import DomainsSection from "../components/domains-section"
 import HeroSection from "@/components/home/Hero"
@@ -8,7 +8,7 @@ import AboutSection from "@/components/about-section"
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-black overflow-hidden font-['Space_Grotesk'] relative animate-appear">
-      {/* <BackgroundShapes /> */}
+      <BackgroundShapes />
 
       {/* Hero Section */}
       <HeroSection />
@@ -16,11 +16,12 @@ export default function LandingPage() {
       {/* About Section */}
       <AboutSection />
 
+      {/* Domains Section */}
+      <DomainsSection />
+
       {/* Achievements Section */}
       <AchievementCarousel />
 
-      {/* Domains Section */}
-      <DomainsSection />
 
     </div>
   )
