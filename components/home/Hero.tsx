@@ -1,9 +1,36 @@
+"use client"
 
 import { Button } from "@/components/ui/Button"
 import { FlaskRoundIcon as Flask, Award } from "lucide-react"
 import { SpaceBackground } from "../SpaceBackground"
+import { useState } from "react"
+import { signIn, useSession } from "next-auth/react"
+import { useToast } from "@/hooks/use-toast"
 
 const HeroSection = () => {
+  const { data: session } = useSession()
+  const [loading, setLoading] = useState(false)
+  const { toast } = useToast()
+
+  const handleSignIn = async () => {
+    setLoading(true)
+    try {
+      await signIn("google")
+      toast({
+        title: "Login Success !",
+        description: "You are logged in successfully !"
+      })
+    } catch (SignInError) {
+      console.log("Error during signin: ", SignInError)
+      toast({
+        title: "Error !",
+        description: "Failed to signin."
+      })
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <main className="min-h-screen mx-auto py-12 pt-32 text-center relative">
       <SpaceBackground />
@@ -33,21 +60,48 @@ const HeroSection = () => {
             <div className="h-full flex flex-col justify-between">
               <Flask className="h-12 w-12 mb-4 animate-pulse" />
               <div>
-                <span className="text-2xl font-bold mb-2">Chemical Engineering</span>
-                <p className="text-gray-700">Department's Official Tech Team</p>
+                <span className="text-2xl font-bold mb-2">
+                  Chemical Engineering
+                </span>
+                <p className="text-gray-700">
+                  Department's Official Tech Team
+                </p>
               </div>
             </div>
           </div>
 
           {/* Card 2 */}
           <div className="bg-yellow-300 rounded-3xl p-8 flex flex-col items-center justify-center transform transition-transform hover:scale-105 overflow-hidden">
-            <h3 className="text-2xl font-bold mb-4">Join Our Team</h3>
-            <Button
-              className="bg-black text-white hover:bg-gray-800 text-lg px-8 py-6 rounded-full group relative overflow-hidden"
-            >
-              <span className="relative z-10">SIGN UP NOW</span>
-              <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
-            </Button>
+            {session?.user ? (
+              <>
+                <p className="text-2xl font-bold mb-4">
+                  Welcome,
+                </p>
+                <Button
+                  className="bg-gradient-to-tr from-indigo-600 via-purple-700 to-indigo-600 text-white hover:bg-gray-800 text-2xl px-8 py-6 rounded-full group relative overflow-hidden"
+                >
+                  <span className="relative z-10">
+                    {session?.user?.name}
+                  </span>
+                  <div className="absolute inset-0 bg-black transform translate-y-full group-hover:translate-y-0 transition-transform" />
+                </Button>
+              </>
+            ) : (
+              <>
+                <p className="text-2xl font-bold mb-4">
+                  Join Our Team
+                </p>
+                <Button
+                  className="bg-black text-white hover:bg-gray-800 text-lg px-8 py-6 rounded-full group relative overflow-hidden"
+                  onClick={handleSignIn}
+                >
+                  <span className="relative z-10">
+                    SIGN UP NOW
+                  </span>
+                  <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
+                </Button>
+              </>
+            )}
           </div>
 
           {/* Card 3 */}

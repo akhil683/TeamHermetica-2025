@@ -3,6 +3,7 @@ import { AchievementCarousel } from "@/components/home/Achievements-carousel"
 import DomainsSection from "../components/domains-section"
 import HeroSection from "@/components/home/Hero"
 import AboutSection from "@/components/about-section"
+import ClubCoordinator from "@/components/home/ClubCoordinator"
 
 
 export default function LandingPage() {
@@ -22,6 +23,8 @@ export default function LandingPage() {
       {/* Achievements Section */}
       <AchievementCarousel />
 
+      {/* Club Coordinators */}
+      <ClubCoordinator />
 
     </div>
   )
