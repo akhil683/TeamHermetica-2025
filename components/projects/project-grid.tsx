@@ -70,7 +70,7 @@ export default function ProjectGrid() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: project.id * 0.1 }}
         >
-          <Card className="min-h-96 group relative overflow-hidden rounded-xl border-transparent bg-gradient-to-tr from-gray-900 via-indigo-900/50 to-gray-900 bg-opacity-20 transition-all duration-300 hover:scale-105">
+          <Card className="min-h-96 group relative overflow-hidden rounded-xl border-transparent bg-gradient-to-tr from-gray-900 via-indigo-900/50 to-gray-900 bg-opacity-20 transition-all duration-300">
             <Link href={"/projects/1"}>
               {/* Project Image */}
               <div className="aspect-[4/3] overflow-hidden">
@@ -78,7 +78,7 @@ export default function ProjectGrid() {
                   // src={project.image}
                   src={image}
                   alt={project.title}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
 

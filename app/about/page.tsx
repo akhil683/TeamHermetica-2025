@@ -13,8 +13,8 @@ export default function AboutUs() {
         {/* About Cards Grid */}
         <div className="grid gap-8 max-w-5xl mx-auto my-16">
           {/* Establishment Card */}
-          <Card className="bg-[#f3e5ff]/10 border-none p-8 rounded-3xl">
-            <div className="flex items-start gap-4">
+          <Card className="bg-[#f3e5ff]/10 border-none px-4 py-6 md:p-8 rounded-3xl">
+            <div className="flex items-center gap-4">
               <BeakerIcon className="w-8 h-8 text-[#b794f4] flex-shrink-0" />
               <p className="text-gray-300 leading-relaxed">
                 Team Hermetica, was established as the departmental team of Chemical Engineering, at the National Institute of Technology, Hamirpur in the year 2014.
@@ -23,8 +23,8 @@ export default function AboutUs() {
           </Card>
 
           {/* Mission Card */}
-          <Card className="bg-[#fff4b0]/10 border-none p-8 rounded-3xl">
-            <div className="flex items-start gap-4">
+          <Card className="bg-[#fff4b0]/10 border-none px-4 py-6 md:p-8 rounded-3xl">
+            <div className="flex items-center gap-4">
               <Rocket className="w-8 h-8 text-[#ffd700] flex-shrink-0" />
               <p className="text-gray-300 leading-relaxed">
                 "We React To What Matters" to nurture adroit intellect in the field of Chemical Engineering. We play an important role in emergent and planned development by conducting advanced research in splendid way.
@@ -33,8 +33,8 @@ export default function AboutUs() {
           </Card>
 
           {/* Projects Card */}
-          <Card className="bg-white/10 border-none p-8 rounded-3xl">
-            <div className="flex items-start gap-4">
+          <Card className="bg-white/10 border-none px-4 py-6 md:p-8 rounded-3xl">
+            <div className="flex items-center gap-4">
               <BookOpen className="w-8 h-8 text-white flex-shrink-0" />
               <p className="text-gray-300 leading-relaxed">
                 We provide a venue for directing technical and non-technical ideas. Team Hermetica collaborates on initiatives such as BioLume AquaScape, Noise Proofing by Upcycling Agro-waste, Ink from Carbon Soot, Industrial Pipe Cleaning Automated Machine and many more projects with the use of modern technologies.
@@ -43,8 +43,8 @@ export default function AboutUs() {
           </Card>
 
           {/* Activities Card */}
-          <Card className="bg-[#4e54ff]/10 border-none p-8 rounded-3xl">
-            <div className="flex items-start gap-4">
+          <Card className="bg-[#4e54ff]/10 border-none px-4 py-6 md:p-8 rounded-3xl">
+            <div className="flex items-center gap-4">
               <Users className="w-8 h-8 text-[#4e54ff] flex-shrink-0" />
               <p className="text-gray-300 leading-relaxed">
                 Along with projects, we have enthralling and wonderful activities like Aqua Rocket, Cascading Chest, Vaccuum Gun, Octopus Tickles which gives platform to young minds to showcase their innovative ideas. We also conduct seminars and exhibitions that give students with a variety of possibilities to enlighten their intriguing minds.

@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/footer";
 
 import "./globals.css";
+import { SessionProvider } from "next-auth/react";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -22,14 +23,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${spaceGrotesk.className} antialiased bg-black`}
-      >
-        <Navbar />
-        {children}
-        {/* Footer */}
-        <Footer />
-      </body>
+      <SessionProvider>
+        <body
+          className={`${spaceGrotesk.className} antialiased bg-black`}
+        >
+          <Navbar />
+          {children}
+          {/* Footer */}
+          <Footer />
+        </body>
+      </SessionProvider>
     </html>
   );
 }

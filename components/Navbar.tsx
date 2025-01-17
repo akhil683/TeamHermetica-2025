@@ -2,33 +2,91 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/Button"
-import { FlaskRoundIcon as Flask, Menu } from "lucide-react"
+import { FlaskRoundIcon as Flask, LogOut, Menu } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
+import logo from "../public/hermetica-logo.jpg"
+import { signIn, useSession } from "next-auth/react"
+import { toast, useToast } from "@/hooks/use-toast"
 
 
 
 export function Navbar() {
+
+  const { data: session } = useSession()
+
   const [isOpen, setIsOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const { toast } = useToast()
 
   const toggleMenu = () => setIsOpen(!isOpen)
+
+  const handleSignIn = async () => {
+    setLoading(true)
+    try {
+      await signIn("google")
+      toast({
+        title: "Login Success !",
+        description: "You are logged in successfully !"
+      })
+    } catch (SignInError) {
+      console.log("Error during signin: ", SignInError)
+      toast({
+        title: "Error !",
+        description: "Failed to signin."
+      })
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <>
       <header className="fixed top-0 left-0 right-0 flex justify-center p-4 z-50" >
         <nav className="flex items-center justify-between px-3 md:px-8 py-2 bg-gray-800/80  text-black backdrop-blur-md rounded-full w-[95%]">
           <Link href={"/"} className="flex items-center gap-2">
-            <Flask className="h-8 w-8 text-white" />
-            <span className="text-xl font-bold text-white">
+            <Image
+              src={logo}
+              alt="Hermetica Logo"
+              width={100}
+              height={100}
+              className="w-5 h-5 rounded-full"
+            />
+            <span className="text-lg md:text-xl font-bold text-white">
               Team Hermetica
             </span>
           </Link>
           <div className="flex items-center gap-4">
-            <Button
-              className="max-md:hidden bg-indigo-700 text-white hover:bg-gray-800 px-6 md:py-5 py-3 rounded-full group relative overflow-hidden"
-            >
-              <span className="relative z-10">SIGN UP</span>
-              <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
-            </Button>
+            {session?.user ? (
+              <Button
+                className="max-md:hidden bg-indigo-700 text-white hover:bg-gray-800 px-6 md:py-5 py-3 rounded-full group relative overflow-hidden"
+              // onClick={handleSignIn}
+              >
+                <span className="relative z-10 flex gap-2">
+                  <Image
+                    src={session.user.image as string}
+                    alt={session.user.name as string}
+                    width={100}
+                    height={100}
+                    className="w-5 h-5 rounded-full"
+                  />
+                  LOG OUT
+                  <LogOut className="h-4 w-4" />
+                </span>
+                <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
+              </Button>
+            ) : (
+              <Button
+                className="max-md:hidden bg-indigo-700 text-white hover:bg-gray-800 px-6 md:py-5 py-3 rounded-full group relative overflow-hidden"
+                onClick={handleSignIn}
+              >
+                <span className="relative z-10 flex gap-2">
+                  SIGN IN
+                </span>
+                <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
+              </Button>
+
+            )}
             <Button variant="ghost" className="bg-indigo-700 rounded-full text-white hover:text-white hover:bg-purple-600" onClick={toggleMenu}>
               <Menu className="h-12 w-12" />
             </Button>
