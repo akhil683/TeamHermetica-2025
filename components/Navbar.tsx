@@ -6,8 +6,8 @@ import { FlaskRoundIcon as Flask, LogOut, Menu } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import logo from "../public/hermetica-logo.jpg"
-import { signIn, useSession } from "next-auth/react"
-import { toast, useToast } from "@/hooks/use-toast"
+import { signIn, signOut, useSession } from "next-auth/react"
+import { useToast } from "@/hooks/use-toast"
 
 
 
@@ -40,6 +40,22 @@ export function Navbar() {
     }
   }
 
+  const handleSignOut = async () => {
+    try {
+      await signOut()
+      toast({
+        title: "Logout Success !",
+        description: "You are logged out successfully"
+      })
+    } catch (SignOutError) {
+      console.log("Error during signout: ", SignOutError)
+      toast({
+        title: "Error !",
+        description: "Unexpected error during signout."
+      })
+    }
+  }
+
   return (
     <>
       <header className="fixed top-0 left-0 right-0 flex justify-center p-4 z-50" >
@@ -60,7 +76,7 @@ export function Navbar() {
             {session?.user ? (
               <Button
                 className="max-md:hidden bg-indigo-700 text-white hover:bg-gray-800 px-6 md:py-5 py-3 rounded-full group relative overflow-hidden"
-              // onClick={handleSignIn}
+                onClick={handleSignOut}
               >
                 <span className="relative z-10 flex gap-2">
                   <Image
@@ -155,12 +171,32 @@ export function Navbar() {
                 >
                   About Us
                 </Link>
-                <Button
-                  className="md:hidden bg-purple-500 hover:bg-purple-600 text-white rounded-full px-6 py-6 mt-2"
-                  onClick={toggleMenu}
-                >
-                  Sign In
-                </Button>
+                {session?.user ? (
+                  <Button
+                    className="md:hidden bg-purple-500 hover:bg-purple-600 text-white rounded-full px-6 py-6 mt-2"
+                    onClick={handleSignOut}
+                  >
+                    <span className="relative z-10 flex gap-2">
+                      <Image
+                        src={session.user.image as string}
+                        alt={session.user.name as string}
+                        width={100}
+                        height={100}
+                        className="w-5 h-5 rounded-full"
+                      />
+                      LOG OUT
+                      <LogOut className="h-4 w-4" />
+                    </span>
+                    <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
+                  </Button>
+                ) : (
+                  <Button
+                    className="md:hidden bg-purple-500 hover:bg-purple-600 text-white rounded-full px-6 py-6 mt-2"
+                    onClick={toggleMenu}
+                  >
+                    Sign In
+                  </Button>
+                )}
               </div>
             </motion.div>
           </>
