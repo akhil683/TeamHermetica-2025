@@ -90,3 +90,15 @@ export const authenticators = pgTable(
     },
   ]
 )
+
+export const projectsTable = pgTable("projects", {
+  projectId: text('projectId'),
+  name: text("name"),
+  image: text("image"),
+  description: text("description"),
+  proposed_by: text("image"),
+  constructed_by: text("constructed_by"),
+  volunteers: text("volunteers"),
+  year: text("year")
+}
+)

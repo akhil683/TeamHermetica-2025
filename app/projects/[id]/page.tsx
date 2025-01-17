@@ -1,17 +1,60 @@
 
-'use client'
 import Image from 'next/image'
 import { Star } from 'lucide-react'
-import { useState } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/input'
 import { Card } from "@/components/ui/card"
 import image from "../../../public/achievement.jpg"
+import { db } from '@/lib/db/db'
+import { projectsTable } from '@/lib/db/schema'
+import { eq } from 'drizzle-orm'
 
-export default function ProjectDetail() {
-  const [rating, setRating] = useState(0)
-  const [hoveredRating, setHoveredRating] = useState(0)
+type Props = {
+  params: Promise<{
+    id: string,
+  }>
+}
 
+export async function generateStaticParams() {
+  const projects = await db
+    .select()
+    .from(projectsTable)
+
+  if (!projects) return []
+
+  return projects.map((data: any) => ({
+    id: data.id
+  }))
+}
+
+export const generateMetadata = async ({
+  params,
+}: Props) => {
+  const { id } = await params
+  const data = await db
+    .select()
+    .from(projectsTable)
+    .where(eq(projectsTable.projectId, id))
+
+  if (!data) {
+    return {
+      title: "Project Not Found",
+    };
+  }
+  return {
+    title: data[0].name,
+    description: data[0].description,
+  };
+};
+
+export default async function ProjectDetail({ params }: Props) {
+  const { id } = await params
+  const data = await db
+    .select()
+    .from(projectsTable)
+    .where(eq(projectsTable.projectId, id))
+  const project = data[0]
+  console.log(project)
   const reviews = [
     {
       id: 1,
@@ -36,14 +79,14 @@ export default function ProjectDetail() {
           <div>
             {/* Project Title */}
             <h1 className="text-2xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-b from-indigo-200 to-indigo-500 bg-clip-text text-transparent">
-              Cementitious Material from Agro-waste and fly ash
+              {project.name}
             </h1>
 
             <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-20">
               {/* Project Image */}
               <div className="relative h-[500px] rounded-3xl overflow-hidden">
                 <Image
-                  src={image}
+                  src={project.image as string}
                   alt="Cementitious Material Project"
                   fill
                   className="object-cover"
@@ -55,7 +98,12 @@ export default function ProjectDetail() {
                 {/* Proposer Info */}
                 <div className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/20 to-purple-900/20 bg-opacity-50 hover:bg-indigo-600/10 duration-300 rounded-3xl p-6">
                   <div className="flex max-md:flex-col-reverse md:items-center justify-between mb-4 max-md:gap-2">
-                    <h2 className="text-xl text-white">Proposed By: <span className="text-[#b794f4]">Abhinav Chahar</span></h2>
+                    <h2 className="text-xl text-white">
+                      Proposed By: {" "}
+                      <span className="text-[#b794f4]">
+                        {project.constructed_by}
+                      </span>
+                    </h2>
                     <div className="flex gap-1">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="h-5 w-5 fill-[#ffd700] text-[#ffd700]" />
@@ -65,7 +113,7 @@ export default function ProjectDetail() {
 
                   {/* Project Description */}
                   <p className="text-gray-400 leading-relaxed mb-4">
-                    The utilization of agro-waste and industrial byproducts in cementitious materials has gained significant attention as a sustainable and environmentally friendly approach to construction. This abstract presents an overview of the research and development of cementitious materials derived from a combination of agro-waste and fly ash. askdflaskdflaksdh flaksndf laknsd flkand flaksdn fklsldkfj asldkfn alskdnf askdlf als;dfn askldfh askllskdfna;lsdnfal sdnf;lak sdnf;lkansd flkans dfkl;n aklsdflsadf
+                    {project.description?.slice(0, 500)}...
                   </p>
                   <button className="text-[#b794f4] hover:text-[#9f7aea] transition-colors">
                     Read more
@@ -75,12 +123,20 @@ export default function ProjectDetail() {
                 {/* Team Members */}
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/20 to-purple-900/20 bg-opacity-50 hover:bg-indigo-600/10 duration-300 rounded-3xl p-6">
-                    <h3 className="text-white text-lg mb-2">Constructed By</h3>
-                    <p className="text-gray-400">Akhilesh, Abhinav</p>
+                    <h3 className="text-white text-lg mb-2">
+                      Constructed By
+                    </h3>
+                    <p className="text-gray-400">
+                      {project.constructed_by}
+                    </p>
                   </div>
                   <div className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/20 to-purple-900/20 bg-opacity-50 hover:bg-indigo-600/10 duration-300 rounded-3xl p-6">
-                    <h3 className="text-white text-lg mb-2">Volunteer</h3>
-                    <p className="text-gray-400">Mohit, Geetanjly</p>
+                    <h3 className="text-white text-lg mb-2">
+                      Volunteer
+                    </h3>
+                    <p className="text-gray-400">
+                      {project.volunteers}
+                    </p>
                   </div>
                 </div>
               </div>

@@ -8,6 +8,27 @@
       "when": 1737118082699,
       "tag": "0000_uneven_lilandra",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1737139972742,
+      "tag": "0001_fat_king_bedlam",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1737140072178,
+      "tag": "0002_daily_steve_rogers",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1737140512492,
+      "tag": "0003_bright_mentallo",
+      "breakpoints": true
     }
   ]
 }
