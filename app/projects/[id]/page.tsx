@@ -5,6 +5,8 @@ import { db } from '@/lib/db/db'
 import { projectsTable } from '@/lib/db/schema'
 import { eq } from 'drizzle-orm'
 import Review from './Review'
+import ReviewList from './ReviewList'
+import { Suspense } from 'react'
 
 type Props = {
   params: Promise<{
@@ -13,15 +15,13 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-
   const projects = await db
     .select()
     .from(projectsTable)
 
   if (!projects) return []
-
   return projects.map((data: any) => ({
-    id: data.id
+    id: data.projectId
   }))
 }
 
@@ -55,7 +55,6 @@ export default async function ProjectDetail({ params }: Props) {
     .where(eq(projectsTable.projectId, id))
 
   const project = data[0]
-  console.log(project)
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-indigo-600/20 to-black">
@@ -63,13 +62,13 @@ export default async function ProjectDetail({ params }: Props) {
         <div className='min-h-screen flex justify-center items-center'>
           <div>
             {/* Project Title */}
-            <h1 className="text-2xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-b from-indigo-200 to-indigo-500 bg-clip-text text-transparent">
+            <h1 className="text-2xl md:text-5xl font-bold text-center mb-6 md:mb-12 bg-gradient-to-b from-indigo-200 to-indigo-500 bg-clip-text text-transparent">
               {project.name}
             </h1>
 
             <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-20">
               {/* Project Image */}
-              <div className="relative h-[500px] rounded-3xl overflow-hidden">
+              <div className="relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
                 <Image
                   src={project.image as string}
                   alt="Cementitious Material Project"
@@ -129,7 +128,19 @@ export default async function ProjectDetail({ params }: Props) {
           </div>
         </div>
 
-        <Review />
+
+        <div className="max-w-4xl mx-auto" >
+          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-200 to-indigo-500 bg-clip-text text-transparent">
+            Project Reviews
+          </h2>
+
+          {/* Review Form */}
+          <Review projectId={project.projectId} />
+
+          <Suspense fallback={<div className='text-3xl'>Loading...</div>}>
+            <ReviewList projectId={project.projectId} />
+          </Suspense>
+        </div>
 
       </main>
     </div>

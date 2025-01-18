@@ -41,8 +41,7 @@ export const accountsTable = pgTable(
         columns: [account.provider, account.providerAccountId],
       }),
     },
-  ]
-)
+  ])
 
 export const sessions = pgTable("session", {
   sessionToken: text("sessionToken").primaryKey(),
@@ -65,8 +64,7 @@ export const verificationTokens = pgTable(
         columns: [verificationToken.identifier, verificationToken.token],
       }),
     },
-  ]
-)
+  ])
 
 export const authenticators = pgTable(
   "authenticator",
@@ -88,8 +86,7 @@ export const authenticators = pgTable(
         columns: [authenticator.userId, authenticator.credentialID],
       }),
     },
-  ]
-)
+  ])
 
 export const projectsTable = pgTable("projects", {
   projectId: text('projectId'),
@@ -100,5 +97,14 @@ export const projectsTable = pgTable("projects", {
   constructed_by: text("constructed_by"),
   volunteers: text("volunteers"),
   year: text("year")
-}
-)
+})
+
+export const reviewTable = pgTable("reviews", {
+  id: text("id"),
+  projectId: text('projectId'),
+  name: text("name"),
+  image: text("image"),
+  review: text("review"),
+  email: text("email"),
+  reviewAt: text("reviewAt")
+})

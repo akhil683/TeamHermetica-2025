@@ -1,0 +1,54 @@
+import { Card } from '@/components/ui/card'
+import { db } from '@/lib/db/db'
+import { reviewTable } from '@/lib/db/schema'
+import { eq } from 'drizzle-orm'
+import { Star } from 'lucide-react'
+import React from 'react'
+
+const ReviewList = async ({ projectId }: { projectId: string | null }) => {
+
+  const reviews = await db
+    .select()
+    .from(reviewTable)
+    .where(eq(reviewTable.projectId, projectId as string))
+
+  function extractNameFromEmail(email: string) {
+    const name = email.split('@')[0];
+    return name;
+  }
+
+  return (
+    <div className="space-y-6">
+      <span className='text-2xl text-white'>Reviews</span>
+      {reviews.map((review) => (
+        <Card key={review.id} className="bg-white/5 border-none p-6 rounded-3xl">
+          <div className="flex justify-between items-start mb-4">
+            <div>
+              <h4 className="text-white font-medium mb-1">{review.name}</h4>
+              {/* <div className="flex gap-1"> */}
+              {/*   {[...Array(5)].map((_, index) => ( */}
+              {/*     <Star */}
+              {/*       key={index} */}
+              {/*       className={`h-4 w-4 ${index < review.rating */}
+              {/*         ? 'fill-[#ffd700] text-[#ffd700]' */}
+              {/*         : 'fill-none text-gray-400' */}
+              {/*         }`} */}
+              {/*     /> */}
+              {/*   ))} */}
+              {/* </div> */}
+            </div>
+            <span className="text-sm text-gray-400">
+              {/* {new Date(review.date).toLocaleDateString()} */}
+              {extractNameFromEmail(review.email as string)}
+            </span>
+          </div>
+          <p className="text-gray-300">
+            {review.review}
+          </p>
+        </Card>
+      ))}
+    </div>
+  )
+}
+
+export default ReviewList
