@@ -53,7 +53,7 @@ const HeroSection = () => {
         {/* Cards Section */}
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto relative">
           {/* Card 1 */}
-          <div className="relative bg-purple-200 rounded-3xl p-8 transform transition-transform hover:scale-105 z-10 overflow-hidden">
+          <div className="max-md:hidden relative bg-purple-200 rounded-3xl p-8 transform transition-transform hover:scale-105 z-10 overflow-hidden">
             <div className="absolute top-4 left-4 bg-black text-white text-sm font-bold px-3 py-1 rounded-full">
               EST. 2014
             </div>
