@@ -16,7 +16,10 @@ export function Navbar() {
   const { data: session } = useSession()
 
   const [isOpen, setIsOpen] = useState(false)
+
   const [loading, setLoading] = useState(false)
+  const [logoutLoading, setLogoutLoading] = useState(false)
+
   const { toast } = useToast()
 
   const toggleMenu = () => setIsOpen(!isOpen)
@@ -25,10 +28,6 @@ export function Navbar() {
     setLoading(true)
     try {
       await signIn("google")
-      // toast({
-      //   title: "Login Success !",
-      //   description: "You are logged in successfully !"
-      // })
     } catch (SignInError) {
       console.log("Error during signin: ", SignInError)
       toast({
@@ -41,18 +40,22 @@ export function Navbar() {
   }
 
   const handleSignOut = async () => {
+    setLogoutLoading(true)
     try {
       await signOut()
       toast({
         title: "Logout Success !",
         description: "You are logged out successfully"
       })
+
     } catch (SignOutError) {
       console.log("Error during signout: ", SignOutError)
       toast({
         title: "Error !",
         description: "Unexpected error during signout."
       })
+    } finally {
+      setLogoutLoading(false)
     }
   }
 
@@ -77,6 +80,7 @@ export function Navbar() {
               <Button
                 className="max-md:hidden bg-indigo-700 text-white hover:bg-gray-800 px-6 md:py-5 py-3 rounded-full group relative overflow-hidden"
                 onClick={handleSignOut}
+                disabled={logoutLoading}
               >
                 <span className="relative z-10 flex gap-2">
                   <Image

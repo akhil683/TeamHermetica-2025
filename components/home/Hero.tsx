@@ -109,8 +109,8 @@ const HeroSection = () => {
           {/* Card 3 */}
           <div className="max-md:hidden  bg-white rounded-3xl p-8 flex flex-col items-center justify-center transform transition-transform hover:scale-105 overflow-hidden">
             <Award className="h-12 w-12 text-yellow-500 mb-4 animate-spin-slow" />
-            <p className="text-4xl font-bold mb-2">4.9</p>
-            <p className="text-gray-600">#satisfied members<br />worldwide</p>
+            <p className="text-4xl font-bold mb-2"># 3</p>
+            <p className="text-gray-600">Best sustainable Development Team at Nimbus 2k24</p>
             <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
           </div>
         </div>

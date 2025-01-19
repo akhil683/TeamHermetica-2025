@@ -7,34 +7,8 @@ import { Button } from '../ui/Button'
 import Image from 'next/image'
 import image from "../../public/achievement.jpg"
 import { SpaceBackground } from '../SpaceBackground'
+import { achievements } from '@/data/Achievements'
 
-interface Achievement {
-  id: number
-  year: string
-  title: string
-  image: string
-}
-
-const achievements: Achievement[] = [
-  {
-    id: 1,
-    year: "Nimbus 2k16",
-    title: "Best Publicity Team in Nimbus",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    id: 2,
-    year: "Nimbus 2k17",
-    title: "Best Event in Nimbus 2k17",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    id: 3,
-    year: "Nimbus 2k18",
-    title: "Best Innovative Team Nimbus",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-]
 
 export function AchievementCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)

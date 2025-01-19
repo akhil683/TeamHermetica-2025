@@ -9,7 +9,6 @@ import { Star } from 'lucide-react'
 const ProjectCard = ({ project }: any) => {
   return (
     <motion.div
-      key={project.id}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: project.id * 0.1 }}

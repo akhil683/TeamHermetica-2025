@@ -1,30 +1,61 @@
+"use client"
+
+import React, { useState } from 'react'
 import { SpaceBackground } from '@/components/SpaceBackground'
 import { Button } from '@/components/ui/Button'
-import React from 'react'
+import { members } from '@/data/Members'
+import MemberCard from '@/components/MemberCard'
 
 const MembersPage = () => {
+  const finalYear = members.filter(member => member.position === "Final Year")
+  const [filteredMembers, setFilteredMembers] = useState(finalYear)
+
+  const filterHandler = (position: string) => {
+    const filter = members.filter(member => member.position === position)
+    setFilteredMembers(filter)
+  }
+
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden animate-appear">
+    <section className="min-h-screen bg-black relative overflow-hidden animate-appear">
       <SpaceBackground />
 
-      {/* Search Section */}
+      {/* Filter Section */}
       <div className="container mx-auto px-4 py-8 mt-12">
         <div className='text-sm relative flex items-center flex-wrap gap-2 md:gap-4 my-6'>
-          <Button className='text-sm bg-gradient-to-b from-indigo-400 duration-300 hover:from-indigo-600 to-indigo-700 rounded-full'>
+          <Button
+            onClick={() => filterHandler("Final Year")}
+            className='text-sm bg-gradient-to-b from-indigo-400 duration-300 hover:from-indigo-600 to-indigo-700 rounded-full'
+          >
             Final Year
           </Button>
-          <Button className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'>
+          <Button
+            onClick={() => filterHandler("Co-ordinator")}
+            className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
+          >
             3rd Year
           </Button>
-          <Button className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'>
+          <Button
+            onClick={() => filterHandler("Executive Member")}
+            className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
+          >
             2nd Year
           </Button>
-          <Button className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'>
+          <Button
+            onClick={() => filterHandler("Volunteer")}
+            className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
+          >
             1st Year
           </Button>
         </div>
       </div>
-    </div >
+
+      {/* Members List */}
+      <div className="px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center items-center max-w-7xl mx-auto">
+        {filteredMembers.map((member) => (
+          <MemberCard key={member.id} member={member} />
+        ))}
+      </div>
+    </section >
   )
 }
 
