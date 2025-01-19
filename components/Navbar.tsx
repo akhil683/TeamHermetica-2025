@@ -2,7 +2,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/Button"
-import { FlaskRoundIcon as Flask, LogOut, Menu } from "lucide-react"
+import { FlaskRoundIcon as Flask, Loader2, LogOut, Menu } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import logo from "../public/hermetica-logo.jpg"
@@ -25,10 +25,10 @@ export function Navbar() {
     setLoading(true)
     try {
       await signIn("google")
-      toast({
-        title: "Login Success !",
-        description: "You are logged in successfully !"
-      })
+      // toast({
+      //   title: "Login Success !",
+      //   description: "You are logged in successfully !"
+      // })
     } catch (SignInError) {
       console.log("Error during signin: ", SignInError)
       toast({
@@ -94,9 +94,11 @@ export function Navbar() {
             ) : (
               <Button
                 className="max-md:hidden bg-indigo-700 text-white hover:bg-gray-800 px-6 md:py-5 py-3 rounded-full group relative overflow-hidden"
+                disabled={loading}
                 onClick={handleSignIn}
               >
                 <span className="relative z-10 flex gap-2">
+                  {loading && <Loader2 className="w-4 h-4 animate-spin" />}
                   SIGN IN
                 </span>
                 <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
@@ -192,8 +194,10 @@ export function Navbar() {
                 ) : (
                   <Button
                     className="md:hidden bg-purple-500 hover:bg-purple-600 text-white rounded-full px-6 py-6 mt-2"
-                    onClick={toggleMenu}
+                    onClick={handleSignIn}
+                    disabled={loading}
                   >
+                    {loading && <Loader2 className="w-4 h-4 animate-spin" />}
                     Sign In
                   </Button>
                 )}

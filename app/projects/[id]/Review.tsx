@@ -5,31 +5,50 @@ import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/input'
 import React, { FormEvent, useState } from 'react'
 import { useToast } from '@/hooks/use-toast'
+import { Loader2 } from 'lucide-react'
 
 const Review = ({ projectId }: { projectId: string | null }) => {
 
-
+  const [loading, setLoading] = useState(false)
   const [review, setReview] = useState("")
   const { toast } = useToast()
 
   const onSubmitHandler = async (e: FormEvent) => {
     e.preventDefault()
-
-    const result = await addReview(review, projectId as string)
-    // if (result.success) {
-    //   setReview("")
-    //   toast({
-    //     title: "Success !",
-    //     description: "Review is submitted Successfully"
-    //   })
-    // } else {
-    //   toast({
-    //     title: "Success !",
-    //     description: "Review is submitted Successfully"
-    //   })
-    // }
+    setLoading(true)
+    if (!review || !projectId) {
+      toast({
+        title: "Review is Required !",
+        description: "Kindly fill the form."
+      })
+      setLoading(false)
+      return
+    }
+    try {
+      const result = await addReview(review, projectId as string)
+      setReview("")
+      // if (result.success) {
+      //   setReview("")
+      //   toast({
+      //     title: "Success !",
+      //     description: "Review is submitted Successfully"
+      //   })
+      // } else {
+      //   toast({
+      //     title: "Error !",
+      //     description: "Unexpected error occured."
+      //   })
+      // }
+    } catch (error) {
+      console.log("Review submission error: ", error)
+      toast({
+        title: "Error !",
+        description: "Unexpected error occured."
+      })
+    } finally {
+      setLoading(false)
+    }
   }
-
 
   return (
     <form onSubmit={onSubmitHandler} className='space-y-6 my-12'>
@@ -38,9 +57,13 @@ const Review = ({ projectId }: { projectId: string | null }) => {
         placeholder='Give a Review'
         type='text'
         onChange={(e) => setReview(e.target.value)}
-        required
       />
-      <Button type='submit' className='w-full bg-gradient-to-tr from-indigo-500 via-indigo-800 to-indigo-500 text-xl py-6'>
+      <Button
+        type='submit'
+        disabled={loading}
+        className='w-full bg-gradient-to-tr from-indigo-500 via-indigo-800 to-indigo-500 text-xl py-6 flex gap-2 justify-center items-center'
+      >
+        {loading && <Loader2 className='h-5 w-5 animate-spin' />}
         SUBMIT
       </Button>
     </form>

@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/Button"
-import { FlaskRoundIcon as Flask, Award } from "lucide-react"
+import { FlaskRoundIcon as Flask, Award, Loader2 } from "lucide-react"
 import { SpaceBackground } from "../SpaceBackground"
 import { useState } from "react"
 import { signIn, useSession } from "next-auth/react"
@@ -16,10 +16,10 @@ const HeroSection = () => {
     setLoading(true)
     try {
       await signIn("google")
-      toast({
-        title: "Login Success !",
-        description: "You are logged in successfully !"
-      })
+      // toast({
+      //   title: "Login Success !",
+      //   description: "You are logged in successfully !"
+      // })
     } catch (SignInError) {
       console.log("Error during signin: ", SignInError)
       toast({
@@ -94,8 +94,10 @@ const HeroSection = () => {
                 <Button
                   className="bg-black text-white hover:bg-gray-800 text-lg px-8 py-6 rounded-full group relative overflow-hidden"
                   onClick={handleSignIn}
+                  disabled={loading}
                 >
-                  <span className="relative z-10">
+                  <span className="flex gap-2 items-center relative z-10">
+                    {loading && <Loader2 className="w-4 h-4 animate-spin" />}
                     SIGN UP NOW
                   </span>
                   <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
