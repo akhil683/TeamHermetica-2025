@@ -7,42 +7,42 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 const GalleryPage = () => {
-  const [filteredGallery, setFilteredGallery] = useState(hermeticaGallery.pre_nimbus)
+  const [filteredGallery, setFilteredGallery] = useState(hermeticaGallery.previous_nimbus)
 
   return (
     <section className="min-h-screen bg-black relative overflow-hidden animate-appear">
       <SpaceBackground />
 
       {/* Filter Section */}
-      <div className="container mx-auto px-4 py-8 mt-12">
-        <div className='text-sm relative flex items-center flex-wrap gap-2 md:gap-4 my-6'>
+      <div className="container mx-auto px-2 md:px-4 mt-24">
+        <div className='max-md:text-sm relative flex items-center flex-wrap gap-2 md:gap-4 my-6'>
           <Button
             onClick={() => setFilteredGallery(hermeticaGallery.previous_nimbus)}
-            className='text-sm bg-gradient-to-b from-indigo-400 duration-300 hover:from-indigo-600 to-indigo-700 rounded-full'
+            className='max-md:text-xs bg-gradient-to-b from-indigo-400 duration-300 hover:from-indigo-600 to-indigo-700 rounded-full'
           >
             Nimbus 2k24
           </Button>
           <Button
             onClick={() => setFilteredGallery(hermeticaGallery.pre_nimbus)}
-            className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
+            className='max-md:text-xs bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
           >
             Pre-Nimbus
           </Button>
           <Button
             onClick={() => setFilteredGallery(hermeticaGallery.hermetica_day)}
-            className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
+            className='max-md:text-xs bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
           >
             Hermetica Day
           </Button>
           <Button
             onClick={() => setFilteredGallery(hermeticaGallery.workshops)}
-            className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
+            className='max-md:text-xs bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
           >
             Workshops
           </Button>
           <Button
             onClick={() => setFilteredGallery(hermeticaGallery.awareness)}
-            className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
+            className='max-md:text-xs bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
           >
             Awareness
           </Button>
@@ -53,7 +53,7 @@ const GalleryPage = () => {
         {filteredGallery.map(image => (
           <motion.div
             key={image}
-            className='h-56'
+            className='h-56 bg-gray-600/60 rounded-2xl'
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.02 }}
@@ -64,6 +64,7 @@ const GalleryPage = () => {
               alt='hermetida day'
               width={500}
               height={500}
+              priority
               className='h-full rounded-xl hover:scale-105 duration-200'
             />
           </motion.div>

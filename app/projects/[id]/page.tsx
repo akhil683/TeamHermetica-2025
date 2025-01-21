@@ -58,7 +58,7 @@ export default async function ProjectDetail({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-indigo-600/20 to-black">
-      <main className="container mx-auto px-6 py-20">
+      <main className="container mx-auto px-3 md:px-6 py-20">
         <div className='min-h-screen flex justify-center items-center'>
           <div>
             {/* Project Title */}
@@ -68,12 +68,13 @@ export default async function ProjectDetail({ params }: Props) {
 
             <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-20">
               {/* Project Image */}
-              <div className="relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
+              <div className="relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden bg-gray-600/60">
                 <Image
                   src={project.image as string}
                   alt="Cementitious Material Project"
                   fill
                   className="object-cover"
+                  priority
                 />
               </div>
 

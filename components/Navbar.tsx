@@ -109,7 +109,7 @@ export function Navbar() {
               </Button>
 
             )}
-            <Button variant="ghost" className="bg-indigo-700 rounded-full text-white hover:text-white hover:bg-purple-600" onClick={toggleMenu}>
+            <Button aria-label="mobile-menu" variant="ghost" className="bg-indigo-700 rounded-full text-white hover:text-white hover:bg-purple-600" onClick={toggleMenu}>
               <Menu className="h-12 w-12" />
             </Button>
           </div>

@@ -11,10 +11,10 @@ const ProjectPage = () => {
       {/* Search Section */}
       <div className="container mx-auto px-4 py-8 mt-12">
         <div className='relative flex items-center gap-4 my-6'>
-          <Button className='bg-gradient-to-b from-indigo-400 duration-300 text-lg hover:from-indigo-500 to-indigo-700 rounded-full'>
+          <Button className='text-sm md:text-lg bg-gradient-to-b from-indigo-400 duration-300 hover:from-indigo-500 to-indigo-700 rounded-full'>
             2k25
           </Button>
-          <Button className='bg-gradient-to-b from-indigo-400 text-lg hover:from-indigo-600 to-indigo-700 rounded-full'>
+          <Button className='text-sm md:text-lg bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'>
             2k24
           </Button>
         </div>

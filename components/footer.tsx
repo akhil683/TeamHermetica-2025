@@ -14,12 +14,30 @@ const socialLinks = [
 ]
 
 const workLinks = [
-  "Projects",
-  "Events",
-  "Workshops",
-  "Members",
-  "Gallery",
-  "About Us"
+  {
+    name: "Projects",
+    link: "/projects",
+  },
+  {
+    name: "Events",
+    link: "/events",
+  },
+  {
+    name: "Workshops",
+    link: "/workshops",
+  },
+  {
+    name: "Membes",
+    link: "/members",
+  },
+  {
+    name: "Gallery",
+    link: "/gallery",
+  },
+  {
+    name: "About Us",
+    link: "/about",
+  },
 ]
 
 export default function Footer() {
@@ -52,6 +70,7 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
+                  aria-label={social.label}
                   className="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center hover:bg-purple-600 transition-colors hover:scale-110 duration-200"
                 >
                   <social.icon className="w-5 h-5 text-white" />
@@ -73,17 +92,17 @@ export default function Footer() {
             <ul className="space-y-2">
               {workLinks.map((link, index) => (
                 <motion.li
-                  key={link}
+                  key={link.name}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
                   <Link
-                    href="#"
+                    href={link.link}
                     className="text-gray-400 hover:text-purple-400 transition-colors"
                   >
-                    {link}
+                    {link.name}
                   </Link>
                 </motion.li>
               ))}

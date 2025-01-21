@@ -6,11 +6,13 @@ import { Input } from '@/components/ui/input'
 import React, { FormEvent, useState } from 'react'
 import { useToast } from '@/hooks/use-toast'
 import { Loader2 } from 'lucide-react'
+import { useSession } from 'next-auth/react'
 
 const Review = ({ projectId }: { projectId: string | null }) => {
 
   const [loading, setLoading] = useState(false)
   const [review, setReview] = useState("")
+  const { data: session } = useSession()
   const { toast } = useToast()
 
   const onSubmitHandler = async (e: FormEvent) => {
@@ -20,6 +22,14 @@ const Review = ({ projectId }: { projectId: string | null }) => {
       toast({
         title: "Review is Required !",
         description: "Kindly fill the form."
+      })
+      setLoading(false)
+      return
+    }
+    if (!session || session.user?.email?.includes("@nith.ac.in")) {
+      toast({
+        title: "Un-Authorized !",
+        description: "Please login with nith email to give reviews"
       })
       setLoading(false)
       return

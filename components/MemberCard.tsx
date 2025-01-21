@@ -30,7 +30,7 @@ const MemberCard = ({ member }: { member: MemberType }) => {
         </div>
 
         {/* Overlay with Member Info */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 z-50">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
           <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
             <h3 className="text-2xl font-bold bg-gradient-to-b text-transparent bg-clip-text from-indigo-400 to-purple-400 mb-1">
               {member.name}
@@ -51,6 +51,7 @@ const MemberCard = ({ member }: { member: MemberType }) => {
                   href={member.social.instagram}
                   target="_blank"
                   className="text-white hover:text-[#E1306C] transition-colors"
+                  aria-label={`instagram ${member.name}`}
                 >
                   <Instagram className="h-5 w-5" />
                 </a>
@@ -60,6 +61,7 @@ const MemberCard = ({ member }: { member: MemberType }) => {
                   href={member.social.linkedin}
                   target="_blank"
                   className="text-white hover:text-[#0077B5] transition-colors"
+                  aria-label={`linkedin ${member.name}`}
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
