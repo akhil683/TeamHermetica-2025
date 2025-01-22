@@ -18,10 +18,9 @@ export async function addReview(review: string, projectId: string) {
         projectId: projectId,
         review,
       })
-    // return { success: true, data: result }
+    return { success: true, data: result }
   } catch (error) {
     console.log(error)
-    // return { success: false, error: "Failed to submit review !" }
+    return { success: false, data: "Failed to submit review !" }
   }
-
 }

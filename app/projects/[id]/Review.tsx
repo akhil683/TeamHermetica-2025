@@ -26,7 +26,7 @@ const Review = ({ projectId }: { projectId: string | null }) => {
       setLoading(false)
       return
     }
-    if (!session || session.user?.email?.includes("@nith.ac.in")) {
+    if (!session || !session.user?.email?.includes("@nith.ac.in")) {
       toast({
         title: "Un-Authorized !",
         description: "Please login with nith email to give reviews"
@@ -37,18 +37,18 @@ const Review = ({ projectId }: { projectId: string | null }) => {
     try {
       const result = await addReview(review, projectId as string)
       setReview("")
-      // if (result.success) {
-      //   setReview("")
-      //   toast({
-      //     title: "Success !",
-      //     description: "Review is submitted Successfully"
-      //   })
-      // } else {
-      //   toast({
-      //     title: "Error !",
-      //     description: "Unexpected error occured."
-      //   })
-      // }
+      if (result.success) {
+        setReview("")
+        toast({
+          title: "Success !",
+          description: "Review is submitted Successfully"
+        })
+      } else {
+        toast({
+          title: "Error !",
+          description: "Unexpected error occured."
+        })
+      }
     } catch (error) {
       console.log("Review submission error: ", error)
       toast({
