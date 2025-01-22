@@ -120,6 +120,7 @@ export function AchievementCarousel() {
           <Button
             onClick={() => paginate(-1)}
             className="absolute left-4 md:left-8 z-20 bg-yellow-500 hover:bg-yellow-600 rounded-full p-2"
+            aria-label='Left Item'
             size="icon"
             variant="ghost"
           >
@@ -128,6 +129,7 @@ export function AchievementCarousel() {
           <Button
             onClick={() => paginate(1)}
             className="absolute right-4 md:right-8 z-20 bg-yellow-500 hover:bg-yellow-600 rounded-full p-2"
+            aria-label={"Right Item"}
             size="icon"
             variant="ghost"
           >

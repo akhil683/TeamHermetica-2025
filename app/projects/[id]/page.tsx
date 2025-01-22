@@ -81,7 +81,7 @@ export default async function ProjectDetail({ params }: Props) {
               {/* Project Details */}
               <div className="space-y-6">
                 {/* Proposer Info */}
-                <div className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/20 to-purple-900/20 bg-opacity-50 hover:bg-indigo-600/10 duration-300 rounded-3xl p-6">
+                <div className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/60 to-purple-900/40 bg-opacity-50 hover:bg-indigo-600/10 duration-300 rounded-3xl p-6">
                   <div className="flex max-md:flex-col-reverse md:items-center justify-between mb-4 max-md:gap-2">
                     <h2 className="text-xl text-white">
                       Proposed By: {" "}
@@ -107,7 +107,7 @@ export default async function ProjectDetail({ params }: Props) {
 
                 {/* Team Members */}
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/20 to-purple-900/20 bg-opacity-50 hover:bg-indigo-600/10 duration-300 rounded-3xl p-6">
+                  <div className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/60 to-purple-900/40 bg-opacity-50 hover:bg-indigo-600/10 duration-300 rounded-3xl p-6">
                     <h3 className="text-white text-lg mb-2">
                       Constructed By
                     </h3>
@@ -115,7 +115,7 @@ export default async function ProjectDetail({ params }: Props) {
                       {project.constructed_by}
                     </p>
                   </div>
-                  <div className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/20 to-purple-900/20 bg-opacity-50 hover:bg-indigo-600/10 duration-300 rounded-3xl p-6">
+                  <div className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/60 to-purple-900/40 bg-opacity-50 hover:bg-indigo-600/10 duration-300 rounded-3xl p-6">
                     <h3 className="text-white text-lg mb-2">
                       Volunteer
                     </h3>

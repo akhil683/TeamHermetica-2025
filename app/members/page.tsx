@@ -7,7 +7,7 @@ import { members } from '@/data/Members'
 import MemberCard from '@/components/MemberCard'
 
 const MembersPage = () => {
-  const finalYear = members.filter(member => member.position === "Final Year")
+  const finalYear = members.filter(member => member.position === "Final Year Member")
   const [filteredMembers, setFilteredMembers] = useState(finalYear)
 
   const filterHandler = (position: string) => {
@@ -23,13 +23,13 @@ const MembersPage = () => {
       <div className="container mx-auto px-4 py-8 mt-12">
         <div className='text-sm relative flex items-center flex-wrap gap-2 md:gap-4 my-6'>
           <Button
-            onClick={() => filterHandler("Final Year")}
+            onClick={() => filterHandler("Final Year Member")}
             className='text-sm bg-gradient-to-b from-indigo-400 duration-300 hover:from-indigo-600 to-indigo-700 rounded-full'
           >
             Final Year
           </Button>
           <Button
-            onClick={() => filterHandler("Co-ordinator")}
+            onClick={() => filterHandler("Coordinator")}
             className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
           >
             3rd Year
@@ -52,7 +52,7 @@ const MembersPage = () => {
       {/* Members List */}
       <div className="px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center items-center max-w-7xl mx-auto">
         {filteredMembers.map((member) => (
-          <MemberCard key={member.id} member={member} />
+          <MemberCard key={member.name} member={member} />
         ))}
       </div>
     </section >

@@ -30,8 +30,14 @@ const ProjectCard = ({ project }: any) => {
           {/* Project Info */}
           <div className="p-4">
             <div className="flex items-center gap-2 mb-2">
-              <StarRating rating={project.rating} />
-              <span className="text-gray-500 text-sm">({project.reviews})</span>
+              <StarRating
+                // rating={project.rating} 
+                rating={5}
+              />
+              <span className="text-gray-500 text-sm">
+                {/* ({project.reviews}) */}
+                (50)
+              </span>
             </div>
             <h3 className="text-gray-300 text-lg font-medium line-clamp-2 group-hover:text-purple-600 transition-colors">
               {project?.name}

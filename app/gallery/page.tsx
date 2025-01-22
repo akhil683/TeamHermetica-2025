@@ -53,7 +53,7 @@ const GalleryPage = () => {
         {filteredGallery.map(image => (
           <motion.div
             key={image}
-            className='h-56 bg-gray-600/60 rounded-2xl'
+            className='aspect-video bg-gray-600/60 rounded-2xl'
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.02 }}

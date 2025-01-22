@@ -106,10 +106,7 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
 
 export default function DomainsSection() {
   return (
-    <section className="min-h-screen relative flex flex-col justify-center items-center py-24 overflow-hidden">
-      {/* Background Effects */}
-
-      <SpaceBackground />
+    <section className="min-h-screen relative flex flex-col justify-center items-center py-24 overflow-hidden bg-gradient-to-b from-black via-indigo-600/30 to-black">
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           className="text-center mb-16"
