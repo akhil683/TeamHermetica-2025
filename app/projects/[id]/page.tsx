@@ -7,6 +7,8 @@ import { eq } from 'drizzle-orm'
 import Review from './Review'
 import ReviewList from './ReviewList'
 import { Suspense } from 'react'
+import Abstract from '@/components/projects/Abstract'
+import { Drawer, DrawerTrigger } from '@/components/ui/drawer'
 
 type Props = {
   params: Promise<{
@@ -100,9 +102,14 @@ export default async function ProjectDetail({ params }: Props) {
                   <p className="text-gray-400 leading-relaxed mb-4">
                     {project.description?.slice(0, 500)}...
                   </p>
-                  <button className="text-[#b794f4] hover:text-[#9f7aea] transition-colors">
-                    Read more
-                  </button>
+                  <Drawer>
+                    <DrawerTrigger>
+                      <p className="text-[#b794f4] hover:text-[#9f7aea] transition-colors">
+                        Read more
+                      </p>
+                    </DrawerTrigger>
+                    <Abstract abstract={project.description as string} />
+                  </Drawer>
                 </div>
 
                 {/* Team Members */}

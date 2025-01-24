@@ -16,10 +16,6 @@ const HeroSection = () => {
     setLoading(true)
     try {
       await signIn("google")
-      // toast({
-      //   title: "Login Success !",
-      //   description: "You are logged in successfully !"
-      // })
     } catch (SignInError) {
       console.log("Error during signin: ", SignInError)
       toast({
@@ -32,7 +28,7 @@ const HeroSection = () => {
   }
 
   return (
-    <main className="min-h-screen mx-auto py-12 pt-32 text-center relative">
+    <main className="min-h-screen mx-auto py-12 pt-32 text-center relative overflow-hidden">
       <SpaceBackground />
 
       <div className="relative z-10 max-md:px-6">
