@@ -33,10 +33,10 @@ const HeroSection = () => {
       <SpaceBackground />
 
       <motion.div
-        initial={{ opacity: 0, y: 75, scale: 0.9 }}
+        initial={{ opacity: 0, y: 60, scale: 0.95 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
         className="relative z-10 max-md:px-6"
       >
         <p className="text-xl md:text-4xl tracking-tight mb-6 leading-none text-white">

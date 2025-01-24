@@ -41,7 +41,7 @@ const MembersPage = () => {
             2nd Year
           </Button>
           <Button
-            onClick={() => filterHandler("Volunteer")}
+            onClick={() => filterHandler("Volunteer Member")}
             className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
           >
             1st Year

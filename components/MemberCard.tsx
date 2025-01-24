@@ -11,7 +11,7 @@ const MemberCard = ({ member }: { member: MemberType }) => {
 
   return (
     <motion.div
-      key={member.id}
+      key={member?.id}
       className="group relative"
       initial={{ opacity: 0, y: 60, scale: 0.9 }}
       whileInView={{
@@ -26,8 +26,8 @@ const MemberCard = ({ member }: { member: MemberType }) => {
         {/* Member Image */}
         <div className="absolute inset-0">
           <Image
-            src={member.image}
-            alt={member.name}
+            src={member?.image || ""}
+            alt={member?.name}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
@@ -42,17 +42,17 @@ const MemberCard = ({ member }: { member: MemberType }) => {
             <p className="text-white font-semibold mb-4">
               {member.position}
             </p>
-            {member.bio && (
+            {member?.bio && (
               <p className="text-gray-300 text-sm mb-6 line-clamp-3">
-                {member.bio}
+                {member?.bio}
               </p>
             )}
 
             {/* Social Links */}
             <div className="flex gap-4">
-              {member.social.instagram && (
+              {member?.social?.instagram && (
                 <a
-                  href={member.social.instagram}
+                  href={member?.social?.instagram}
                   target="_blank"
                   className="text-white hover:text-[#E1306C] transition-colors"
                   aria-label={`instagram ${member.name}`}
@@ -60,12 +60,12 @@ const MemberCard = ({ member }: { member: MemberType }) => {
                   <Instagram className="h-5 w-5" />
                 </a>
               )}
-              {member.social.linkedin && (
+              {member?.social?.linkedin && (
                 <a
-                  href={member.social.linkedin}
+                  href={member?.social?.linkedin}
                   target="_blank"
                   className="text-white hover:text-[#0077B5] transition-colors"
-                  aria-label={`linkedin ${member.name}`}
+                  aria-label={`linkedin ${member?.name}`}
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
@@ -77,7 +77,7 @@ const MemberCard = ({ member }: { member: MemberType }) => {
         {/* Name Label (visible by default) */}
         <div className="absolute bottom-4 left-4 right-4 p-2 bg-gradient-to-b from-purple-700 to-indigo-700 backdrop-blur-sm rounded-full text-center group-hover:opacity-0 transition-opacity duration-300">
           <h3 className="text-white font-medium">
-            {member.name}
+            {member?.name}
           </h3>
         </div>
       </Card>

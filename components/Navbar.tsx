@@ -108,12 +108,12 @@ export function Navbar() {
             )}
 
             <Drawer>
-              <DrawerTrigger>
+              <DrawerTrigger asChild>
                 <Button aria-label="mobile-menu" variant="ghost" className="bg-indigo-700 rounded-full text-white hover:text-white hover:bg-purple-600">
                   <Menu className="h-12 w-12" />
                 </Button>
               </DrawerTrigger>
-              <DrawerContent className="bg-gradient-to-tr from-blue-600/30 via-indigo-600/30 to-purple-600/20">
+              <DrawerContent className="bg-gradient-to-tr from-blue-600/30 via-indigo-600/30 to-purple-800/20">
                 <DialogTitle></DialogTitle>
                 <div className="text-white my-4">
                   <div className="flex flex-col gap-4">
@@ -167,7 +167,7 @@ export function Navbar() {
                     </DrawerClose>
                     {session?.user ? (
                       <DrawerClose asChild>
-                        <Button
+                        <div
                           className="md:hidden bg-purple-500 hover:bg-purple-600 text-white rounded-full px-6 py-6 mt-2"
                           onClick={handleSignOut}
                         >
@@ -183,18 +183,17 @@ export function Navbar() {
                             <LogOut className="h-4 w-4" />
                           </span>
                           <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
-                        </Button>
+                        </div>
                       </DrawerClose>
                     ) : (
                       <DrawerClose asChild>
-                        <Button
+                        <div
                           className="md:hidden bg-purple-500 hover:bg-purple-600 text-white rounded-full px-6 py-6 mt-2"
                           onClick={handleSignIn}
-                          disabled={loading}
                         >
                           {loading && <Loader2 className="w-4 h-4 animate-spin" />}
                           Sign In
-                        </Button>
+                        </div>
                       </DrawerClose>
                     )}
                   </div>

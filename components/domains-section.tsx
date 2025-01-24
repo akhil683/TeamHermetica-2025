@@ -60,7 +60,6 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
         y: 0,
         transition: { duration: 0.5, delay: index * 0.2 }
       }}
-      viewport={{ once: true }}
       whileHover={{ scale: 1.05 }}
       className="relative group"
     >
