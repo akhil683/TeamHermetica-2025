@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/Button"
 import { FlaskRoundIcon as Flask, Award, Loader2 } from "lucide-react"
 import { SpaceBackground } from "../SpaceBackground"
+import { motion, spring } from "framer-motion"
 import { useState } from "react"
 import { signIn, useSession } from "next-auth/react"
 import { useToast } from "@/hooks/use-toast"
@@ -31,7 +32,13 @@ const HeroSection = () => {
     <main className="min-h-screen mx-auto py-12 pt-32 text-center relative overflow-hidden">
       <SpaceBackground />
 
-      <div className="relative z-10 max-md:px-6">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="relative z-10 max-md:px-6"
+      >
         <p className="text-xl md:text-4xl tracking-tight mb-6 leading-none text-white">
           Team Hermetica
         </p>
@@ -49,7 +56,9 @@ const HeroSection = () => {
         {/* Cards Section */}
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto relative">
           {/* Card 1 */}
-          <div className="max-md:hidden relative bg-purple-200 rounded-3xl p-8 transform transition-transform hover:scale-105 z-10 overflow-hidden">
+          <div
+            className="max-md:hidden relative bg-purple-200 rounded-3xl p-8 transform transition-transform hover:scale-105 z-10 overflow-hidden"
+          >
             <div className="absolute top-4 left-4 bg-black text-white text-sm font-bold px-3 py-1 rounded-full">
               EST. 2014
             </div>
@@ -117,8 +126,8 @@ const HeroSection = () => {
             Team Hermetica, established in 2014, represents the Department of Chemical Engineering in the annual tech-fest NIMBUS at National Institute of Technology, Hamirpur.
           </p>
         </div>
-      </div>
-    </main>
+      </motion.div>
+    </main >
 
   )
 }

@@ -69,36 +69,31 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
         style={{ background }}
         onMouseMove={handleMouseMove}
       />
-      <div className="relative bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 h-full border border-neutral-200 border-white/10 dark:border-neutral-800">
-        {/* Animated Background */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${domain.gradient} opacity-0 group-hover:opacity-10 transition-opacity rounded-3xl`} />
-
+      <div className="relative bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 h-full border border-neutral-200 border-white/10 dark:border-neutral-800 z-10">
         {/* Content */}
-        <div className="relative z-10">
-          <motion.div
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${domain.gradient} flex items-center justify-center mb-6`}
-          >
-            <domain.icon className="w-8 h-8 text-white" />
-          </motion.div>
+        <motion.div
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 300 }}
+          className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${domain.gradient} flex items-center justify-center mb-6`}
+        >
+          <domain.icon className="w-8 h-8 text-white" />
+        </motion.div>
 
-          <motion.h3
-            className="text-xl font-semibold mb-2 text-white group-hover:text-transparent bg-clip-text bg-gradient-to-r transition-all duration-300"
-            style={{ backgroundImage: `linear-gradient(to right, ${domain.shadowColor}, white)` }}
-          >
-            {domain.title}
-          </motion.h3>
+        <motion.h3
+          className="text-xl font-semibold mb-2 text-white group-hover:text-transparent bg-clip-text bg-gradient-to-r transition-all duration-300"
+          style={{ backgroundImage: `linear-gradient(to right, ${domain.shadowColor}, white)` }}
+        >
+          {domain.title}
+        </motion.h3>
 
-          <motion.p
-            initial={{ opacity: 0.7 }}
-            whileHover={{ opacity: 1 }}
-            className="text-white/70"
-          >
-            {domain.description}
-          </motion.p>
-        </div>
+        <motion.p
+          initial={{ opacity: 0.7 }}
+          whileHover={{ opacity: 1 }}
+          className="text-white/70"
+        >
+          {domain.description}
+        </motion.p>
       </div>
     </motion.div>
   )
@@ -106,24 +101,22 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
 
 export default function DomainsSection() {
   return (
-    <section className="min-h-screen relative flex flex-col justify-center items-center py-24 overflow-hidden bg-gradient-to-b from-black via-indigo-600/30 to-black">
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Domains</span>
-          </h2>
-        </motion.div>
+    <section className="container mx-auto px-4 relative z-10 min-h-screen flex flex-col justify-center items-center py-24 overflow-hidden bg-gradient-to-b from-black via-indigo-600/30 to-black">
+      <motion.div
+        className="text-center mb-16"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Domains</span>
+        </h2>
+      </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {domains.map((domain, index) => (
-            <DomainCard key={domain.title} domain={domain} index={index} />
-          ))}
-        </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        {domains.map((domain, index) => (
+          <DomainCard key={domain.title} domain={domain} index={index} />
+        ))}
       </div>
     </section>
   )

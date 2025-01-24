@@ -9,7 +9,7 @@ import ClubCoordinator from "@/components/home/ClubCoordinator"
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-black overflow-hidden font-['Space_Grotesk'] relative animate-appear">
-      <BackgroundShapes />
+      {/* <BackgroundShapes /> */}
 
       {/* Hero Section */}
       <HeroSection />

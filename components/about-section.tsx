@@ -43,28 +43,22 @@ function AboutCard({ card, index }: { card: typeof aboutCards[0], index: number 
       whileHover={{ scale: 1.02 }}
       className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/20 to-purple-900/10 bg-opacity-50 p-6 md:p-12 rounded-lg shadow-lg backdrop-blur-sm border border-gray-700 flex flex-col hover:bg-indigo-700/10 hover:border-indigo-300 duration-300"
     >
-      <div className="relative overflow-hidden h-full bg-transparent border-transparent hover:border-transparent">
+      <div className="relative overflow-hidden h-full bg-transparent border-transparent hover:border-transparent text-center p-8">
         {/* Content */}
-        <div className="relative p-8 text-center">
-          <motion.div
-            className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center"
-            whileHover={{ scale: 1.1, rotate: 360 }}
-            transition={{ duration: 0.5 }}
-          >
-            <card.icon className="w-10 h-10 text-white" />
-          </motion.div>
+        <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center">
+          <card.icon className="w-10 h-10 text-white" />
+        </div>
 
-          <h3 className="text-2xl font-bold mb-4 text-purple-300">
-            {card.title}
-          </h3>
+        <h3 className="text-2xl font-bold mb-4 text-purple-300">
+          {card.title}
+        </h3>
 
-          <div className="space-y-4">
-            {card.description.map((paragraph, i) => (
-              <p key={i} className="text-white leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+        <div className="space-y-4">
+          {card.description.map((paragraph, i) => (
+            <p key={i} className="text-white leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
         </div>
       </div>
     </motion.div>
@@ -73,24 +67,22 @@ function AboutCard({ card, index }: { card: typeof aboutCards[0], index: number 
 
 export default function AboutSection() {
   return (
-    <section className="min-h-screen bg-gradient-to-b from-black via-indigo-600/30 to-black relative py-24 overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Us</span>
-          </h2>
-        </motion.div>
+    <section className="container mx-auto px-4 z-10 min-h-screen bg-gradient-to-b from-black via-indigo-600/30 to-black relative py-24 overflow-hidden">
+      <motion.div
+        className="text-center mb-16"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          About <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Us</span>
+        </h2>
+      </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-16 md:gap-8 max-w-7xl mx-auto px-3">
-          {aboutCards.map((card, index) => (
-            <AboutCard key={card.title} card={card} index={index} />
-          ))}
-        </div>
+      <div className="grid md:grid-cols-3 gap-16 md:gap-8 max-w-7xl mx-auto px-3">
+        {aboutCards.map((card, index) => (
+          <AboutCard key={card.title} card={card} index={index} />
+        ))}
       </div>
     </section>
   )

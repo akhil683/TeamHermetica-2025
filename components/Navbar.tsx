@@ -3,11 +3,12 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/Button"
 import { FlaskRoundIcon as Flask, Loader2, LogOut, Menu } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import logo from "../public/hermetica-logo.jpg"
 import { signIn, signOut, useSession } from "next-auth/react"
 import { useToast } from "@/hooks/use-toast"
+import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from "./ui/drawer"
+import { DialogTitle } from "@radix-ui/react-dialog"
 
 
 
@@ -15,14 +16,10 @@ export function Navbar() {
 
   const { data: session } = useSession()
 
-  const [isOpen, setIsOpen] = useState(false)
-
   const [loading, setLoading] = useState(false)
   const [logoutLoading, setLogoutLoading] = useState(false)
 
   const { toast } = useToast()
-
-  const toggleMenu = () => setIsOpen(!isOpen)
 
   const handleSignIn = async () => {
     setLoading(true)
@@ -109,107 +106,104 @@ export function Navbar() {
               </Button>
 
             )}
-            <Button aria-label="mobile-menu" variant="ghost" className="bg-indigo-700 rounded-full text-white hover:text-white hover:bg-purple-600" onClick={toggleMenu}>
-              <Menu className="h-12 w-12" />
-            </Button>
+
+            <Drawer>
+              <DrawerTrigger>
+                <Button aria-label="mobile-menu" variant="ghost" className="bg-indigo-700 rounded-full text-white hover:text-white hover:bg-purple-600">
+                  <Menu className="h-12 w-12" />
+                </Button>
+              </DrawerTrigger>
+              <DrawerContent className="bg-gradient-to-tr from-blue-600/30 via-indigo-600/30 to-purple-600/20">
+                <DialogTitle></DialogTitle>
+                <div className="text-white my-4">
+                  <div className="flex flex-col gap-4">
+                    <DrawerClose asChild>
+                      <Link
+                        href="/projects"
+                        className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
+                      >
+                        Projects
+                      </Link>
+                    </DrawerClose>
+                    <DrawerClose asChild>
+                      <Link
+                        href="/events"
+                        className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
+                      >
+                        Events
+                      </Link>
+                    </DrawerClose>
+                    <DrawerClose asChild>
+                      <Link
+                        href="/guest-lectures"
+                        className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
+                      >
+                        Guest Lectures
+                      </Link>
+                    </DrawerClose>
+                    <DrawerClose asChild>
+                      <Link
+                        href="/members"
+                        className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
+                      >
+                        Members
+                      </Link>
+                    </DrawerClose>
+                    <DrawerClose asChild>
+                      <Link
+                        href="/gallery"
+                        className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
+                      >
+                        Gallery
+                      </Link>
+                    </DrawerClose>
+                    <DrawerClose asChild>
+                      <Link
+                        href="/about"
+                        className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
+                      >
+                        About Us
+                      </Link>
+                    </DrawerClose>
+                    {session?.user ? (
+                      <DrawerClose asChild>
+                        <Button
+                          className="md:hidden bg-purple-500 hover:bg-purple-600 text-white rounded-full px-6 py-6 mt-2"
+                          onClick={handleSignOut}
+                        >
+                          <span className="relative z-10 flex gap-2">
+                            <Image
+                              src={session.user.image as string}
+                              alt={session.user.name as string}
+                              width={100}
+                              height={100}
+                              className="w-5 h-5 rounded-full"
+                            />
+                            LOG OUT
+                            <LogOut className="h-4 w-4" />
+                          </span>
+                          <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
+                        </Button>
+                      </DrawerClose>
+                    ) : (
+                      <DrawerClose asChild>
+                        <Button
+                          className="md:hidden bg-purple-500 hover:bg-purple-600 text-white rounded-full px-6 py-6 mt-2"
+                          onClick={handleSignIn}
+                          disabled={loading}
+                        >
+                          {loading && <Loader2 className="w-4 h-4 animate-spin" />}
+                          Sign In
+                        </Button>
+                      </DrawerClose>
+                    )}
+                  </div>
+                </div>
+              </DrawerContent>
+            </Drawer>
           </div>
         </nav>
       </header >
-
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
-              onClick={toggleMenu}
-            />
-            <motion.div
-              initial={{ opacity: 0, y: "100%" }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: "100%" }}
-              transition={{ type: "spring", damping: 40, stiffness: 500 }}
-
-              className="fixed bottom-0 left-0 right-0 bg-gray-900/80 text-white backdrop-blur-xl p-6 rounded-t-3xl border border-neutral-200 border-purple-500/20 z-50 dark:border-neutral-800"
-            >
-              <div className="flex flex-col gap-4">
-                <Link
-                  href="/projects"
-                  className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
-                  onClick={toggleMenu}
-                >
-                  Projects
-                </Link>
-                <Link
-                  href="/events"
-                  className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
-                  onClick={toggleMenu}
-                >
-                  Events
-                </Link>
-                <Link
-                  href="/guest-lectures"
-                  className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
-                  onClick={toggleMenu}
-                >
-                  Guest Lectures
-                </Link>
-                <Link
-                  href="/members"
-                  className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
-                  onClick={toggleMenu}
-                >
-                  Members
-                </Link>
-                <Link
-                  href="/gallery"
-                  className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
-                  onClick={toggleMenu}
-                >
-                  Gallery
-                </Link>
-                <Link
-                  href="/about"
-                  className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
-                  onClick={toggleMenu}
-                >
-                  About Us
-                </Link>
-                {session?.user ? (
-                  <Button
-                    className="md:hidden bg-purple-500 hover:bg-purple-600 text-white rounded-full px-6 py-6 mt-2"
-                    onClick={handleSignOut}
-                  >
-                    <span className="relative z-10 flex gap-2">
-                      <Image
-                        src={session.user.image as string}
-                        alt={session.user.name as string}
-                        width={100}
-                        height={100}
-                        className="w-5 h-5 rounded-full"
-                      />
-                      LOG OUT
-                      <LogOut className="h-4 w-4" />
-                    </span>
-                    <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
-                  </Button>
-                ) : (
-                  <Button
-                    className="md:hidden bg-purple-500 hover:bg-purple-600 text-white rounded-full px-6 py-6 mt-2"
-                    onClick={handleSignIn}
-                    disabled={loading}
-                  >
-                    {loading && <Loader2 className="w-4 h-4 animate-spin" />}
-                    Sign In
-                  </Button>
-                )}
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
     </>
   )
 }
