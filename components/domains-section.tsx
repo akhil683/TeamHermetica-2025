@@ -54,11 +54,11 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{
         opacity: 1,
         y: 0,
-        transition: { delay: index * 0.2 }
+        transition: { duration: 0.5, delay: index * 0.2 }
       }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.05 }}
@@ -71,14 +71,9 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
       />
       <div className="relative bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 h-full border border-neutral-200 border-white/10 dark:border-neutral-800 z-10">
         {/* Content */}
-        <motion.div
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.1 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${domain.gradient} flex items-center justify-center mb-6`}
-        >
+        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${domain.gradient} flex items-center justify-center mb-6`}>
           <domain.icon className="w-8 h-8 text-white" />
-        </motion.div>
+        </div>
 
         <motion.h3
           className="text-xl font-semibold mb-2 text-white group-hover:text-transparent bg-clip-text bg-gradient-to-r transition-all duration-300"
@@ -86,14 +81,9 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
         >
           {domain.title}
         </motion.h3>
-
-        <motion.p
-          initial={{ opacity: 0.7 }}
-          whileHover={{ opacity: 1 }}
-          className="text-white/70"
-        >
+        <p className="text-white/60">
           {domain.description}
-        </motion.p>
+        </p>
       </div>
     </motion.div>
   )
