@@ -166,12 +166,12 @@ export function Navbar() {
                       </Link>
                     </DrawerClose>
                     {session?.user ? (
-                      <DrawerClose asChild>
+                      <DrawerClose asChild className="text-center">
                         <div
-                          className="md:hidden bg-purple-500 hover:bg-purple-600 text-white rounded-full px-6 py-6 mt-2"
+                          className="md:hidden bg-purple-500 hover:bg-purple-600 text-white text-center rounded-full px-6 py-6 mt-2 flex justify-center items-center"
                           onClick={handleSignOut}
                         >
-                          <span className="relative z-10 flex gap-2">
+                          <span className="relative text-center z-10 flex gap-2">
                             <Image
                               src={session.user.image as string}
                               alt={session.user.name as string}
@@ -188,7 +188,7 @@ export function Navbar() {
                     ) : (
                       <DrawerClose asChild>
                         <div
-                          className="md:hidden bg-purple-500 hover:bg-purple-600 text-white rounded-full px-6 py-6 mt-2"
+                          className="md:hidden bg-purple-500 hover:bg-purple-600 text-center flex justify-center items-center text-white rounded-full px-6 py-4 mx-4 mt-2"
                           onClick={handleSignIn}
                         >
                           {loading && <Loader2 className="w-4 h-4 animate-spin" />}
