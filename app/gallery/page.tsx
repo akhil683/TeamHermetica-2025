@@ -53,11 +53,10 @@ const GalleryPage = () => {
         {filteredGallery.map(image => (
           <motion.div
             key={image}
-            className='aspect-video bg-gray-600/60 rounded-2xl'
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
+            className='aspect-[5/3] bg-gray-600/60 rounded-2xl'
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.5 }}
           >
             <Image
               src={image}
@@ -65,7 +64,7 @@ const GalleryPage = () => {
               width={500}
               height={500}
               priority
-              className='h-full rounded-xl hover:scale-105 duration-200'
+              className='h-full rounded-xl hover:scale-105 duration-300'
             />
           </motion.div>
         ))}

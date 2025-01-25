@@ -34,8 +34,7 @@ const HeroSection = () => {
 
       <motion.div
         initial={{ opacity: 0, y: 60, scale: 0.95 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: true }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="relative z-10 max-md:px-6"
       >
