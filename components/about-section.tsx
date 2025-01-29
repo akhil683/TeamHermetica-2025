@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Zap, Eye, Target } from "lucide-react";
+import { SpaceBackground } from "./SpaceBackground";
 
 const aboutCards = [
   {
@@ -64,7 +65,7 @@ function AboutCard({ card, index }: { card: typeof aboutCards[0]; index: number 
 
 export default function AboutSection() {
   return (
-    <section className="container mx-auto px-4 min-h-screen bg-gradient-to-b from-black via-indigo-600/30 to-black py-16 overflow-hidden">
+    <section className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-b from-black via-indigo-600/20 to-black">
       <motion.div
         className="text-center mb-12"
         initial={{ opacity: 0, y: 20 }}

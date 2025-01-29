@@ -7,6 +7,8 @@ import { motion, spring } from "framer-motion"
 import { useState } from "react"
 import { signIn, useSession } from "next-auth/react"
 import { useToast } from "@/hooks/use-toast"
+import StarToMoonAnimation from "../StartToMoon"
+import Particles from "./Particles"
 
 const HeroSection = () => {
   const { data: session } = useSession()
@@ -31,6 +33,7 @@ const HeroSection = () => {
   return (
     <main className="min-h-screen mx-auto py-12 pt-32 text-center relative overflow-hidden">
       <SpaceBackground />
+      <Particles />
 
       <motion.div
         initial={{ opacity: 0, y: 60, scale: 0.95 }}
