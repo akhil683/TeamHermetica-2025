@@ -9,6 +9,9 @@ import { signIn, useSession } from "next-auth/react"
 import { useToast } from "@/hooks/use-toast"
 import StarToMoonAnimation from "../StartToMoon"
 import Particles from "./Particles"
+import StarBackground from "./StarBackground"
+import { AnimatedCircle } from "./AnimatedCircle"
+import { AnimatedTitle } from "./AnimatedTitle"
 
 const HeroSection = () => {
   const { data: session } = useSession()
@@ -31,105 +34,31 @@ const HeroSection = () => {
   }
 
   return (
-    <main className="min-h-screen mx-auto py-12 pt-32 text-center relative overflow-hidden">
-      <SpaceBackground />
-      <Particles />
-
-      <motion.div
-        initial={{ opacity: 0, y: 60, scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative z-10 max-md:px-6"
-      >
-        <p className="text-xl md:text-4xl tracking-tight mb-6 leading-none text-white">
-          Team Hermetica
-        </p>
-        <h1 className="text-4xl md:text-7xl font-semibold text-purple-600 mb-12 text-transparent bg-gradient-to-b from-indigo-300 to-indigo-500 bg-clip-text">
-          We React to What Matters!
-        </h1>
-
-        {/* Description */}
-        <div className="md:hidden mb-16 max-w-3xl mx-auto text-center">
-          <p className="text-gray-300 text-lg">
-            Team Hermetica, established in 2014, represents the Department of Chemical Engineering in the annual tech-fest NIMBUS at National Institute of Technology, Hamirpur.
-          </p>
-        </div>
-
-        {/* Cards Section */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto relative">
-          {/* Card 1 */}
-          <div
-            className="max-md:hidden relative bg-purple-200 rounded-3xl p-8 transform transition-transform hover:scale-105 z-10 overflow-hidden"
+    <section className="relative h-screen bg-gradient-to-b from-black  overflow-hidden flex items-center">
+      <StarBackground />
+      <AnimatedCircle />
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-7xl mx-auto text-center space-y-12">
+          <AnimatedTitle />
+          <motion.p
+            className="text-xl text-gray-400 md:text-xl mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 1 }}
           >
-            <div className="absolute top-4 left-4 bg-black text-white text-sm font-bold px-3 py-1 rounded-full">
-              EST. 2014
-            </div>
-            <div className="h-full flex flex-col justify-between">
-              <Flask className="h-12 w-12 mb-4 animate-pulse" />
-              <div>
-                <span className="text-2xl font-bold mb-2">
-                  Chemical Engineering
-                </span>
-                <p className="text-gray-700">
-                  Department's Official Tech Team
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="bg-yellow-300 rounded-3xl p-8 flex flex-col items-center justify-center transform transition-transform hover:scale-105 overflow-hidden">
-            {session?.user ? (
-              <>
-                <p className="text-2xl font-bold mb-4">
-                  Welcome,
-                </p>
-                <Button
-                  className="bg-gradient-to-tr from-indigo-600 via-purple-700 to-indigo-600 text-white hover:bg-gray-800 text-2xl px-8 py-6 rounded-full group relative overflow-hidden"
-                >
-                  <span className="relative z-10">
-                    {session?.user?.name}
-                  </span>
-                  <div className="absolute inset-0 bg-black transform translate-y-full group-hover:translate-y-0 transition-transform" />
-                </Button>
-              </>
-            ) : (
-              <>
-                <p className="text-2xl font-bold mb-4">
-                  Join Our Team
-                </p>
-                <Button
-                  className="bg-black text-white hover:bg-gray-800 text-lg px-8 py-6 rounded-full group relative overflow-hidden"
-                  onClick={handleSignIn}
-                  disabled={loading}
-                >
-                  <span className="flex gap-2 items-center relative z-10">
-                    {loading && <Loader2 className="w-4 h-4 animate-spin" />}
-                    SIGN UP NOW
-                  </span>
-                  <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
-                </Button>
-              </>
-            )}
-          </div>
-
-          {/* Card 3 */}
-          <div className="max-md:hidden  bg-white rounded-3xl p-8 flex flex-col items-center justify-center transform transition-transform hover:scale-105 overflow-hidden">
-            <Award className="h-12 w-12 text-yellow-500 mb-4 animate-spin-slow" />
-            <p className="text-4xl font-bold mb-2"># 3</p>
-            <p className="text-gray-600">Best sustainable Development Team at Nimbus 2k24</p>
-            <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
-          </div>
-        </div>
-
-        {/* Description */}
-        <div className="max-md:hidden mt-16 max-w-3xl mx-auto text-center">
-          <p className="text-gray-300 text-lg">
             Team Hermetica, established in 2014, represents the Department of Chemical Engineering in the annual tech-fest NIMBUS at National Institute of Technology, Hamirpur.
-          </p>
+          </motion.p>
+          <motion.button
+            className="bg-indigo-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-indigo-700 transition-colors"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.5, duration: 1 }}
+          >
+            Sign Up
+          </motion.button>
         </div>
-      </motion.div>
-    </main >
+      </div>
+    </section>
 
   )
 }
