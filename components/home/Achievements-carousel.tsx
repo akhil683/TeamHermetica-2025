@@ -44,7 +44,7 @@ export function AchievementCarousel() {
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1)
-    }, 5000)
+    }, 4300)
     return () => clearInterval(timer)
   }, [])
 

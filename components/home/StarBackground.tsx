@@ -70,6 +70,6 @@ export default function StarBackground() {
     [controls],
   )
 
-  return <div className="absolute inset-0 opacity-60 overflow-hidden">{stars.map((star, index) => renderStar(star, index))}</div>
+  return <div className="absolute inset-0 opacity-50 overflow-hidden">{stars.map((star, index) => renderStar(star, index))}</div>
 }
 
