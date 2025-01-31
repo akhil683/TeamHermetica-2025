@@ -34,7 +34,7 @@ export const AnimatedCircle = () => {
 
       {/* Circle hide animation black */}
       <motion.div
-        className={`w-[200vw] bg-black aspect-square border-[3px] rounded-full absolute z-30 -left-[50vw] bottom-[calc(50%)] origin-bottom border-transparent`}
+        className={`max-md:hidden w-[200vw] bg-black aspect-square border-[3px] rounded-full absolute z-30 -left-[50vw] bottom-[calc(50%)] origin-bottom border-transparent`}
         initial={{ scaleY: 1.1, scaleX: 1.2, translateY: 200, opacity: 1 }}
         animate={{ scaleY: isMounted ? 1 : 1.2, scaleX: isMounted ? 1 : 1.2, translateY: -500, opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
@@ -64,7 +64,7 @@ export const AnimatedCircle = () => {
         }}
       >
         <motion.div
-          className="w-[40vw] aspect-square border-[3px] rounded-full absolute md:bottom-0 left-[calc(50%-20vw)] bg-gradient-to-b from-transparent via-transparent to-white origin-center"
+          className="w-[40vw] aspect-square border-[3px] rounded-full absolute max-md:mt-16 md:bottom-0 left-[calc(50%-20vw)] bg-gradient-to-b from-transparent via-transparent to-white origin-center"
           initial={{ scaleY: 3, scaleX: 3, translateY: 300 }}
           animate={{ scaleY: isMounted ? 0.9 : 3, scaleX: isMounted ? 0.9 : 3, translateY: 200 }}
           transition={{ duration: 2, ease: "easeInOut", delay: 0.1 }}
