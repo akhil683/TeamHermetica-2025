@@ -9,6 +9,7 @@ import { signIn, signOut, useSession } from "next-auth/react"
 import { useToast } from "@/hooks/use-toast"
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from "./ui/drawer"
 import { DialogTitle } from "@radix-ui/react-dialog"
+import { motion } from "framer-motion"
 
 
 
@@ -58,8 +59,12 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 flex justify-center p-4 z-50" >
-        <nav className="flex items-center justify-between px-3 md:px-8 py-2 bg-gray-800/80  text-black backdrop-blur-md rounded-full w-[95%]">
+      <motion.header
+        initial={{ translateY: -100, scaleX: 0.8, opacity: 40 }}
+        animate={{ translateY: 0, opacity: 100, scaleX: 1 }}
+        transition={{ duration: 1, delay: 1.5 }}
+        className="fixed top-0 left-0 right-0 flex justify-center py-4 px-4 md:px-20 z-50" >
+        <nav className="flex items-center justify-between px-3 md:px-8 py-2 bg-black/40  text-black backdrop-blur-md rounded-full w-[95%]">
           <Link href={"/"} className="flex items-center gap-2">
             <Image
               src={logo}
@@ -69,7 +74,7 @@ export function Navbar() {
               className="w-5 h-5 rounded-full"
             />
             <span className="text-lg md:text-xl font-bold text-white">
-              Team Hermetica
+              Hermetica
             </span>
           </Link>
           <div className="flex items-center gap-4">
@@ -202,7 +207,7 @@ export function Navbar() {
             </Drawer>
           </div>
         </nav>
-      </header >
+      </motion.header >
     </>
   )
 }

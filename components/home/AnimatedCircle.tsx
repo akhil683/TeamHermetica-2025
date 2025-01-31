@@ -15,8 +15,8 @@ export const AnimatedCircle = () => {
       {/* Black circle */}
       <motion.div
         className="w-[120vw] aspect-square border-[3px] rounded-full absolute z-10 -left-[10vw] bottom-[calc(50%)] origin-bottom border-transparent"
-        initial={{ scaleY: 1.2, scaleX: 1.2, translateY: 200 }}
-        animate={{ scaleY: isMounted ? 0.70 : 1.2, scaleX: isMounted ? 0.70 : 1.2, translateY: 180 }}
+        initial={{ scaleY: 1, scaleX: 1, translateY: 200, opacity: 0 }}
+        animate={{ scaleY: isMounted ? 0.68 : 1.2, scaleX: isMounted ? 0.68 : 1.2, translateY: 180, opacity: 80 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
         style={{
           borderColor: "#5D3FD3",

@@ -38,7 +38,7 @@ const HeroSection = () => {
       <StarBackground />
       <AnimatedCircle />
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-7xl mx-auto text-center space-y-12">
+        <div className="mx-auto text-center space-y-12">
           <AnimatedTitle />
           <motion.p
             className="text-xl text-gray-400 md:text-xl mb-8"
