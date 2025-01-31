@@ -75,9 +75,7 @@ export function Navbar() {
                 <Menu className="h-12 w-12" />
               </Button>
             </SheetTrigger>
-            <SheetContent side={"left"} style={{
-              background: "linear-gradient(0deg, #1A001F, #3E065F, #700B97, #8E05C2)"
-            }}>
+            <SheetContent side={"left"} className="bg-gradient-to-b from-indigo-950 to-indigo-700">
               <SheetTitle></SheetTitle>
               <div className="text-white my-4">
                 <div className="flex flex-col gap-4">
@@ -187,14 +185,13 @@ export function Navbar() {
               className="w-5 h-5 rounded-full"
             />
             <span className="text-lg md:text-xl font-bold text-white">
-              Hermetica
+              Team Hermetica
             </span>
           </Link>
           <div className="flex items-center gap-4">
           </div>
         </nav>
-        <nav className="flex items-center justify-between px-3 py-2 bg-black/40  text-black backdrop-blur-md rounded-full">
-
+        <nav className="max-md:hidden flex items-center justify-between px-3 py-2 bg-black/40  text-black backdrop-blur-md rounded-full">
           {session?.user ? (
             <Button
               className="max-md:hidden bg-indigo-700 text-white hover:bg-gray-800 px-6 md:py-5 py-3 rounded-full group relative overflow-hidden"

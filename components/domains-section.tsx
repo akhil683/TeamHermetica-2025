@@ -3,7 +3,6 @@
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion"
 import { Code, Film, Paintbrush, PenTool } from "lucide-react"
 import { MouseEvent } from "react"
-import { SpaceBackground } from "./SpaceBackground"
 
 const domains = [
   {
@@ -58,10 +57,10 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
       whileInView={{
         opacity: 1,
         y: 0,
-        transition: { duration: 0.28, delay: index * 0.05 }
+        transition: { duration: 0.3, delay: index * 0.1 }
       }}
       whileHover={{ scale: 1.05 }}
-      className="relative group px-4"
+      className="relative group"
     >
       <motion.div
         className="absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"
@@ -90,7 +89,7 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
 
 export default function DomainsSection() {
   return (
-    <section className="min-h-screen bg-gradient-to-b from-black via-indigo-600/20 to-black flex flex-col justify-center items-center">
+    <section className="container mx-auto px-4 relative z-10 min-h-screen flex flex-col justify-center items-center py-24 overflow-hidden bg-gradient-to-b from-black via-indigo-600/30 to-black">
       <motion.div
         className="text-center mb-16"
         initial={{ opacity: 0, y: -20 }}
@@ -110,4 +109,3 @@ export default function DomainsSection() {
     </section>
   )
 }
-

@@ -30,16 +30,16 @@ export const AnimatedTitle = () => {
           {loading ? (
             <motion.span
               key={index + 50}
-              className={`inline-block font-bold text-[1.7rem] tracking-[0.6em] md:tracking-[0.8em] md:text-[6rem] text-white text-center ${myFont.className}`}
+              className={`inline-block font-bold text-[1.7rem] tracking-[0.6em] md:text-[6rem] text-white text-center ${myFont.className}`}
               initial={{
                 y: 0, textShadow: '0 0 0px #ffffff',
               }}
               animate={{
-                y: [0, -20, 0], textShadow: ['0 0 10px rgba(255, 255, 255, 0.5)', '0 0 5px rgba(255, 255, 255, 0.3)']
+                y: [0, -10, 0], textShadow: ['0 0 10px rgba(255, 255, 255, 0.5)', '0 0 5px rgba(255, 255, 255, 0.3)']
               }}
               transition={{
                 duration: 2.5,
-                ease: "easeOut",
+                ease: "easeInOut",
                 repeatType: 'reverse',
                 repeat: 500,
                 delay: index / 5,

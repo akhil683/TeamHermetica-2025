@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Zap, Eye, Target } from "lucide-react";
-import { SpaceBackground } from "./SpaceBackground";
 
 const aboutCards = [
   {
@@ -49,11 +48,11 @@ function AboutCard({ card, index }: { card: typeof aboutCards[0]; index: number 
           <card.icon className="w-8 h-8 text-white" />
         </div>
 
-        <h3 className="text-xl font-bold mb-2 text-purple-300">{card.title}</h3>
+        <h3 className="text-xl font-bold mb-6 text-purple-300">{card.title}</h3>
 
         <div className="space-y-2">
           {card.description.map((paragraph, i) => (
-            <p key={i} className="text-gray-300 leading-relaxed">
+            <p key={i} className="text-gray-300 text-justify leading-relaxed">
               {paragraph}
             </p>
           ))}
