@@ -30,7 +30,8 @@ export default {
         'bounce-slow': 'bounce 3s infinite',
         'float': 'float 6s ease-in-out infinite',
         'appear': 'appear 0 ease-in-out',
-        'gradient-x': 'gradient-x 5s ease infinite'
+        'gradient-x': 'gradient-x 5s ease infinite',
+        "rotateCircle": 'rotate 4s ease infinite',
       },
       keyframes: {
         "gradient-x": {
@@ -42,6 +43,15 @@ export default {
             "background-size": "200% 200%",
             "background-position": "right center",
           },
+        },
+        "rotate": {
+          "0%": {
+            transform: "rotateZ(0deg)",
+          },
+
+          "100%": {
+            transform: "rotateZ(360deg)",
+          }
         },
         blob: {
           "0%": {

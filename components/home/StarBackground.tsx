@@ -5,7 +5,12 @@ import { motion, useAnimation } from "framer-motion"
 import useStars from "@/hooks/useStars"
 
 export default function StarBackground() {
-  const stars = useStars(50)
+  const [starNumber, setStarNumber] = useState(50)
+  useEffect(() => {
+    setStarNumber(window.innerWidth > 600 ? 50 : 20)
+  }, [])
+
+  const stars = useStars(starNumber)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const controls = useAnimation()
 
@@ -70,6 +75,9 @@ export default function StarBackground() {
     [controls],
   )
 
-  return <div className="absolute inset-0 opacity-40 overflow-hidden">{stars.map((star, index) => renderStar(star, index))}</div>
+  return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 0.3 }} className="absolute inset-0 opacity-40 overflow-hidden">
+
+    {stars.map((star, index) => renderStar(star, index))}
+  </motion.div>
 }
 

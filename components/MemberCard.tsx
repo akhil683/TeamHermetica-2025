@@ -20,7 +20,7 @@ const MemberCard = ({ member }: { member: MemberType }) => {
         scale: 1
       }}
       whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.45, delay: 0.15 }}
+      transition={{ duration: 0.4 }}
     >
       <Card className="relative overflow-hidden rounded-3xl bg-[#f3e5ff]/10 border-none aspect-[3/4] max-sm:w-full max-h-[500px]">
         {/* Member Image */}

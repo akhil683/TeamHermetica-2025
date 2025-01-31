@@ -61,7 +61,7 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
         transition: { duration: 0.28, delay: index * 0.05 }
       }}
       whileHover={{ scale: 1.05 }}
-      className="relative group"
+      className="relative group px-4"
     >
       <motion.div
         className="absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"
