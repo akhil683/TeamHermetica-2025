@@ -1,166 +1,168 @@
-"use client"
-import { useState } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/Button"
-import { FlaskRoundIcon as Flask, Instagram, Linkedin, Loader2, LogOut, Menu, Youtube } from "lucide-react"
-import Image from "next/image"
-import logo from "../public/hermetica-logo.jpg"
-import { signIn, signOut, useSession } from "next-auth/react"
-import { useToast } from "@/hooks/use-toast"
-import { motion } from "framer-motion"
-import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet"
-
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
+import { FlaskRoundIcon as Flask, Instagram, Linkedin, Loader2, LogOut, Menu, Plus, Youtube } from "lucide-react";
+import Image from "next/image";
+import logo from "../public/hermetica-logo.jpg";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
 
 export function Navbar() {
-
-  const { data: session } = useSession()
-
-  const [loading, setLoading] = useState(false)
-  const [logoutLoading, setLogoutLoading] = useState(false)
-
-  const { toast } = useToast()
+  const { data: session } = useSession();
+  const [loading, setLoading] = useState(false);
+  const [logoutLoading, setLogoutLoading] = useState(false);
+  const { toast } = useToast();
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSignIn = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
-      await signIn("google")
+      await signIn("google");
     } catch (SignInError) {
-      console.log("Error during signin: ", SignInError)
+      console.log("Error during signin: ", SignInError);
       toast({
         title: "Error !",
-        description: "Failed to signin."
-      })
+        description: "Failed to signin.",
+      });
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   const handleSignOut = async () => {
-    setLogoutLoading(true)
+    setLogoutLoading(true);
     try {
-      await signOut()
+      await signOut();
       toast({
         title: "Logout Success !",
-        description: "You are logged out successfully"
-      })
-
+        description: "You are logged out successfully",
+      });
     } catch (SignOutError) {
-      console.log("Error during signout: ", SignOutError)
+      console.log("Error during signout: ", SignOutError);
       toast({
         title: "Error !",
-        description: "Unexpected error during signout."
-      })
+        description: "Unexpected error during signout.",
+      });
     } finally {
-      setLogoutLoading(false)
+      setLogoutLoading(false);
     }
-  }
+  };
 
   const socialLinks = [
     { icon: Instagram, href: "#", label: "Instagram" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" }
-  ]
+    { icon: Youtube, href: "#", label: "YouTube" },
+  ];
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const links = [
+    { link: "/", name: "Home" },
+    { link: "/projects", name: "Projects" },
+    { link: "/events", name: "Events" },
+    { link: "/guest-lectures", name: "Guest Lectures" },
+    { link: "/members", name: "Members" },
+    { link: "/about-us", name: "About Us" },
+  ];
+
+  const lineVariants = {
+    closed: { rotate: 0, y: 0 },
+    open: { rotate: 45, y: 8 },
+  };
+
+  const line2Variants = {
+    closed: { rotate: 0, y: 0 },
+    open: { rotate: -45, y: -8 },
+  };
 
   return (
     <>
+      <motion.div
+        initial={{ translateX: "-300px" }}
+        animate={{ translateX: isOpen ? "0px" : "-300px" }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="inset-y-0 left-0 h-screen w-[300px] bg-indigo-600/30 backdrop-blur-2xl fixed z-50 gap-4 p-6 shadow-lg"
+      >
+        <div className="h-full flex flex-col gap-10 justify-center items-center text-white">
+          {links.map((link, index) => (
+            <motion.div
+              key={link.link}
+              initial={{ x: -30, opacity: 0 }}
+              animate={{ x: isOpen ? 0 : -30, opacity: isOpen ? 1 : 0 }}
+              transition={{ ease: "easeIn", delay: 0.4 + index * 0.1 }}
+              className="group"
+            >
+              <Link
+                href={link.link}
+                className="text-lg hover:border-b-2 group-hover:border-b-indigo-600 border-transparent font-medium group-hover:text-purple-400 transition-colors text-center py-[3px] duration-300"
+              >
+                {link.name}
+              </Link>
+            </motion.div>
+          ))}
+          <div className="flex gap-8 mt-6">
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                aria-label={social.label}
+                className="w-10 h-10 rounded-full group font-bold flex items-center justify-center hover:scale-110 duration-300"
+              >
+                <social.icon className="w-10 h-10 group-hover:text-indigo-600 duration-300 text-white" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
       <motion.header
         initial={{ translateY: -100, scaleX: 0.8, opacity: 40 }}
         animate={{ translateY: 0, opacity: 100, scaleX: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="fixed top-0 left-0 right-0 flex justify-center gap-2 py-4 px-4 md:px-20 z-50" >
-        <nav className="flex items-center justify-between md:px-3 px-1 md:py-2 bg-black/40  text-black backdrop-blur-md rounded-full">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button aria-label="mobile-menu" variant="ghost" className="bg-indigo-700 rounded-full text-white hover:text-white hover:bg-purple-600">
-                <Menu className="h-12 w-12" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side={"left"} className="bg-gradient-to-b from-indigo-950 to-indigo-800 border-none">
-              <SheetTitle></SheetTitle>
-              <div className="text-white my-4">
-                <div className="flex flex-col gap-4">
-                  <SheetClose asChild>
-                    <Link
-                      href="/projects"
-                      className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
-                    >
-                      Projects
-                    </Link>
-                  </SheetClose>
-                  <SheetClose asChild>
-                    <Link
-                      href="/events"
-                      className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
-                    >
-                      Events
-                    </Link>
-                  </SheetClose>
-                  <SheetClose asChild>
-                    <Link
-                      href="/guest-lectures"
-                      className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
-                    >
-                      Guest Lectures
-                    </Link>
-                  </SheetClose>
-                  <SheetClose asChild>
-                    <Link
-                      href="/members"
-                      className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
-                    >
-                      Members
-                    </Link>
-                  </SheetClose>
-                  <SheetClose asChild>
-                    <Link
-                      href="/gallery"
-                      className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
-                    >
-                      Gallery
-                    </Link>
-                  </SheetClose>
-                  <SheetClose asChild>
-                    <Link
-                      href="/about"
-                      className="text-lg font-medium hover:text-purple-400 transition-colors text-center py-3"
-                    >
-                      About Us
-                    </Link>
-                  </SheetClose>
-                </div>
-              </div>
-              <div className="flex justify-center items-center mt-8 gap-4">
-                {socialLinks.map((social, _) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center hover:bg-purple-600 transition-colors hover:scale-110 duration-200"
-                  >
-                    <social.icon className="w-5 h-5 text-white" />
-                  </a>
-                ))}
-              </div>
-            </SheetContent>
-          </Sheet>
-        </nav>
-        <nav className="flex items-center justify-between px-3 md:px-8 py-2 bg-black/40  text-black backdrop-blur-md rounded-full w-[95%]">
-          <Link href={"/"} className="flex items-center gap-2">
-            <Image
-              src={logo}
-              alt="Hermetica Logo"
-              width={100}
-              height={100}
-              className="w-5 h-5 rounded-full"
+        className="fixed top-0 left-0 right-0 flex justify-between gap-2 z-50 py-2 px-4"
+      >
+        <nav className="flex items-center justify-between md:px-3 px-1 md:py-2 bg-black/40 text-black backdrop-blur-md rounded-full">
+          <button
+            onClick={toggleNavbar}
+            className="z-[1000] bg- relative w-10 h-10 focus:outline-none bg-indigo-600 rounded-full"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
+            <motion.div
+              className="absolute w-6 h-[2.5px] bg-white left-2 top-3 rounded-full"
+              initial="closed"
+              animate={isOpen ? "open" : "closed"}
+              variants={lineVariants}
+              transition={{ duration: 0.3 }}
             />
-            <span className="text-lg md:text-xl font-bold text-white">
-              Team Hermetica
-            </span>
-          </Link>
-          <div className="flex items-center gap-4">
-          </div>
+            <motion.div
+              className="absolute w-8 h-[2.5px] bg-white left-1 rounded-full top-[18.7px]"
+              initial="closed"
+              animate={{ opacity: isOpen ? 0 : 1 }}
+              transition={{ duration: 0.3 }}
+            />
+            <motion.div
+              className="absolute w-6 h-[2.5px] bg-white left-2 bottom-3 rounded-full"
+              initial="closed"
+              animate={isOpen ? "open" : "closed"}
+              variants={line2Variants}
+              transition={{ duration: 0.3 }}
+            />
+          </button>
         </nav>
-        <nav className="flex items-center justify-between px-1 md:px-3 md:py-2 bg-black/40  text-black backdrop-blur-md rounded-full">
+
+        <nav className="flex items-center justify-between px-3 md:px-8 py-2 bg-black/40 text-black backdrop-blur-md rounded-full">
+          <Link href={"/"} className="flex items-center gap-2">
+            <Image src={logo} alt="Hermetica Logo" width={100} height={100} className="w-5 h-5 rounded-full" />
+            <span className="text-lg md:text-xl font-bold text-white">Team Hermetica</span>
+          </Link>
+        </nav>
+
+        <nav className="flex items-center justify-between px-1 md:px-3 md:py-2 bg-black/40 text-black backdrop-blur-md rounded-full">
           {session?.user ? (
             <Button
               className="bg-indigo-700 text-white hover:bg-gray-800 px-6 md:py-5 py-3 rounded-full group relative overflow-hidden"
@@ -175,7 +177,6 @@ export function Navbar() {
                   height={100}
                   className="w-5 h-5 rounded-full"
                 />
-                {/* LOG OUT */}
                 <LogOut className="h-4 w-4" />
               </span>
               <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
@@ -192,11 +193,9 @@ export function Navbar() {
               </span>
               <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
             </Button>
-
           )}
         </nav>
-      </motion.header >
+      </motion.header>
     </>
-  )
+  );
 }
-

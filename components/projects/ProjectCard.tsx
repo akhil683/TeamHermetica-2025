@@ -38,7 +38,7 @@ const ProjectCard = ({ project }: any) => {
                 />
                 <span className="text-gray-500 text-sm">
                   {/* ({project.reviews}) */}
-                  (1)
+                  (0)
                 </span>
               </div>
               <h3 className="text-gray-300 text-lg font-medium line-clamp-2 group-hover:text-purple-600 transition-colors">
@@ -52,7 +52,7 @@ const ProjectCard = ({ project }: any) => {
         ) : (
           <button>
             {/* Project Image */}
-            <div className="aspect-[4/3] overflow-hidden">
+            <div className="aspect-[4/3] overflow-hidden w-full bg-red-500">
               <Image
                 src={project.image}
                 alt={project.name}
@@ -61,7 +61,6 @@ const ProjectCard = ({ project }: any) => {
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-
             {/* Project Info */}
             <div className="p-4">
               <div className="flex items-center gap-2 mb-2">
@@ -71,10 +70,10 @@ const ProjectCard = ({ project }: any) => {
                 />
                 <span className="text-gray-500 text-sm">
                   {/* ({project.reviews}) */}
-                  (1)
+                  (0)
                 </span>
               </div>
-              <h3 className="text-gray-300 text-lg font-medium line-clamp-2 group-hover:text-purple-600 transition-colors">
+              <h3 className="text-gray-300 text-start text-lg font-medium line-clamp-2 group-hover:text-purple-600 transition-colors">
                 {project?.name}
               </h3>
             </div>

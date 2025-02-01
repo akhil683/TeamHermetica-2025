@@ -21,7 +21,8 @@ const Review = ({ projectId }: { projectId: string | null }) => {
     if (!review || !projectId) {
       toast({
         title: "Review is Required !",
-        description: "Kindly fill the form."
+        description: "Kindly fill the form.",
+        variant: "destructive"
       })
       setLoading(false)
       return
@@ -29,7 +30,8 @@ const Review = ({ projectId }: { projectId: string | null }) => {
     if (!session || !session.user?.email?.includes("@nith.ac.in")) {
       toast({
         title: "Un-Authorized !",
-        description: "Please login with nith email to give reviews"
+        description: "Please login with nith email to give reviews",
+        variant: "destructive"
       })
       setLoading(false)
       return
@@ -46,7 +48,8 @@ const Review = ({ projectId }: { projectId: string | null }) => {
       } else {
         toast({
           title: "Error !",
-          description: "Unexpected error occured."
+          description: "Unexpected error occured.",
+          variant: "destructive"
         })
       }
     } catch (error) {

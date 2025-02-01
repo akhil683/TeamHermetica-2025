@@ -15,34 +15,39 @@ const GalleryPage = () => {
 
       {/* Filter Section */}
       <div className="container mx-auto px-2 md:px-4 mt-24">
-        <div className='max-md:text-sm relative flex items-center flex-wrap gap-2 md:gap-4 my-6'>
+        <div className='max-md:text-xs relative flex items-center flex-wrap gap-2 md:gap-4 my-6'>
           <Button
+            size={"sm"}
             onClick={() => setFilteredGallery(hermeticaGallery.previous_nimbus)}
-            className='max-md:text-xs bg-gradient-to-b from-indigo-400 duration-300 hover:from-indigo-600 to-indigo-700 rounded-full'
+            className='bg-gradient-to-b from-indigo-400 duration-300 hover:from-indigo-600 to-indigo-700 rounded-full'
           >
             Nimbus 2k24
           </Button>
           <Button
+            size={"sm"}
             onClick={() => setFilteredGallery(hermeticaGallery.pre_nimbus)}
-            className='max-md:text-xs bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
+            className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
           >
             Pre-Nimbus
           </Button>
           <Button
+            size={"sm"}
             onClick={() => setFilteredGallery(hermeticaGallery.hermetica_day)}
-            className='max-md:text-xs bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
+            className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
           >
             Hermetica Day
           </Button>
           <Button
+            size={"sm"}
             onClick={() => setFilteredGallery(hermeticaGallery.workshops)}
-            className='max-md:text-xs bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
+            className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
           >
             Workshops
           </Button>
           <Button
+            size={"sm"}
             onClick={() => setFilteredGallery(hermeticaGallery.awareness)}
-            className='max-md:text-xs bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
+            className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
           >
             Awareness
           </Button>

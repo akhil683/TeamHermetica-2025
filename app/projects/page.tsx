@@ -6,7 +6,6 @@ import ProjectSection from './projectSection'
 
 const ProjectPage = async () => {
   const projects = await db.select().from(projectsTable)
-  console.log(projects)
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden animate-appear">

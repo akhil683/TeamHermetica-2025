@@ -4,12 +4,6 @@ export interface EventsType {
 
 export const Events = [
   {
-    id: 1,
-    name: "Air Canon",
-    image: "https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/events%2Fasdkf.jpeg?alt=media&token=c0d6e7a4-5b12-43f7-8f3f-729b4ab5aa17",
-    year: "2024",
-  },
-  {
     id: 2,
     name: "Kinetic League",
     image: "https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/events%2Ftarget-hit-center-arrows-vector-icon-illustration-79062034%20(1).jpg?alt=media&token=e31ecdd9-5d99-4dc6-8ff3-042e291cf870",

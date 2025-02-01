@@ -6,6 +6,10 @@ import { Button } from "./ui/Button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import Link from "next/link"
+import { FormEvent, useState } from "react"
+import { useToast } from "@/hooks/use-toast"
+import { title } from "process"
+import { Description } from "@radix-ui/react-toast"
 
 const socialLinks = [
   { icon: Instagram, href: "#", label: "Instagram" },
@@ -41,6 +45,32 @@ const workLinks = [
 ]
 
 export default function Footer() {
+  const [name, setName] = useState("")
+  const [suggestion, setSuggestion] = useState("")
+  const { toast } = useToast()
+
+  const onSubmitHandler = async (e: FormEvent) => {
+    e.preventDefault()
+
+    if (!name && !suggestion) {
+      toast({
+        title: "All Fields Required",
+        description: "Please provide all the information !",
+        variant: "destructive"
+      })
+      return
+    }
+    const formData = {
+      name,
+      suggestion
+    }
+    toast({
+      title: "Send Successfully",
+      description: "We have received your suggestion !"
+    })
+
+  }
+
   return (
     <footer className="relative overflow-hidden bg-gradient-to-br from-black via-indigo-900/30 bg-opacity-30 to-black">
       {/* Content */}
@@ -120,6 +150,7 @@ export default function Footer() {
               Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Us</span>
             </motion.h2>
             <motion.form
+              onSubmit={onSubmitHandler}
               className="space-y-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -129,15 +160,12 @@ export default function Footer() {
               <Input
                 type="text"
                 placeholder="Your Name"
-                className="bg-white border-gray-300 text-gray-800 placeholder:text-gray-500"
-              />
-              <Input
-                type="email"
-                placeholder="Email Address"
+                onChange={(e) => setName(e.target.value)}
                 className="bg-white border-gray-300 text-gray-800 placeholder:text-gray-500"
               />
               <Textarea
                 placeholder="Suggestions"
+                onChange={(e) => setSuggestion(e.target.value)}
                 className="bg-white border-gray-300 text-gray-800 placeholder:text-gray-500 min-h-[100px]"
               />
               <Button
