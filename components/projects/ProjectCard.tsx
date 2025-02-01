@@ -19,12 +19,12 @@ const ProjectCard = ({ project }: any) => {
 
           <Link href={`/projects/${project?.projectId}`}>
             {/* Project Image */}
-            <div className="aspect-[4/3] overflow-hidden">
+            <div className="aspect-[4/3] overflow-hidden w-full">
               <Image
                 src={project.image}
                 alt={project.name}
-                width={400}
-                height={400}
+                width={600}
+                height={600}
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>

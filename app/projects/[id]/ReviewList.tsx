@@ -2,7 +2,6 @@ import { Card } from '@/components/ui/card'
 import { db } from '@/lib/db/db'
 import { reviewTable } from '@/lib/db/schema'
 import { eq } from 'drizzle-orm'
-import { Star } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 

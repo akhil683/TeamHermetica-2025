@@ -39,17 +39,20 @@ const HeroSection = () => {
                 animate={{ opacity: 1, translateY: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
                 className="flex justify-center items-center text-xl">
-                <button className=" rounded-xl text-white py-2 px-6 flex flex-col justify-center items-center gap-2">
+                <button className="rounded-xl text-white py-2 px-6 flex flex-col justify-center items-center gap-2 group">
                   Welcome,{""}
-                  <div className="px-6 font-semibold py-2 flex justify-center items-center gap-2 rounded-full bg-gradient-to-r from-purple-500 via-indigo-400 to-pink-400">
+                  <div className="relative px-6 font-semibold py-2 flex justify-center items-center gap-2 rounded-full bg-gradient-to-r from-purple-500 via-indigo-400 to-pink-400 overflow-hidden">
                     <Image
                       src={session?.user?.image as string}
                       width={200}
                       height={200}
                       alt="Profile Image"
-                      className="rounded-full w-6 h-6"
+                      className="rounded-full w-6 h-6 z-20"
                     />
-                    {session?.user?.name}
+                    <p className="z-20">
+                      {session?.user?.name}
+                    </p>
+                    <div className="absolute inset-0 bg-indigo-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
                   </div>
                 </button>
               </motion.div>

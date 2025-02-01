@@ -64,7 +64,7 @@ export const AnimatedCircle = () => {
         }}
       >
         <motion.div
-          className="w-[40vw] aspect-square border-[3px] rounded-full absolute max-md:mt-16 md:bottom-0 left-[calc(50%-20vw)] bg-gradient-to-b from-transparent via-transparent to-white origin-center"
+          className="max-md:hidden w-[40vw] aspect-square border-[3px] rounded-full absolute max-md:mt-16 md:bottom-0 left-[calc(50%-20vw)] bg-gradient-to-b from-transparent via-transparent to-white origin-center"
           initial={{ scaleY: 3, scaleX: 3, translateY: 300 }}
           animate={{ scaleY: isMounted ? 0.9 : 3, scaleX: isMounted ? 0.9 : 3, translateY: 200 }}
           transition={{ duration: 2, ease: "easeInOut", delay: 0.1 }}

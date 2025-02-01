@@ -68,14 +68,14 @@ export function Navbar() {
         animate={{ translateY: 0, opacity: 100, scaleX: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
         className="fixed top-0 left-0 right-0 flex justify-center gap-2 py-4 px-4 md:px-20 z-50" >
-        <nav className="flex items-center justify-between px-3 py-2 bg-black/40  text-black backdrop-blur-md rounded-full">
+        <nav className="flex items-center justify-between md:px-3 px-1 md:py-2 bg-black/40  text-black backdrop-blur-md rounded-full">
           <Sheet>
             <SheetTrigger asChild>
               <Button aria-label="mobile-menu" variant="ghost" className="bg-indigo-700 rounded-full text-white hover:text-white hover:bg-purple-600">
                 <Menu className="h-12 w-12" />
               </Button>
             </SheetTrigger>
-            <SheetContent side={"left"} className="bg-gradient-to-b from-indigo-950 to-indigo-700">
+            <SheetContent side={"left"} className="bg-gradient-to-b from-indigo-950 to-indigo-800 border-none">
               <SheetTitle></SheetTitle>
               <div className="text-white my-4">
                 <div className="flex flex-col gap-4">
@@ -127,40 +127,9 @@ export function Navbar() {
                       About Us
                     </Link>
                   </SheetClose>
-                  {session?.user ? (
-                    <SheetClose asChild className="text-center">
-                      <div
-                        className="md:hidden bg-purple-500 hover:bg-purple-600 text-white text-center rounded-full px-6 py-6 mt-2 flex justify-center items-center"
-                        onClick={handleSignOut}
-                      >
-                        <span className="relative text-center z-10 flex gap-2">
-                          <Image
-                            src={session.user.image as string}
-                            alt={session.user.name as string}
-                            width={100}
-                            height={100}
-                            className="w-5 h-5 rounded-full"
-                          />
-                          LOG OUT
-                          <LogOut className="h-4 w-4" />
-                        </span>
-                        <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
-                      </div>
-                    </SheetClose>
-                  ) : (
-                    <SheetClose asChild>
-                      <div
-                        className="md:hidden bg-purple-500 hover:bg-purple-600 text-center flex justify-center items-center text-white rounded-full px-6 py-4 mx-4 mt-2"
-                        onClick={handleSignIn}
-                      >
-                        {loading && <Loader2 className="w-4 h-4 animate-spin" />}
-                        Sign In
-                      </div>
-                    </SheetClose>
-                  )}
                 </div>
               </div>
-              <div className="flex justify-center items-center gap-4">
+              <div className="flex justify-center items-center mt-8 gap-4">
                 {socialLinks.map((social, _) => (
                   <a
                     key={social.label}
@@ -191,10 +160,10 @@ export function Navbar() {
           <div className="flex items-center gap-4">
           </div>
         </nav>
-        <nav className="max-md:hidden flex items-center justify-between px-3 py-2 bg-black/40  text-black backdrop-blur-md rounded-full">
+        <nav className="flex items-center justify-between px-1 md:px-3 md:py-2 bg-black/40  text-black backdrop-blur-md rounded-full">
           {session?.user ? (
             <Button
-              className="max-md:hidden bg-indigo-700 text-white hover:bg-gray-800 px-6 md:py-5 py-3 rounded-full group relative overflow-hidden"
+              className="bg-indigo-700 text-white hover:bg-gray-800 px-6 md:py-5 py-3 rounded-full group relative overflow-hidden"
               onClick={handleSignOut}
               disabled={logoutLoading}
             >
@@ -213,7 +182,7 @@ export function Navbar() {
             </Button>
           ) : (
             <Button
-              className="max-md:hidden bg-indigo-700 text-white hover:bg-gray-800 px-6 md:py-5 py-3 rounded-full group relative overflow-hidden"
+              className="bg-indigo-600 text-white hover:bg-gray-800 px-4 md:px-6 md:py-5 py-3 rounded-full group relative overflow-hidden"
               disabled={loading}
               onClick={handleSignIn}
             >
