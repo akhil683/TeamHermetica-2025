@@ -13,6 +13,7 @@ import imageLogo from "../public/achievement.jpg"
 import { Button } from './ui/Button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
+import { useDotButton } from './CarouselDot'
 
 const TWEEN_FACTOR_BASE = 0.2
 
@@ -61,6 +62,8 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   const tweenFactor = useRef(0)
   const tweenNodes = useRef<HTMLElement[]>([])
 
+  const { selectedIndex, scrollSnaps, onDotButtonClick } =
+    useDotButton(emblaApi)
 
   const {
     onPrevButtonClick,
@@ -141,13 +144,13 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
               <div className="embla__parallax">
                 <div className="embla__parallax__layer">
                   <Image
-                    className="embla__parallax__img max-h-[450px]"
+                    className={`embla__parallax__img duration-500 max-h-[450px] ${selectedIndex === index ? "opacity-100" : "opacity-30"}`}
                     src={imageLogo}
                     alt="Your alt text"
                   />
                 </div>
               </div>
-              <div className='p-4 mt-4 bg-gradient-to-r from-black/40 to-indigo-900/40 duration-500 border border-gray-700 rounded-3xl'>
+              <div className={`p-4 mt-4 bg-gradient-to-r from-black/40 to-indigo-900/40 duration-500 border border-gray-700 rounded-3xl  ${selectedIndex === index ? "opacity-100" : "opacity-30"}`}>
                 <h2 className='text-3xl bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-400 font-bold inline-block text-transparent bg-clip-text'>2K24</h2>
                 <p className='text-white text-2xl mt-2'>Best Departmental Team </p>
               </div>

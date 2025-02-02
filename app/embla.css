@@ -135,3 +135,7 @@
   flex: 0 0 calc(115% + (var(--slide-spacing) * 3));
   object-fit: cover;
 }
+
+.embla__slide {
+  transition: opacity 0.2s ease-in-out;
+}
