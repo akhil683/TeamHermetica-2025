@@ -1,0 +1,183 @@
+"use client"
+import React, { useCallback, useEffect, useRef } from 'react'
+import {
+  EmblaCarouselType,
+  EmblaEventType,
+  EmblaOptionsType
+} from 'embla-carousel'
+import useEmblaCarousel from 'embla-carousel-react'
+import {
+  usePrevNextButtons
+} from './CarouselButton'
+import imageLogo from "../public/achievement.jpg"
+import { Button } from './ui/Button'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
+
+const TWEEN_FACTOR_BASE = 0.2
+
+type PropType = {
+  slides?: number[]
+  options?: EmblaOptionsType
+}
+
+const slides = [
+  {
+    id: 1,
+    year: "Nimbus 2k24",
+    title: "Best Sustainable Team in Nimbus"
+  },
+  {
+    id: 2,
+    year: "Nimbus 2k23",
+    title: "Best Event Execution Team"
+  },
+  {
+    id: 3,
+    year: "Nimbus 2k21",
+    title: "Best Management Team"
+  },
+  {
+    id: 4,
+    year: "Nimbus 2k18",
+    title: "Best Innovative Team"
+  },
+  {
+    id: 5,
+    year: "Nimbus 2k17",
+    title: "Best Events in Nimbus"
+  },
+
+  {
+    id: 6,
+    year: "Nimbus 2k16",
+    title: "Best Innovative Team"
+  },
+]
+
+const EmblaCarousel: React.FC<PropType> = (props) => {
+  const { options } = props
+  const [emblaRef, emblaApi] = useEmblaCarousel(options)
+  const tweenFactor = useRef(0)
+  const tweenNodes = useRef<HTMLElement[]>([])
+
+
+  const {
+    onPrevButtonClick,
+    onNextButtonClick
+  } = usePrevNextButtons(emblaApi)
+
+  const setTweenNodes = useCallback((emblaApi: EmblaCarouselType): void => {
+    tweenNodes.current = emblaApi.slideNodes().map((slideNode) => {
+      return slideNode.querySelector('.embla__parallax__layer') as HTMLElement
+    })
+  }, [])
+
+  const setTweenFactor = useCallback((emblaApi: EmblaCarouselType) => {
+    tweenFactor.current = TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length
+  }, [])
+
+  const tweenParallax = useCallback(
+    (emblaApi: EmblaCarouselType, eventName?: EmblaEventType) => {
+      const engine = emblaApi.internalEngine()
+      const scrollProgress = emblaApi.scrollProgress()
+      const slidesInView = emblaApi.slidesInView()
+      const isScrollEvent = eventName === 'scroll'
+
+      emblaApi.scrollSnapList().forEach((scrollSnap, snapIndex) => {
+        let diffToTarget = scrollSnap - scrollProgress
+        const slidesInSnap = engine.slideRegistry[snapIndex]
+
+        slidesInSnap.forEach((slideIndex) => {
+          if (isScrollEvent && !slidesInView.includes(slideIndex)) return
+
+          if (engine.options.loop) {
+            engine.slideLooper.loopPoints.forEach((loopItem) => {
+              const target = loopItem.target()
+
+              if (slideIndex === loopItem.index && target !== 0) {
+                const sign = Math.sign(target)
+
+                if (sign === -1) {
+                  diffToTarget = scrollSnap - (1 + scrollProgress)
+                }
+                if (sign === 1) {
+                  diffToTarget = scrollSnap + (1 - scrollProgress)
+                }
+              }
+            })
+          }
+
+          const translate = diffToTarget * (-1 * tweenFactor.current) * 100
+          const tweenNode = tweenNodes.current[slideIndex]
+          tweenNode.style.transform = `translateX(${translate}%)`
+        })
+      })
+    },
+    []
+  )
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    setTweenNodes(emblaApi)
+    setTweenFactor(emblaApi)
+    tweenParallax(emblaApi)
+
+    emblaApi
+      .on('reInit', setTweenNodes)
+      .on('reInit', setTweenFactor)
+      .on('reInit', tweenParallax)
+      .on('scroll', tweenParallax)
+      .on('slideFocus', tweenParallax)
+  }, [emblaApi, tweenParallax])
+
+  return (
+    <div className="relative embla max-w-6xl">
+      <div className="embla__viewport" ref={emblaRef}>
+        <div className="embla__container">
+          {slides.map((slide, index) => (
+            <div className="embla__slide" key={index}>
+              <div className="embla__parallax">
+                <div className="embla__parallax__layer">
+                  <Image
+                    className="embla__parallax__img max-h-[450px]"
+                    src={imageLogo}
+                    alt="Your alt text"
+                  />
+                </div>
+              </div>
+              <div className='p-4 mt-4 bg-gradient-to-r from-black/40 to-indigo-900/40 duration-500 border border-gray-700 rounded-3xl'>
+                <h2 className='text-3xl bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-400 font-bold inline-block text-transparent bg-clip-text'>2K24</h2>
+                <p className='text-white text-2xl mt-2'>Best Departmental Team </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="embla__controls bg-green-500">
+        <Button
+          onClick={onPrevButtonClick}
+          className="absolute left-4 md:left-8 top-[50%] z-20 bg-yellow-600 hover:bg-purple-500 rounded-full p-2"
+          aria-label='Left Item'
+          size="icon"
+          variant="ghost"
+        >
+          <ChevronLeft className="h-6 w-6 text-white" />
+        </Button>
+        <Button
+          onClick={onNextButtonClick}
+          className="absolute right-4 md:right-8 z-20 top-[50%] hover:bg-purple-500 bg-yellow-600 rounded-full p-2"
+          aria-label={"Right Item"}
+          size="icon"
+          variant="ghost"
+        >
+          <ChevronRight className="h-6 w-6 text-white" />
+        </Button>
+      </div>
+    </div>
+  )
+}
+
+export default EmblaCarousel

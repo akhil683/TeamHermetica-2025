@@ -185,7 +185,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="mb-2">A Chemical Engineering Club</p>
+          <p className="mb-2">Made with ❤️  by <span className="text-indigo-500 font-bold hover:text-indigo-300 duration-300">Team Hermetica</span></p>
           <p>Copyright © 2024, All Rights Reserved</p>
         </motion.div>
       </div>

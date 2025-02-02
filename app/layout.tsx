@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
 
 import "./globals.css";
+import "./embla.css"
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],

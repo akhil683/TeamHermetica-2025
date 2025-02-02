@@ -6,6 +6,7 @@ import AboutSection from "@/components/about-section"
 import ClubCoordinator from "@/components/home/ClubCoordinator"
 import HeroSection from "@/components/home/Hero"
 import StarToMoonAnimation from "@/components/StartToMoon"
+import EmblaCarousel from "@/components/Carousel"
 
 
 export default function LandingPage() {

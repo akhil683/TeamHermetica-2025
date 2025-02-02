@@ -65,8 +65,9 @@ export function Navbar() {
     { link: "/", name: "Home" },
     { link: "/projects", name: "Projects" },
     { link: "/events", name: "Events" },
+    { link: "/members", name: "Team" },
+    { link: "/gallery", name: "Gallery" },
     { link: "/guest-lectures", name: "Guest Lectures" },
-    { link: "/members", name: "Members" },
     { link: "/about-us", name: "About Us" },
   ];
 
@@ -126,7 +127,7 @@ export function Navbar() {
         transition={{ duration: 1, delay: 0.5 }}
         className="fixed top-0 left-0 right-0 flex justify-between gap-2 z-50 py-2 px-4"
       >
-        <nav className="flex items-center justify-between md:px-3 px-1 md:py-2 bg-black/40 text-black backdrop-blur-md rounded-full">
+        <nav className="flex items-center justify-between md:px-3 px-1 md:py-2 text-black backdrop-blur-md rounded-full">
           <button
             onClick={toggleNavbar}
             className="z-[1000] bg- relative w-10 h-10 focus:outline-none bg-indigo-600 rounded-full"
