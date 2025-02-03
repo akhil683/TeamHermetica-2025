@@ -52,9 +52,9 @@ export function Navbar() {
   };
 
   const socialLinks = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: Instagram, href: "https://instagram.com/teamhermetica", label: "Instagram" },
+    { icon: Linkedin, href: "https://linkedin.com/in/teamhermetica", label: "LinkedIn" },
+    { icon: Youtube, href: "https://www.youtube.com/@teamhermetica4195/", label: "YouTube" },
   ];
 
   const toggleNavbar = () => {
@@ -68,7 +68,7 @@ export function Navbar() {
     { link: "/members", name: "Team" },
     { link: "/gallery", name: "Gallery" },
     { link: "/guest-lectures", name: "Guest Lectures" },
-    { link: "/about-us", name: "About Us" },
+    { link: "/about", name: "About Us" },
   ];
 
   const lineVariants = {
@@ -97,6 +97,7 @@ export function Navbar() {
               animate={{ x: isOpen ? 0 : -30, opacity: isOpen ? 1 : 0 }}
               transition={{ ease: "easeIn", delay: 0.4 + index * 0.1 }}
               className="group"
+              onClick={toggleNavbar}
             >
               <Link
                 href={link.link}
@@ -156,7 +157,7 @@ export function Navbar() {
           </button>
         </nav>
 
-        <nav className="flex items-center justify-between px-3 md:px-8 py-2 bg-black/40 text-black backdrop-blur-md rounded-full">
+        <nav className="flex hover:scale-105 duration-300 hover:bg-black/60 items-center justify-between px-3 md:px-8 py-2 bg-black/40 text-black backdrop-blur-md rounded-full">
           <Link href={"/"} className="flex items-center gap-2">
             <Image src={logo} alt="Hermetica Logo" width={100} height={100} className="w-5 h-5 rounded-full" />
             <span className="text-lg md:text-xl font-bold text-white">Team Hermetica</span>

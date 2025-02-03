@@ -24,10 +24,36 @@ CREATE TABLE "authenticator" (
 	CONSTRAINT "authenticator_credentialID_unique" UNIQUE("credentialID")
 );
 --> statement-breakpoint
+CREATE TABLE "projects" (
+	"projectId" text,
+	"name" text,
+	"image" text,
+	"description" text,
+	"constructed_by" text,
+	"volunteers" text,
+	"year" text
+);
+--> statement-breakpoint
+CREATE TABLE "reviews" (
+	"id" text,
+	"projectId" text,
+	"name" text,
+	"image" text,
+	"review" text,
+	"email" text,
+	"reviewAt" text
+);
+--> statement-breakpoint
 CREATE TABLE "session" (
 	"sessionToken" text PRIMARY KEY NOT NULL,
 	"userId" text NOT NULL,
 	"expires" timestamp NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE "suggestions" (
+	"id" text,
+	"name" text,
+	"suggestion" text
 );
 --> statement-breakpoint
 CREATE TABLE "user" (

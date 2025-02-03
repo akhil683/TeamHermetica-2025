@@ -1,34 +1,43 @@
 "use client"
 
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion"
-import { Code, Film, Paintbrush, PenTool } from "lucide-react"
+// import { Code, Film, Paintbrush, PenTool } from "lucide-react"
 import { MouseEvent } from "react"
+import web from "../public/web.jpg"
+import video from "../public/video.png"
+import content from "../public/content.webp"
+import { icons } from "lucide-react"
+import Image from "next/image"
 
 const domains = [
   {
     title: "Web Development",
-    icon: Code,
+    icon: web,
+    // icon: Code,
     gradient: "from-blue-500 to-cyan-500",
     shadowColor: "rgba(59, 130, 246, 0.5)",
     description: "Creating responsive and dynamic web applications"
   },
   {
     title: "Video Editing",
-    icon: Film,
+    icon: video,
+    // icon: Film,
     gradient: "from-purple-500 to-pink-500",
     shadowColor: "rgba(168, 85, 247, 0.5)",
     description: "Crafting engaging visual stories and content"
   },
   {
     title: "Graphic Design",
-    icon: Paintbrush,
+    icon: video,
+    // icon: Paintbrush,
     gradient: "from-green-500 to-emerald-500",
     shadowColor: "rgba(16, 185, 129, 0.5)",
     description: "Designing stunning visuals and brand identities"
   },
   {
     title: "Content Writing",
-    icon: PenTool,
+    icon: content,
+    // icon: PenTool,
     gradient: "from-red-500 to-rose-500",
     shadowColor: "rgba(239, 68, 0.5)",
     description: "Crafting compelling stories and content"
@@ -70,7 +79,14 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
       <div className="relative bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 h-full border border-neutral-200 border-white/10 dark:border-neutral-800 z-10">
         {/* Content */}
         <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${domain.gradient} flex items-center justify-center mb-6`}>
-          <domain.icon className="w-8 h-8 text-white" />
+          <Image
+            src={domain.icon}
+            alt={domain.title}
+            width={200}
+            height={200}
+            className="w-full h-full rounded-xl"
+          />
+          {/* <domain.icon className="w-8 h-8 text-white" /> */}
         </div>
 
         <motion.h3

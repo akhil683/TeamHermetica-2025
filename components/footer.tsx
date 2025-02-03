@@ -8,13 +8,12 @@ import { Textarea } from "@/components/ui/textarea"
 import Link from "next/link"
 import { FormEvent, useState } from "react"
 import { useToast } from "@/hooks/use-toast"
-import { title } from "process"
-import { Description } from "@radix-ui/react-toast"
+import { addSuggestions } from "@/actions/addSuggestion"
 
 const socialLinks = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Youtube, href: "#", label: "YouTube" }
+  { icon: Instagram, href: "https://instagram.com/teamhermetica", label: "Instagram" },
+  { icon: Linkedin, href: "https://linkedin.com/in/teamhermetica", label: "LinkedIn" },
+  { icon: Youtube, href: "https://www.youtube.com/@teamhermetica4195/", label: "YouTube" },
 ]
 
 const workLinks = [
@@ -27,11 +26,11 @@ const workLinks = [
     link: "/events",
   },
   {
-    name: "Workshops",
-    link: "/workshops",
+    name: "Guest Lectures",
+    link: "/guest-lectures",
   },
   {
-    name: "Membes",
+    name: "Team",
     link: "/members",
   },
   {
@@ -48,9 +47,11 @@ export default function Footer() {
   const [name, setName] = useState("")
   const [suggestion, setSuggestion] = useState("")
   const { toast } = useToast()
+  const [loading, setLoading] = useState(false)
 
   const onSubmitHandler = async (e: FormEvent) => {
     e.preventDefault()
+    setLoading(true)
 
     if (!name && !suggestion) {
       toast({
@@ -64,10 +65,21 @@ export default function Footer() {
       name,
       suggestion
     }
-    toast({
-      title: "Send Successfully",
-      description: "We have received your suggestion !"
-    })
+    try {
+      await addSuggestions(formData)
+      toast({
+        title: "Send Successfully",
+        description: "We have received your suggestion !"
+      })
+    } catch (e) {
+      toast({
+        title: "Error",
+        description: "Unexpected Error occured. Try again !",
+        variant: "destructive"
+      })
+    } finally {
+      setLoading(false)
+    }
 
   }
 
@@ -170,9 +182,11 @@ export default function Footer() {
               />
               <Button
                 type="submit"
+                disabled={loading}
                 className="w-full bg-indigo-600 hover:bg-indigo-700 text-white"
               >
-                SEND
+
+                {loading ? "Sending..." : "Send"}
               </Button>
             </motion.form>
           </div>

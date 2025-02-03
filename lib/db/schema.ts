@@ -108,3 +108,9 @@ export const reviewTable = pgTable("reviews", {
   email: text("email"),
   reviewAt: text("reviewAt")
 })
+
+export const suggestionTable = pgTable("suggestions", {
+  id: text("id"),
+  name: text("name"),
+  suggestion: text("suggestion")
+})

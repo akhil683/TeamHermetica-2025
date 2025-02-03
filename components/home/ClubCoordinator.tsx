@@ -1,12 +1,12 @@
 import MemberCard from '../MemberCard'
-import { MemberType } from '@/data/Members'
+import rohit from "../../public/rohit.jpg"
 
-const ClubCoordinators: MemberType[] = [
+const ClubCoordinators = [
   {
     id: 1,
     name: "Priyanshu Garg",
     position: "Club Co-ordinator",
-    image: "https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2F2nd%20year%2Fpriyanshu.jpg?alt=media&token=6c08fdcc-05b4-4f28-bf49-c3422734f774",
+    image: 'https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2Frohit.jpg?alt=media&token=d3e29ebd-3109-421b-911f-8df6732243e9',
     bio: "Chemical Engineering student passionate about innovative solutions. Leading team projects and organizing technical events.",
     social: {
       instagram: "https://instagram.com/aditya",
@@ -17,7 +17,7 @@ const ClubCoordinators: MemberType[] = [
     id: 2,
     name: "Rohit Kumar",
     position: "Club Coordinator",
-    image: "https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2F2nd%20year%2Frohit.jpeg?alt=media&token=3b1e862a-805f-4b32-8d92-2baaa849c5b3",
+    image: 'https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2Frohit.jpg?alt=media&token=d3e29ebd-3109-421b-911f-8df6732243e9',
     bio: "Specializing in menoting juniors to reach their full potential. Passionate about driving innovation in chemical engineering.",
     social: {
       instagram: "https://instagram.com/nikhil",

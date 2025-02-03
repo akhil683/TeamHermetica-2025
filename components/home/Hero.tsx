@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import StarBackground from "./StarBackground"
 import { AnimatedCircle } from "./AnimatedCircle"
 import { AnimatedTitle } from "./AnimatedTitle"
 import { useSession } from "next-auth/react"
@@ -20,7 +19,7 @@ const HeroSection = () => {
             initial={{ translateY: 100, scale: 0.8, opacity: 0.5 }}
             animate={{ translateY: 0, opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, delay: 0.3 }}
-            className="relative text-3xl md:text-5xl bg-clip-text font-semibold inline-block text-transparent bg-gradient-to-tr from-purple-400 via-blue-400 to-pink-400">
+            className="relative text-3xl md:text-5xl font-semibold inline-block text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-300 bg-clip-text">
             We React to What Matter !
           </motion.h1>
           <AnimatedTitle />

@@ -54,26 +54,35 @@ const GalleryPage = () => {
         </div>
       </div>
 
-      <div className="relative px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center max-w-7xl mx-auto">
-        {filteredGallery.map(image => (
-          <motion.div
-            key={image}
-            className='aspect-[5/3] bg-gray-600/60 rounded-2xl'
-            initial={{ opacity: 0, y: 30, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Image
-              src={image}
-              alt='hermetida day'
-              width={500}
-              height={500}
-              priority
-              className='h-full rounded-xl hover:scale-105 duration-300'
-            />
-          </motion.div>
-        ))}
-      </div>
+      {filteredGallery.length >= 1 ? (
+        <div className="relative px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center max-w-7xl mx-auto">
+          {filteredGallery?.map((image: any) => (
+            <motion.div
+              key={image}
+              className='aspect-[5/3] bg-gray-600/60 rounded-2xl'
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Image
+                src={image}
+                alt='hermetida day'
+                width={500}
+                height={500}
+                priority
+                className='h-full rounded-xl hover:scale-105 duration-300'
+              />
+            </motion.div>
+          ))}
+        </div>
+      ) : (
+        <div className='flex justify-center items-center'>
+          <h2 className='text-5xl text-center mt-[30vh] text-transparent bg-clip-text bg-gradient-to-r from-pink-500 inline-block via-purple-300 to-indigo-300'>
+            Coming soon...
+          </h2>
+        </div>
+      )
+      }
     </section>
   )
 }
