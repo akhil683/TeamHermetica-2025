@@ -9,7 +9,6 @@ import { Button } from "../ui/Button"
 import { Loader2 } from "lucide-react"
 import { useState } from "react"
 import { useToast } from "@/hooks/use-toast"
-import { ShinyButton } from "../ui/shiny-button"
 import AnimatedGradientText from "../ui/animated-gradient"
 import StarBackground from "./StarBackground"
 
