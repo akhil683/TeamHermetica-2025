@@ -38,9 +38,9 @@ const HeroSection = () => {
       <AnimatedCircle />
 
       <motion.div
-        initial={{ opacity: 0, y: 60, scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        initial={{ opacity: 0, scale: 1.2 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
         className="md:hidden relative z-10 max-md:px-6 flex flex-col justify-center items-center"
       >
         <p className="text-xl text-white inline-block px-6 py-2 rounded-full bg-gradient-to-b from-indigo-800/60 to-black border border-gray-900">

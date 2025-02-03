@@ -75,7 +75,7 @@ export default function StarBackground() {
     [controls],
   )
 
-  return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 0.3 }} className="absolute inset-0 opacity-40 overflow-hidden">
+  return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 0.3 }} className="max-md:hidden absolute inset-0 opacity-40 overflow-hidden">
 
     {stars.map((star, index) => renderStar(star, index))}
   </motion.div>
