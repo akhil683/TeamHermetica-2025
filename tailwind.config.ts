@@ -32,8 +32,30 @@ export default {
         'appear': 'appear 0 ease-in-out',
         'gradient-x': 'gradient-x 5s ease infinite',
         "rotateCircle": 'rotate 4s ease infinite',
+        "text-gradient": "text-gradient 4s ease infinite",
+        "border-gradient": "border-gradient 4s ease infinite",
       },
       keyframes: {
+        "text-gradient": {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
+        "border-gradient": {
+          "0%, 100%": {
+            "border-image-source": "linear-gradient(to right, #00f260, #0575e6)",
+            "border-image-slice": "1",
+          },
+          "50%": {
+            "border-image-source": "linear-gradient(to right, #0575e6, #00f260)",
+            "border-image-slice": "1",
+          },
+        },
         "gradient-x": {
           "0%, 100%": {
             "background-size": "200% 200%",

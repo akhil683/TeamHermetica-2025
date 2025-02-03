@@ -1,12 +1,6 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { Button } from '../ui/Button'
-import Image from 'next/image'
-import image from "../../public/achievement.jpg"
-import { SpaceBackground } from '../SpaceBackground'
 import { achievements } from '@/data/Achievements'
 import EmblaCarousel from '../Carousel'
 
@@ -51,7 +45,7 @@ export function AchievementCarousel() {
   const OPTIONS = { dragFree: true, loop: true }
 
   return (
-    <section id="achievements" className="relative py-20 overflow-hidden bg-gradient-to-b from-black via-indigo-600/30 to-black">
+    <section id="achievements" className="relative py-20 overflow-hidden">
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-12 md:py-20">

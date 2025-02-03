@@ -149,7 +149,11 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   }, [emblaApi, tweenParallax])
 
   return (
-    <div className="relative embla max-w-5xl">
+    <div className="relative embla max-w-6xl border">
+
+      <div className='absolute h-full bg-gradient-to-r from-black to-transparent w-[10%] z-20' />
+      <div className='absolute right-0 h-full bg-gradient-to-l from-black to-transparent w-[10%] z-20' />
+
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((slide, index) => (
@@ -176,10 +180,10 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         </div>
       </div>
 
-      <div className="embla__controls bg-green-500">
+      <div className="embla__controls">
         <Button
           onClick={onPrevButtonClick}
-          className="absolute left-4 md:left-8 top-[50%] z-20 bg-yellow-600 hover:bg-purple-500 rounded-full p-2"
+          className="absolute left-4 md:left-8 top-[50%] z-30 bg-yellow-600 hover:bg-purple-500 rounded-full p-2"
           aria-label='Left Item'
           size="icon"
           variant="ghost"
@@ -188,7 +192,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         </Button>
         <Button
           onClick={onNextButtonClick}
-          className="absolute right-4 md:right-8 z-20 top-[50%] hover:bg-purple-500 bg-yellow-600 rounded-full p-2"
+          className="absolute right-4 md:right-8 z-30 top-[50%] hover:bg-purple-500 bg-yellow-600 rounded-full p-2"
           aria-label={"Right Item"}
           size="icon"
           variant="ghost"

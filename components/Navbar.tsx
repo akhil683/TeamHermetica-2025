@@ -8,7 +8,6 @@ import logo from "../public/hermetica-logo.jpg";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
-import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
 
 export function Navbar() {
   const { data: session } = useSession();
@@ -86,7 +85,7 @@ export function Navbar() {
       <motion.div
         initial={{ translateX: "-300px" }}
         animate={{ translateX: isOpen ? "0px" : "-300px" }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
+        transition={{ duration: 0.3, ease: "circOut" }}
         className="inset-y-0 left-0 h-screen w-[300px] bg-indigo-600/30 backdrop-blur-2xl fixed z-50 gap-4 p-6 shadow-lg"
       >
         <div className="h-full flex flex-col gap-10 justify-center items-center text-white">
@@ -101,7 +100,7 @@ export function Navbar() {
             >
               <Link
                 href={link.link}
-                className="text-lg hover:border-b-2 group-hover:border-b-indigo-600 border-transparent font-medium group-hover:text-purple-400 transition-colors text-center py-[3px] duration-300"
+                className="text-lg hover:border-b-2 group-hover:border-b-indigo-600 border-transparent font-medium group-hover:text-purple-300 transition-colors text-center py-[3px] duration-300"
               >
                 {link.name}
               </Link>
@@ -113,7 +112,7 @@ export function Navbar() {
                 key={social.label}
                 href={social.href}
                 aria-label={social.label}
-                className="w-10 h-10 rounded-full group font-bold flex items-center justify-center hover:scale-110 duration-300"
+                className="w-10 h-10 rounded-full group font-bold flex items-center justify-center hover:scale-125 duration-300"
               >
                 <social.icon className="w-10 h-10 group-hover:text-indigo-600 duration-300 text-white" />
               </a>
