@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Eye, Target } from "lucide-react";
+import { Zap, Eye, Target, Rotate3d } from "lucide-react";
 
 const aboutCards = [
   {
@@ -40,19 +40,19 @@ function AboutCard({ card, index }: { card: typeof aboutCards[0]; index: number 
         transition: { duration: 0.5, delay: index * 0.1 },
       }}
       viewport={{ once: true }}
-      whileHover={{ scale: 1.02 }}
-      className="bg-gradient-to-tr from-blue-900/30 via-indigo-900/20 to-purple-900/10 p-12 rounded-lg shadow-md border border-gray-700 flex flex-col hover:bg-indigo-700/10 hover:border-indigo-300 duration-200"
+      whileHover={{ scale: 1.05, rotateZ: 5 }}
+      className="group bg-gradient-to-tr from-blue-900/30 via-indigo-900/20 to-purple-900/10 p-12 rounded-lg shadow-md border border-gray-700 flex flex-col hover:bg-indigo-700/10 hover:border-indigo-300"
     >
       <div className="relative text-center">
-        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center">
+        <div className=" group-hover:-translate-y-3 duration-700 w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center">
           <card.icon className="w-8 h-8 text-white" />
         </div>
 
-        <h3 className="text-xl font-bold mb-2 text-purple-300">{card.title}</h3>
+        <h3 className="group-hover:scale-110 duration-500 text-xl font-bold mb-6 text-purple-300">{card.title}</h3>
 
         <div className="space-y-2">
           {card.description.map((paragraph, i) => (
-            <p key={i} className="text-white leading-relaxed">
+            <p key={i} className="group-hover:text-gray-100 text-gray-300 text-center leading-relaxed">
               {paragraph}
             </p>
           ))}
@@ -64,7 +64,7 @@ function AboutCard({ card, index }: { card: typeof aboutCards[0]; index: number 
 
 export default function AboutSection() {
   return (
-    <section className="container mx-auto px-4 min-h-screen bg-gradient-to-b from-black via-indigo-600/30 to-black py-16 overflow-hidden">
+    <section className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-b from-black via-indigo-600/20 to-black px-6">
       <motion.div
         className="text-center mb-12"
         initial={{ opacity: 0, y: 20 }}

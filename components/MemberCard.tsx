@@ -13,14 +13,14 @@ const MemberCard = ({ member }: { member: MemberType }) => {
     <motion.div
       key={member?.id}
       className="group relative"
-      initial={{ opacity: 0, y: 60, scale: 0.9 }}
+      initial={{ opacity: 0, y: 20, scale: 0.9 }}
       whileInView={{
         opacity: 1,
         y: 0,
         scale: 1
       }}
       whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.5, delay: 0.25 }}
+      transition={{ duration: 0.4 }}
     >
       <Card className="relative overflow-hidden rounded-3xl bg-[#f3e5ff]/10 border-none aspect-[3/4] max-sm:w-full max-h-[500px]">
         {/* Member Image */}

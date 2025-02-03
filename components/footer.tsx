@@ -6,11 +6,14 @@ import { Button } from "./ui/Button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import Link from "next/link"
+import { FormEvent, useState } from "react"
+import { useToast } from "@/hooks/use-toast"
+import { addSuggestions } from "@/actions/addSuggestion"
 
 const socialLinks = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Youtube, href: "#", label: "YouTube" }
+  { icon: Instagram, href: "https://instagram.com/teamhermetica", label: "Instagram" },
+  { icon: Linkedin, href: "https://linkedin.com/in/teamhermetica", label: "LinkedIn" },
+  { icon: Youtube, href: "https://www.youtube.com/@teamhermetica4195/", label: "YouTube" },
 ]
 
 const workLinks = [
@@ -23,11 +26,11 @@ const workLinks = [
     link: "/events",
   },
   {
-    name: "Workshops",
-    link: "/workshops",
+    name: "Guest Lectures",
+    link: "/guest-lectures",
   },
   {
-    name: "Membes",
+    name: "Team",
     link: "/members",
   },
   {
@@ -41,6 +44,45 @@ const workLinks = [
 ]
 
 export default function Footer() {
+  const [name, setName] = useState("")
+  const [suggestion, setSuggestion] = useState("")
+  const { toast } = useToast()
+  const [loading, setLoading] = useState(false)
+
+  const onSubmitHandler = async (e: FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+
+    if (!name && !suggestion) {
+      toast({
+        title: "All Fields Required",
+        description: "Please provide all the information !",
+        variant: "destructive"
+      })
+      return
+    }
+    const formData = {
+      name,
+      suggestion
+    }
+    try {
+      await addSuggestions(formData)
+      toast({
+        title: "Send Successfully",
+        description: "We have received your suggestion !"
+      })
+    } catch (e) {
+      toast({
+        title: "Error",
+        description: "Unexpected Error occured. Try again !",
+        variant: "destructive"
+      })
+    } finally {
+      setLoading(false)
+    }
+
+  }
+
   return (
     <footer className="relative overflow-hidden bg-gradient-to-br from-black via-indigo-900/30 bg-opacity-30 to-black">
       {/* Content */}
@@ -120,6 +162,7 @@ export default function Footer() {
               Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Us</span>
             </motion.h2>
             <motion.form
+              onSubmit={onSubmitHandler}
               className="space-y-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -129,22 +172,21 @@ export default function Footer() {
               <Input
                 type="text"
                 placeholder="Your Name"
-                className="bg-white border-gray-300 text-gray-800 placeholder:text-gray-500"
-              />
-              <Input
-                type="email"
-                placeholder="Email Address"
+                onChange={(e) => setName(e.target.value)}
                 className="bg-white border-gray-300 text-gray-800 placeholder:text-gray-500"
               />
               <Textarea
                 placeholder="Suggestions"
+                onChange={(e) => setSuggestion(e.target.value)}
                 className="bg-white border-gray-300 text-gray-800 placeholder:text-gray-500 min-h-[100px]"
               />
               <Button
                 type="submit"
+                disabled={loading}
                 className="w-full bg-indigo-600 hover:bg-indigo-700 text-white"
               >
-                SEND
+
+                {loading ? "Sending..." : "Send"}
               </Button>
             </motion.form>
           </div>
@@ -157,7 +199,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="mb-2">A Chemical Engineering Club</p>
+          <p className="mb-2">Made with ❤️  by <span className="text-indigo-500 font-bold hover:text-indigo-300 duration-300">Team Hermetica</span></p>
           <p>Copyright © 2024, All Rights Reserved</p>
         </motion.div>
       </div>

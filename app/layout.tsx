@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Space_Grotesk, Rubik_Iso } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/footer";
 import { SessionProvider } from "next-auth/react";
@@ -7,11 +7,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
 
 import "./globals.css";
+import "./embla.css"
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700']
 })
+
 
 // Metadata
 export const metadata: Metadata = {

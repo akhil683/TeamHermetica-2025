@@ -1,12 +1,16 @@
 "use client"
 
-import { Button } from "@/components/ui/Button"
-import { FlaskRoundIcon as Flask, Award, Loader2 } from "lucide-react"
-import { SpaceBackground } from "../SpaceBackground"
-import { motion, spring } from "framer-motion"
-import { useState } from "react"
+import { motion } from "framer-motion"
+import { AnimatedCircle } from "./AnimatedCircle"
+import { AnimatedTitle } from "./AnimatedTitle"
 import { signIn, useSession } from "next-auth/react"
+import Image from "next/image"
+import { Button } from "../ui/Button"
+import { Loader2 } from "lucide-react"
+import { useState } from "react"
 import { useToast } from "@/hooks/use-toast"
+import AnimatedGradientText from "../ui/animated-gradient"
+import StarBackground from "./StarBackground"
 
 const HeroSection = () => {
   const { data: session } = useSession()
@@ -29,53 +33,34 @@ const HeroSection = () => {
   }
 
   return (
-    <main className="min-h-screen mx-auto py-12 pt-32 text-center relative overflow-hidden">
-      <SpaceBackground />
+    <section className="relative h-screen bg-gradient-to-b from-black  overflow-hidden flex items-center">
+      <StarBackground />
+      <AnimatedCircle />
 
       <motion.div
-        initial={{ opacity: 0, y: 60, scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative z-10 max-md:px-6"
+        initial={{ opacity: 0, scale: 1.2 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="md:hidden relative z-10 max-md:px-6 flex flex-col justify-center items-center"
       >
-        <p className="text-xl md:text-4xl tracking-tight mb-6 leading-none text-white">
+        <p className="text-xl text-white inline-block px-6 py-2 rounded-full bg-gradient-to-b from-indigo-800/60 to-black border border-gray-900">
           Team Hermetica
         </p>
-        <h1 className="text-4xl md:text-7xl font-semibold text-purple-600 mb-12 text-transparent bg-gradient-to-b from-indigo-300 to-indigo-500 bg-clip-text">
+        <AnimatedGradientText>
           We React to What Matters!
-        </h1>
+        </AnimatedGradientText>
 
         {/* Description */}
-        <div className="md:hidden mb-16 max-w-3xl mx-auto text-center">
+        <div className="md:hidden my-16 max-w-3xl mx-auto text-center">
           <p className="text-gray-300 text-lg">
             Team Hermetica, established in 2014, represents the Department of Chemical Engineering in the annual tech-fest NIMBUS at National Institute of Technology, Hamirpur.
           </p>
         </div>
 
         {/* Cards Section */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto relative">
-          {/* Card 1 */}
-          <div
-            className="max-md:hidden relative bg-purple-200 rounded-3xl p-8 transform transition-transform hover:scale-105 z-10 overflow-hidden"
-          >
-            <div className="absolute top-4 left-4 bg-black text-white text-sm font-bold px-3 py-1 rounded-full">
-              EST. 2014
-            </div>
-            <div className="h-full flex flex-col justify-between">
-              <Flask className="h-12 w-12 mb-4 animate-pulse" />
-              <div>
-                <span className="text-2xl font-bold mb-2">
-                  Chemical Engineering
-                </span>
-                <p className="text-gray-700">
-                  Department's Official Tech Team
-                </p>
-              </div>
-            </div>
-          </div>
-
+        <div className="grid md:grid-cols-3 gap-8 mt-4 max-w-5xl mx-auto relative">
           {/* Card 2 */}
-          <div className="bg-yellow-300 rounded-3xl p-8 flex flex-col items-center justify-center transform transition-transform hover:scale-105 overflow-hidden">
+          <div className="bg-gradient-to-r from-indigo-700/30 to-purple-900/30 rounded-3xl p-8 flex flex-col items-center justify-center transform transition-transform hover:scale-105 overflow-hidden">
             {session?.user ? (
               <>
                 <p className="text-2xl font-bold mb-4">
@@ -92,7 +77,7 @@ const HeroSection = () => {
               </>
             ) : (
               <>
-                <p className="text-2xl font-bold mb-4">
+                <p className="text-2xl font-bold mb-4 text-white">
                   Join Our Team
                 </p>
                 <Button
@@ -109,14 +94,6 @@ const HeroSection = () => {
               </>
             )}
           </div>
-
-          {/* Card 3 */}
-          <div className="max-md:hidden  bg-white rounded-3xl p-8 flex flex-col items-center justify-center transform transition-transform hover:scale-105 overflow-hidden">
-            <Award className="h-12 w-12 text-yellow-500 mb-4 animate-spin-slow" />
-            <p className="text-4xl font-bold mb-2"># 3</p>
-            <p className="text-gray-600">Best sustainable Development Team at Nimbus 2k24</p>
-            <div className="absolute inset-0 bg-purple-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
-          </div>
         </div>
 
         {/* Description */}
@@ -126,7 +103,58 @@ const HeroSection = () => {
           </p>
         </div>
       </motion.div>
-    </main >
+
+
+      {/* Desktop */}
+      <div className="max-md:hidden container mx-auto px-4 relative z-10 mt-16">
+        <div className="mx-auto text-center md:space-y-16 space-y-36">
+          <motion.h1
+            initial={{ translateY: 100, scale: 0.8, opacity: 0.5 }}
+            animate={{ translateY: 0, opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, delay: 0.3 }}
+            className="relative text-3xl md:text-5xl font-semibold inline-block text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-300 bg-clip-text">
+            <AnimatedGradientText>
+              We React to What Matters!
+            </AnimatedGradientText>
+          </motion.h1>
+          <AnimatedTitle />
+          <div className="flex flex-col gap-6 justify-center items-center">
+            <motion.p
+              className="text-gray-300 md:font-semibold md:text-xl md:px-40 lg:px-72"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 1 }}
+            >
+              Team Hermetica, established in 2014, represents the Department of Chemical Engineering in the annual tech-fest NIMBUS at National Institute of Technology, Hamirpur.
+            </motion.p>
+            {session?.user && (
+              <motion.div
+                initial={{ opacity: 0, translateY: 50 }}
+                animate={{ opacity: 1, translateY: 0 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="flex justify-center items-center text-xl">
+                <button className="rounded-xl text-white py-2 px-6 flex flex-col justify-center items-center gap-2 group">
+                  Welcome,{""}
+                  <div className="relative px-6 font-semibold py-2 flex justify-center items-center gap-2 rounded-full bg-gradient-to-r from-purple-500 via-indigo-400 to-pink-400 overflow-hidden">
+                    <Image
+                      src={session?.user?.image as string}
+                      width={200}
+                      height={200}
+                      alt="Profile Image"
+                      className="rounded-full w-6 h-6 z-20"
+                    />
+                    <p className="z-20">
+                      {session?.user?.name}
+                    </p>
+                    <div className="absolute inset-0 bg-indigo-600 transform translate-y-full group-hover:translate-y-0 transition-transform" />
+                  </div>
+                </button>
+              </motion.div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
 
   )
 }

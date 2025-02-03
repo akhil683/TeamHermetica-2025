@@ -1,25 +1,18 @@
-import ProjectGrid from '@/components/projects/project-grid'
 import { SpaceBackground } from '@/components/SpaceBackground'
-import { Button } from '@/components/ui/Button'
+import { db } from '@/lib/db/db'
+import { projectsTable } from '@/lib/db/schema'
 import React from 'react'
+import ProjectSection from './projectSection'
 
-const ProjectPage = () => {
+const ProjectPage = async () => {
+  const projects = await db.select().from(projectsTable)
+
   return (
     <div className="min-h-screen bg-black relative overflow-hidden animate-appear">
       <SpaceBackground />
 
-      {/* Search Section */}
-      <div className="container mx-auto px-4 py-8 mt-12">
-        <div className='relative flex items-center gap-4 my-6'>
-          <Button className='text-sm md:text-lg bg-gradient-to-b from-indigo-400 duration-300 hover:from-indigo-500 to-indigo-700 rounded-full'>
-            2k25
-          </Button>
-          <Button className='text-sm md:text-lg bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'>
-            2k24
-          </Button>
-        </div>
-        <ProjectGrid />
-      </div>
+      {/* Filter Section */}
+      <ProjectSection projects={projects} />
     </div >
   )
 }

@@ -21,14 +21,60 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
+      backgroundImage: {
+        "gradient-x": "linear-gradient(to right, #ff00ff, #00ff00, #0000ff, #ff0000, #ff00ff)",
+      },
       animation: {
         blob: 'blob 7s infinite',
         'spin-slow': 'spin 20s linear infinite',
         'bounce-slow': 'bounce 3s infinite',
         'float': 'float 6s ease-in-out infinite',
         'appear': 'appear 0 ease-in-out',
+        'gradient-x': 'gradient-x 5s ease infinite',
+        "rotateCircle": 'rotate 4s ease infinite',
+        "text-gradient": "text-gradient 4s ease infinite",
+        "border-gradient": "border-gradient 4s ease infinite",
       },
       keyframes: {
+        "text-gradient": {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
+        "border-gradient": {
+          "0%, 100%": {
+            "border-image-source": "linear-gradient(to right, #00f260, #0575e6)",
+            "border-image-slice": "1",
+          },
+          "50%": {
+            "border-image-source": "linear-gradient(to right, #0575e6, #00f260)",
+            "border-image-slice": "1",
+          },
+        },
+        "gradient-x": {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
+        "rotate": {
+          "0%": {
+            transform: "rotateZ(0deg)",
+          },
+
+          "100%": {
+            transform: "rotateZ(360deg)",
+          }
+        },
         blob: {
           "0%": {
             transform: "translate(0px, 0px) scale(1)",

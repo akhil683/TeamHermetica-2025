@@ -547,7 +547,7 @@ export const members = [
     id: 1,
     name: "Aditi Kumari",
     position: "Volunteer Member",
-    image: "",
+    image: "https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2F1st%20Year%20new%2FAditi.jpg?alt=media&token=28b0bbaf-9051-4cf9-9987-6f8400b320cf",
     social: {
       instagram: "https://www.instagram.com/xoaditi78__?igsh=eGZ5dWJsNDN1NWMy",
       linkedin: "https://www.linkedin.com/in/aditi-kumari-793195329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -712,7 +712,7 @@ export const members = [
     id: 16,
     name: "Sajal Aluna",
     position: "Volunteer Member",
-    image: "https://drive.google.com/file/d/1kWeBRGLoMTjzm-CdfJulCo-TfuiYLQTA/view?usp=drive_link",
+    image: "https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2F1st%20Year%20new%2Fsajal_photo.jpg?alt=media&token=09cbea0c-250f-4b3a-b4ae-2769d12bce2b",
     social: {
       instagram: "https://www.instagram.com/sajal_aluna_19?igsh=d2hhY3A5a3lpbzNm",
       linkedin: "",
@@ -789,7 +789,7 @@ export const members = [
     id: 23,
     name: "Daksh Pareek",
     position: "Volunteer Member",
-    image: "https://drive.google.com/file/d/1THFN3xP5QQIzSKmB6puQL0OG2SAHbIjR/view?usp=sharing",
+    image: "https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2F1st%20Year%20new%2FDaksh_Pareek.jpg?alt=media&token=141348bf-427a-4647-8a83-33b5b99127b6",
     social: {
       instagram: "https://www.instagram.com/dakshpareek__/profilecard/?igsh=aDZsc3RlcmR6anho",
       linkedin: "",
