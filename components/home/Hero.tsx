@@ -60,7 +60,7 @@ const HeroSection = () => {
         {/* Cards Section */}
         <div className="grid md:grid-cols-3 gap-8 mt-4 max-w-5xl mx-auto relative">
           {/* Card 2 */}
-          <div className="bg-gradient-to-r from-indigo-500/40 to-purple-500/40 rounded-3xl p-8 flex flex-col items-center justify-center transform transition-transform hover:scale-105 overflow-hidden">
+          <div className="bg-gradient-to-r from-indigo-700/30 to-purple-900/30 rounded-3xl p-8 flex flex-col items-center justify-center transform transition-transform hover:scale-105 overflow-hidden">
             {session?.user ? (
               <>
                 <p className="text-2xl font-bold mb-4">

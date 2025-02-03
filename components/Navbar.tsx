@@ -83,10 +83,17 @@ export function Navbar() {
   return (
     <>
       <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className={`inset-0 left-0 top-0 min-h-screen min-w-screen bg-black/10 fixed z-50 gap-4 p-6 shadow-lg ${isOpen ? "" : "hidden"}`}
+        onClick={toggleNavbar}
+      />
+      <motion.div
         initial={{ translateX: "-300px" }}
         animate={{ translateX: isOpen ? "0px" : "-300px" }}
-        transition={{ duration: 0.3, ease: "circOut" }}
-        className="inset-y-0 left-0 h-screen w-[300px] bg-indigo-600/30 backdrop-blur-2xl fixed z-50 gap-4 p-6 shadow-lg"
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="inset-y-0 left-0 h-screen w-[300px] bg-indigo-800/30 backdrop-blur-xl fixed z-50 gap-4 p-6 shadow-lg"
       >
         <div className="h-full flex flex-col gap-10 justify-center items-center text-white">
           {links.map((link, index) => (
@@ -94,7 +101,8 @@ export function Navbar() {
               key={link.link}
               initial={{ x: -30, opacity: 0 }}
               animate={{ x: isOpen ? 0 : -30, opacity: isOpen ? 1 : 0 }}
-              transition={{ ease: "easeIn", delay: 0.4 + index * 0.1 }}
+              // transition={{ ease: "easeIn", delay: 0.4 + index * 0.1 }}
+              transition={{ ease: 'easeIn', delay: 0.3 }}
               className="group"
               onClick={toggleNavbar}
             >
