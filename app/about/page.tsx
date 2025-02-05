@@ -1,5 +1,8 @@
 import { BeakerIcon, Rocket, BookOpen, Users } from 'lucide-react'
 import { Card } from "@/components/ui/card"
+import Image from 'next/image'
+import aboutImage from "../../public/about.jpg"
+import ytImage from "../../public/yt.png"
 
 export default function AboutUs() {
   return (
@@ -55,15 +58,16 @@ export default function AboutUs() {
 
         {/* Video Section */}
         <div className="max-w-4xl mx-auto">
-          <div className="relative pb-[56.25%] h-0 rounded-3xl overflow-hidden bg-[#f3e5ff]/10">
-            <iframe
-              src="https://www.youtube.com/embed/UzC3rqu9Ysg?si=4JZjBbyPTUz-D-hR"
-              title="Team Hermetica Introduction"
-              className="absolute top-0 left-0 w-full h-full rounded-3xl"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+          <a href="https://www.youtube.com/watch?v=UzC3rqu9Ysg" target='_blank' className="relative aspect-video group rounded-3xl overflow-hidden flex justify-center items-center">
+            <Image
+              src={aboutImage}
+              alt='About Us'
+              width={1000}
+              height={1000}
+              className='absolute w-full h-full object-cover group-hover:opacity-80 duration-300'
             />
-          </div>
+            <Image src={ytImage} alt='yt logo' className='group-hover:scale-110 w-[20%] z-10 duration-300' />
+          </a>
         </div>
       </main>
     </div>

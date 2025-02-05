@@ -24,7 +24,7 @@ export const AnimatedTitle = () => {
           {loading ? (
             <motion.span
               key={`${letter}/${index}`}
-              className={`inline-block font-bold text-[1.7rem] tracking-[0.6em] md:text-[6rem] text-white text-center ${myFont.className}`}
+              className={`inline-block font-bold text-[1.7rem] tracking-[0.5em] md:text-[6rem] text-white text-center ${myFont.className}`}
               initial={{ y: 0, textShadow: '0 0 15px rgba(255, 255, 255, 0.5)' }}
               animate={{ y: [0, -10, 0], textShadow: ['0 0 15px rgba(255, 255, 255, 0.5)', '0 0 5px rgba(255, 255, 255, 0.3)'] }}
               transition={{
@@ -43,7 +43,7 @@ export const AnimatedTitle = () => {
               key={`${index}/${letter}`}
               className={`inline-block font-rubikIso font-bold text-[1.7rem] text-center md:text-[6rem] text-white ${myFont.className}`}
               initial={{ letterSpacing: "2.5em", opacity: 0, textShadow: '0 0 15px rgba(255, 255, 255, 0.7)' }}
-              animate={{ letterSpacing: "0.6em", opacity: 1, textShadow: '0 0 15px rgba(255, 255, 255, 0.5)' }}
+              animate={{ letterSpacing: "0.5em", opacity: 1, textShadow: '0 0 15px rgba(255, 255, 255, 0.5)' }}
               transition={{
                 duration: 2.5,
                 ease: "easeOut",

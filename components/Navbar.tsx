@@ -102,7 +102,7 @@ export function Navbar() {
               initial={{ x: -30, opacity: 0 }}
               animate={{ x: isOpen ? 0 : -30, opacity: isOpen ? 1 : 0 }}
               // transition={{ ease: "easeIn", delay: 0.4 + index * 0.1 }}
-              transition={{ ease: 'easeIn', delay: 0.3 }}
+              transition={{ ease: 'easeIn', delay: 0.2 }}
               className="group"
               onClick={toggleNavbar}
             >

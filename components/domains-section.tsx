@@ -105,7 +105,7 @@ function DomainCard({ domain, index }: { domain: typeof domains[0], index: numbe
 
 export default function DomainsSection() {
   return (
-    <section className="container mx-auto px-4 relative z-10 min-h-screen flex flex-col justify-center items-center py-24 overflow-hidden bg-gradient-to-b from-black via-indigo-600/30 to-black">
+    <section className="mx-auto px-4 relative z-10 flex flex-col justify-center items-center py-24 overflow-hidden bg-gradient-to-b from-black via-indigo-600/30 to-black">
       <motion.div
         className="text-center mb-16"
         initial={{ opacity: 0, y: -20 }}

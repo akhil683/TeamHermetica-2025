@@ -1,5 +1,4 @@
 import MemberCard from '../MemberCard'
-import rohit from "../../public/rohit.jpg"
 
 const ClubCoordinators = [
   {
@@ -28,7 +27,7 @@ const ClubCoordinators = [
 
 export default function ClubCoordinator() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-indigo-600/20 to-black">
+    <div className="bg-gradient-to-b from-black via-indigo-600/20 to-black">
       <main className="container mx-auto px-4 sm:px-6 py-20">
         {/* Header */}
         <div className="text-center mb-16">
