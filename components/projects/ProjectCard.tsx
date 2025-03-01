@@ -52,12 +52,12 @@ const ProjectCard = ({ project }: any) => {
         ) : (
           <button>
             {/* Project Image */}
-            <div className="aspect-[4/3] overflow-hidden w-full bg-red-500">
+            <div className="aspect-square overflow-hidden w-full">
               <Image
                 src={project.image}
                 alt={project.name}
-                width={400}
-                height={400}
+                width={600}
+                height={600}
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>

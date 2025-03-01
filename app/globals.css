@@ -67,6 +67,7 @@
 }
 
 @layer base {
+
   .font-rubikIso {
     font-family: var(--font-rubik-iso), sans-serif;
   }

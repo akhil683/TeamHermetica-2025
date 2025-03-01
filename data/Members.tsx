@@ -370,28 +370,28 @@ export const members = [
     }
   },
 
-  {
-    id: 1,
-    name: "Abhinav Singh",
-    position: "Executive Member",
-    image: "https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2F1st%20Year%2FPXL_20230606_121215219~6.jpg?alt=media&token=9e220c5d-6e41-44fa-b958-e35a9c2f2784",
-    social: {
-      instagram: "https://www.instagram.com/abhinav_yadav175?igsh=MWM0MnZycnJtdHhocQ%3D%3D",
-      linkedin: "https://linkedin.com/akhil",
-    }
-  },
+  // {
+  //   id: 1,
+  //   name: "Abhinav Singh",
+  //   position: "Executive Member",
+  //   image: "https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2F1st%20Year%2FPXL_20230606_121215219~6.jpg?alt=media&token=9e220c5d-6e41-44fa-b958-e35a9c2f2784",
+  //   social: {
+  //     instagram: "https://www.instagram.com/abhinav_yadav175?igsh=MWM0MnZycnJtdHhocQ%3D%3D",
+  //     linkedin: "https://linkedin.com/akhil",
+  //   }
+  // },
 
-  {
-    id: 2,
-    name: "Arnav Shekhar Tripathi",
-    position: "Executive Member",
-    image: "https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2F1st%20Year%2F20230817_182814%20(1).jpg?alt=media&token=ce31e3a2-10af-4250-bb5c-c7f19134dfc6",
-    social: {
-      instagram: "https://instagram.com/akhil",
-      linkedin: "https://linkedin.com/akhil",
-    }
-  },
-
+  // {
+  //   id: 2,
+  //   name: "Arnav Shekhar Tripathi",
+  //   position: "Executive Member",
+  //   image: "https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2F1st%20Year%2F20230817_182814%20(1).jpg?alt=media&token=ce31e3a2-10af-4250-bb5c-c7f19134dfc6",
+  //   social: {
+  //     instagram: "https://instagram.com/akhil",
+  //     linkedin: "https://linkedin.com/akhil",
+  //   }
+  // },
+  //
 
   {
     id: 3,
@@ -774,16 +774,16 @@ export const members = [
     }
   },
 
-  {
-    id: 22,
-    name: "Jingmed Zangpo ",
-    position: "Volunteer Member",
-    image: "https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2F1st%20Year%20new%2FJingmed%20zangpo.jpg?alt=media&token=b87914a6-5c33-4d82-8668-a97de8514be2",
-    social: {
-      instagram: "https://www.instagram.com/jig_tengricpa?igsh=NXI3cnY2amV1aWUy",
-      linkedin: "",
-    }
-  },
+  // {
+  //   id: 22,
+  //   name: "Jingmed Zangpo ",
+  //   position: "Volunteer Member",
+  //   image: "https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2F1st%20Year%20new%2FJingmed%20zangpo.jpg?alt=media&token=b87914a6-5c33-4d82-8668-a97de8514be2",
+  //   social: {
+  //     instagram: "https://www.instagram.com/jig_tengricpa?igsh=NXI3cnY2amV1aWUy",
+  //     linkedin: "",
+  //   }
+  // },
 
   {
     id: 23,
