@@ -50,10 +50,9 @@ function hexToRgb(hex: string): number[] {
 
 const Particles: React.FC<ParticlesProps> = ({
   className = "",
-  quantity = 50,
+  quantity = 10,
   staticity = 50,
   ease = 50,
-  // size = 0.4,
   size = 1.2,
   refresh = false,
   color = "#ffffff",
@@ -194,7 +193,7 @@ const Particles: React.FC<ParticlesProps> = ({
 
   const drawParticles = () => {
     clearContext();
-    const particleCount = window.innerWidth > 600 ? quantity : quantity / 2;
+    const particleCount = window.innerWidth > 600 ? 150 : 60;
     for (let i = 0; i < particleCount; i++) {
       const circle = circleParams();
       drawCircle(circle);

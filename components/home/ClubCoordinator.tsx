@@ -5,7 +5,7 @@ const ClubCoordinators = [
     id: 1,
     name: "Priyanshu Garg",
     position: "Club Co-ordinator",
-    image: 'https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2Frohit.jpg?alt=media&token=d3e29ebd-3109-421b-911f-8df6732243e9',
+    image: 'https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2Fpriyanshu_garg.jpg?alt=media&token=0f150692-d661-49e4-9778-19bcd3027c3e',
     bio: "Chemical Engineering student passionate about innovative solutions. Leading team projects and organizing technical events.",
     social: {
       instagram: "https://instagram.com/aditya",

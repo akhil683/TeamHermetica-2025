@@ -44,9 +44,9 @@ const HeroSection = () => {
       <AnimatedCircle />
 
       <motion.div
-        initial={{ opacity: 0, scale: 1.1 }}
+        initial={{ opacity: 0, scale: 1.05 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
+        transition={{ duration: 1, ease: "easeOut", delay: 1 }}
         className="md:hidden relative z-10 max-md:px-6 flex flex-col justify-center items-center"
       >
         <AnimatedGradientText>
