@@ -8,6 +8,7 @@ import logo from "../public/hermetica-logo.jpg";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
+import { ShimmerButton } from "./magicui/shimmer-button";
 
 export function Navbar() {
   const { data: session } = useSession();
@@ -101,8 +102,7 @@ export function Navbar() {
               key={link.link}
               initial={{ x: -30, opacity: 0 }}
               animate={{ x: isOpen ? 0 : -30, opacity: isOpen ? 1 : 0 }}
-              // transition={{ ease: "easeIn", delay: 0.4 + index * 0.1 }}
-              transition={{ ease: 'easeIn', delay: 0.3 }}
+              transition={{ ease: 'easeIn', delay: 0.2 }}
               className="group"
               onClick={toggleNavbar}
             >
@@ -163,13 +163,14 @@ export function Navbar() {
             />
           </button>
         </nav>
-
-        <nav className="flex hover:scale-105 duration-300 hover:bg-black/60 items-center justify-between px-3 md:px-8 py-2 bg-black/40 text-black backdrop-blur-md rounded-full">
-          <Link href={"/"} className="flex items-center gap-2">
-            <Image src={logo} alt="Hermetica Logo" width={100} height={100} className="w-5 h-5 rounded-full" />
-            <span className="text-lg md:text-xl font-bold text-white">Team Hermetica</span>
-          </Link>
-        </nav>
+        <ShimmerButton>
+          <nav className="flex hover:scale-105 duration-300 hover:bg-black/60 items-center justify-between px-3 md:px-8 py-2 bg-black/40 text-black backdrop-blur-md rounded-full">
+            <Link href={"/"} className="flex items-center gap-2">
+              <Image src={logo} alt="Hermetica Logo" width={100} height={100} className="w-5 h-5 rounded-full" />
+              <span className="text-lg md:text-xl font-bold text-white">Team Hermetica</span>
+            </Link>
+          </nav>
+        </ShimmerButton>
 
         <nav className="flex items-center justify-between px-1 md:px-3 md:py-2 bg-black/40 text-black backdrop-blur-md rounded-full">
           {session?.user ? (

@@ -10,7 +10,7 @@ import { Loader2 } from "lucide-react"
 import { useState } from "react"
 import { useToast } from "@/hooks/use-toast"
 import AnimatedGradientText from "../ui/animated-gradient"
-import StarBackground from "./StarBackground"
+import Particles from "./Stars"
 
 const HeroSection = () => {
   const { data: session } = useSession()
@@ -33,19 +33,22 @@ const HeroSection = () => {
   }
 
   return (
-    <section className="relative h-screen bg-gradient-to-b from-black  overflow-hidden flex items-center">
-      <StarBackground />
+    <section className="relative h-screen bg-black overflow-hidden flex items-center">
+      <Particles
+        className="absolute inset-0"
+        quantity={200}
+        ease={80}
+        color={"#ffffff"}
+        refresh
+      />
       <AnimatedCircle />
 
       <motion.div
-        initial={{ opacity: 0, scale: 1.2 }}
+        initial={{ opacity: 0, scale: 1.1 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="md:hidden relative z-10 max-md:px-6 flex flex-col justify-center items-center"
       >
-        <p className="text-xl text-white inline-block px-6 py-2 rounded-full bg-gradient-to-b from-indigo-800/60 to-black border border-gray-900">
-          Team Hermetica
-        </p>
         <AnimatedGradientText>
           We React to What Matters!
         </AnimatedGradientText>
@@ -63,7 +66,7 @@ const HeroSection = () => {
           <div className="bg-gradient-to-r from-indigo-700/30 to-purple-900/30 rounded-3xl p-8 flex flex-col items-center justify-center transform transition-transform hover:scale-105 overflow-hidden">
             {session?.user ? (
               <>
-                <p className="text-2xl font-bold mb-4">
+                <p className="text-2xl text-white font-bold mb-4">
                   Welcome,
                 </p>
                 <Button
@@ -106,7 +109,7 @@ const HeroSection = () => {
 
 
       {/* Desktop */}
-      <div className="max-md:hidden container mx-auto px-4 relative z-10 mt-16">
+      <div className="max-md:hidden container relative z-10 mt-16 mx-auto w-screen">
         <div className="mx-auto text-center md:space-y-16 space-y-36">
           <motion.h1
             initial={{ translateY: 100, scale: 0.8, opacity: 0.5 }}

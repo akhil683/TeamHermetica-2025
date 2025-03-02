@@ -1,8 +1,7 @@
 "use client"
 
-import { delay, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import { Rubik_Glitch, Moo_Lah_Lah } from "next/font/google"
 import localFont from "next/font/local";
 
 const myFont = localFont({ src: "../../app/font/EthnocentricRg.otf" })
@@ -18,13 +17,13 @@ export const AnimatedTitle = () => {
   }, [])
 
   return (
-    <div className="z-30 flex justify-center max-md:py-6 max-md:-translate-y-6 md:translate-x-[2em] translate-x-[0.5em] overflow-hidden">
+    <div className="z-30 flex justify-center max-md:py-6 max-md:-translate-y-6 overflow-hidden">
       {letters?.map((letter, index) => (
         <>
           {loading ? (
             <motion.span
               key={`${letter}/${index}`}
-              className={`inline-block font-bold text-[1.7rem] tracking-[0.6em] md:text-[6rem] text-white text-center ${myFont.className}`}
+              className={`inline-block font-bold text-[1.7rem] tracking-[0.5em] md:text-[6rem] text-white text-center ${myFont.className}`}
               initial={{ y: 0, textShadow: '0 0 15px rgba(255, 255, 255, 0.5)' }}
               animate={{ y: [0, -10, 0], textShadow: ['0 0 15px rgba(255, 255, 255, 0.5)', '0 0 5px rgba(255, 255, 255, 0.3)'] }}
               transition={{
@@ -43,7 +42,7 @@ export const AnimatedTitle = () => {
               key={`${index}/${letter}`}
               className={`inline-block font-rubikIso font-bold text-[1.7rem] text-center md:text-[6rem] text-white ${myFont.className}`}
               initial={{ letterSpacing: "2.5em", opacity: 0, textShadow: '0 0 15px rgba(255, 255, 255, 0.7)' }}
-              animate={{ letterSpacing: "0.6em", opacity: 1, textShadow: '0 0 15px rgba(255, 255, 255, 0.5)' }}
+              animate={{ letterSpacing: "0.5em", opacity: 1, textShadow: '0 0 15px rgba(255, 255, 255, 0.5)' }}
               transition={{
                 duration: 2.5,
                 ease: "easeOut",

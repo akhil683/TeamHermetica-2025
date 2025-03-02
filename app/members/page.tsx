@@ -1,5 +1,6 @@
 "use client"
 
+import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { SpaceBackground } from '@/components/SpaceBackground'
 import { Button } from '@/components/ui/Button'
@@ -21,7 +22,16 @@ const MembersPage = () => {
 
       {/* Filter Section */}
       <div className="container mx-auto px-4 py-8 mt-12">
-        <div className='text-sm relative flex items-center flex-wrap gap-2 md:gap-4 my-6'>
+        <motion.div
+          initial={{ opacity: 0, x: -20, scale: 0.9 }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            scale: 1
+          }}
+          transition={{ duration: 0.4 }}
+          className='text-sm relative flex items-center flex-wrap gap-2 md:gap-4 my-6'
+        >
           <Button
             onClick={() => filterHandler("Final Year Member")}
             className='text-sm bg-gradient-to-b from-indigo-400 duration-300 hover:from-indigo-600 to-indigo-700 rounded-full'
@@ -46,7 +56,7 @@ const MembersPage = () => {
           >
             1st Year
           </Button>
-        </div>
+        </motion.div>
       </div>
 
       {/* Members List */}

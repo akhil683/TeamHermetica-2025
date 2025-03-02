@@ -16,7 +16,24 @@ export const AnimatedCircle = () => {
     <div className={`absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none duration-1000`}>
 
       <motion.div
-        className={`w-[120vw] aspect-square border-[3px] rounded-full absolute z-10 -left-[10vw] bottom-[calc(50%)] origin-bottom border-transparent`}
+        className={`md:hidden w-[220vw] aspect-square border-[3px] rounded-full absolute z-10 -left-[60vw] bottom-[calc(50%)] origin-bottom border-transparent`}
+        initial={{ scaleY: isMobile ? 2 : 1, scaleX: isMobile ? 2 : 1, translateY: 400, opacity: 0 }}
+        animate={{ scaleY: isMounted ? 0.4 : 1.2, scaleX: isMounted ? 0.4 : 1.2, translateY: 180, opacity: 80 }}
+        transition={{ duration: 1.5, ease: "easeInOut", delay: 0.1 }}
+        style={{
+          borderColor: "#5D3FD3",
+          boxShadow: `
+            0 0 10px #5D3FD3,
+            0 0 90px #5D3FD3,
+            inset 0 0 10px #5D3FD3,
+            inset 0 0 200px #5D3FD3
+          `,
+          background: "linear-gradient(180deg, rgba(79, 70, 229, 0.6) 0%, rgba(79, 70, 229, 0) 100%)",
+        }}
+      />
+
+      <motion.div
+        className={`max-md:hidden w-[120vw] aspect-square border-[3px] rounded-full absolute z-10 -left-[10vw] bottom-[calc(50%)] origin-bottom border-transparent`}
         initial={{ scaleY: isMobile ? 2 : 1, scaleX: isMobile ? 2 : 1, translateY: 200, opacity: 0 }}
         animate={{ scaleY: isMounted ? 0.68 : 1.2, scaleX: isMounted ? 0.68 : 1.2, translateY: 180, opacity: 80 }}
         transition={{ duration: 1.5, ease: "easeInOut", delay: 0.1 }}
@@ -49,7 +66,7 @@ export const AnimatedCircle = () => {
         }}
       />
       <motion.div
-        className={`w-[100vw] aspect-square border-[3px] rounded-full absolute left-0 bottom-1/2 origin-bottom overflow-hidden`}
+        className={`max-md:hidden w-[100vw] aspect-square border-[3px] rounded-full absolute left-0 bottom-1/2 origin-bottom overflow-hidden`}
         initial={{ scaleY: isMobile ? 2 : 1.2, scaleX: isMobile ? 2 : 1.2, translateY: 200 }}
         animate={{ scaleY: isMounted ? 0.9 : 1.2, scaleX: isMounted ? 0.9 : 1.2, translateY: 180 }}
         transition={{ duration: 1.5, ease: "easeInOut", delay: 0.1 }}

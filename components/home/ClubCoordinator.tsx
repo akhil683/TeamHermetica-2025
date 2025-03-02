@@ -1,5 +1,4 @@
 import MemberCard from '../MemberCard'
-import rohit from "../../public/rohit.jpg"
 
 const ClubCoordinators = [
   {
@@ -16,20 +15,20 @@ const ClubCoordinators = [
   {
     id: 2,
     name: "Rohit Kumar",
-    position: "Club Coordinator",
+    position: "Club Co-ordinator",
     image: 'https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2Frohit.jpg?alt=media&token=d3e29ebd-3109-421b-911f-8df6732243e9',
     bio: "Specializing in menoting juniors to reach their full potential. Passionate about driving innovation in chemical engineering.",
     social: {
-      instagram: "https://instagram.com/nikhil",
-      linkedin: "https://linkedin.com/in/nikhil",
+      instagram: "https://www.instagram.com/raw_hit03?igsh=MWY4ejIzdWQ5ajJmdg==",
+      linkedin: "https://www.linkedin.com/in/rohit-kumar-a57a34323?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     }
   },
 ]
 
 export default function ClubCoordinator() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-indigo-600/20 to-black">
-      <main className="container mx-auto px-4 sm:px-6 py-20">
+    <div className="bg-gradient-to-b from-black via-indigo-600/20 to-black">
+      <main className="container mx-auto px-4 sm:px-6 py-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white text-center">

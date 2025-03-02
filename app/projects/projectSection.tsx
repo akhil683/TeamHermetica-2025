@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 const ProjectSection = ({ projects }: any) => {
 
 
-  const LatestProjects = projects?.filter((project: any) => project?.year === "2025")
+  const LatestProjects = projects?.filter((project: any) => project?.year === "2024")
   const [filteredProjects, setFilteredProjects] = useState(LatestProjects)
 
   const filterHandler = (year: string) => {
