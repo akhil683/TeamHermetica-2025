@@ -78,7 +78,7 @@ export function MagicCard({
   return (
     <div
       ref={cardRef}
-      className={cn("group relative rounded-xl", className)}
+      className={cn("group relative rounded-xl hover:scale-105 duration-300", className)}
     >
       <motion.div
         className="pointer-events-none absolute inset-0 rounded-xl duration-300 group-hover:opacity-100 overflow-hidden"

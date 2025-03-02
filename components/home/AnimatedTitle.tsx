@@ -1,8 +1,7 @@
 "use client"
 
-import { delay, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import { Rubik_Glitch, Moo_Lah_Lah } from "next/font/google"
 import localFont from "next/font/local";
 
 const myFont = localFont({ src: "../../app/font/EthnocentricRg.otf" })
@@ -18,7 +17,7 @@ export const AnimatedTitle = () => {
   }, [])
 
   return (
-    <div className="z-30 flex justify-center max-md:py-6 max-md:-translate-y-6 md:translate-x-[2em] translate-x-[0.5em] overflow-hidden">
+    <div className="z-30 flex justify-center max-md:py-6 max-md:-translate-y-6 overflow-hidden">
       {letters?.map((letter, index) => (
         <>
           {loading ? (

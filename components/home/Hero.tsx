@@ -10,7 +10,7 @@ import { Loader2 } from "lucide-react"
 import { useState } from "react"
 import { useToast } from "@/hooks/use-toast"
 import AnimatedGradientText from "../ui/animated-gradient"
-import StarBackground from "./StarBackground"
+import Particles from "./Stars"
 
 const HeroSection = () => {
   const { data: session } = useSession()
@@ -34,18 +34,21 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-screen bg-black overflow-hidden flex items-center">
-      <StarBackground />
+      <Particles
+        className="absolute inset-0"
+        quantity={200}
+        ease={80}
+        color={"#ffffff"}
+        refresh
+      />
       <AnimatedCircle />
 
       <motion.div
-        initial={{ opacity: 0, scale: 1.2 }}
+        initial={{ opacity: 0, scale: 1.1 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="md:hidden relative z-10 max-md:px-6 flex flex-col justify-center items-center"
       >
-        {/* <p className="text-xl text-white inline-block px-6 py-2 rounded-full bg-gradient-to-b from-indigo-800/60 to-black border border-gray-900"> */}
-        {/*   Team Hermetica */}
-        {/* </p> */}
         <AnimatedGradientText>
           We React to What Matters!
         </AnimatedGradientText>
