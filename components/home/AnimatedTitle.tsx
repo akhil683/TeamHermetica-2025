@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import localFont from "next/font/local";
 
+// const myFont = localFont({ src: "../../app/font/EthnocentricRg.otf" })
 const myFont = localFont({ src: "../../app/font/EthnocentricRg.otf" })
 
 export const AnimatedTitle = () => {
@@ -22,7 +23,7 @@ export const AnimatedTitle = () => {
         <>
           {loading ? (
             <motion.span
-              key={`${letter}/${index}`}
+              key={index}
               className={`inline-block font-bold text-[1.7rem] tracking-[0.5em] md:text-[6rem] text-white text-center ${myFont.className}`}
               initial={{ y: 0, textShadow: '0 0 15px rgba(255, 255, 255, 0.5)' }}
               animate={{ y: [0, -10, 0], textShadow: ['0 0 15px rgba(255, 255, 255, 0.5)', '0 0 5px rgba(255, 255, 255, 0.3)'] }}

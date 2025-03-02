@@ -9,7 +9,6 @@ import useEmblaCarousel from 'embla-carousel-react'
 import {
   usePrevNextButtons
 } from './CarouselButton'
-import imageLogo from "../public/achievement.jpg"
 import { Button } from './ui/Button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
