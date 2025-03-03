@@ -29,7 +29,7 @@ const MembersPage = () => {
             x: 0,
             scale: 1
           }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.6 }}
           className='text-sm relative flex items-center flex-wrap gap-2 md:gap-4 my-6'
         >
           <Button

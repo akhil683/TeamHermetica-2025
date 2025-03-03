@@ -17,6 +17,7 @@
     "@radix-ui/react-toast": "^1.2.4",
     "@tabler/icons-react": "^3.26.0",
     "axios": "^1.7.9",
+    "babel-plugin-react-compiler": "^19.0.0-beta-e1e972c-20250221",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.7",

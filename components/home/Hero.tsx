@@ -109,8 +109,8 @@ const HeroSection = () => {
 
 
       {/* Desktop */}
-      <div className="max-md:hidden container relative z-10 mt-16 mx-auto w-screen">
-        <div className="mx-auto text-center md:space-y-16 space-y-36">
+      <div className="max-md:hidden container relative z-10 mt-16 mx-auto">
+        <div className="mx-auto text-center md:space-y-12 space-y-36">
           <motion.h1
             initial={{ translateY: 100, scale: 0.8, opacity: 0.5 }}
             animate={{ translateY: 0, opacity: 1, scale: 1 }}

@@ -53,7 +53,7 @@ export function Navbar() {
 
   const socialLinks = [
     { icon: Instagram, href: "https://instagram.com/teamhermetica", label: "Instagram" },
-    { icon: Linkedin, href: "https://linkedin.com/in/teamhermetica", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/teamhermetica/", label: "LinkedIn" },
     { icon: Youtube, href: "https://www.youtube.com/@teamhermetica4195/", label: "YouTube" },
   ];
 
@@ -81,6 +81,9 @@ export function Navbar() {
     open: { rotate: -45, y: -8 },
   };
 
+  const navigateToInstagram = () => {
+    window.location.href = "https://instagram.com/teamhermetica"
+  }
   return (
     <>
       <motion.div
@@ -163,12 +166,12 @@ export function Navbar() {
             />
           </button>
         </nav>
-        <ShimmerButton>
+        <ShimmerButton onClick={navigateToInstagram}>
           <nav className="flex hover:scale-105 duration-300 hover:bg-black/60 items-center justify-between px-3 md:px-8 py-2 bg-black/40 text-black backdrop-blur-md rounded-full">
-            <Link href={"/"} className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
               <Image src={logo} alt="Hermetica Logo" width={100} height={100} className="w-5 h-5 rounded-full" />
               <span className=" md:text-xl font-bold text-white">Team Hermetica</span>
-            </Link>
+            </div>
           </nav>
         </ShimmerButton>
 
