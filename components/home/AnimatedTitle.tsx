@@ -4,8 +4,8 @@ import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import localFont from "next/font/local";
 
-// const myFont = localFont({ src: "../../app/font/EthnocentricRg.otf" })
 const myFont = localFont({ src: "../../app/font/EthnocentricRg.otf" })
+// const myFont = localFont({ src: "../../app/font/good_timing/good timing bd.otf" })
 
 export const AnimatedTitle = () => {
   const letters = "HERMETICA".split("")

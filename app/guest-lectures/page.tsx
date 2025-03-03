@@ -14,8 +14,8 @@ const GuestLecturesPage = () => {
 
       {/* Search Section */}
       <div className="container mx-auto px-4 py-8 mt-12">
-        <div className='relative flex items-center gap-4 my-6'>
-        </div>
+        {/* <div className='relative flex items-center gap-4 my-6'> */}
+        {/* </div> */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {GuestLectures.map((project) => (
             <motion.div
@@ -40,11 +40,9 @@ const GuestLecturesPage = () => {
                   <div className="p-4">
                     <div className="flex items-center gap-2 mb-2">
                       <StarRating
-                        // rating={project.rating} 
                         rating={5}
                       />
                       <span className="text-gray-500 text-sm">
-                        {/* ({project.reviews}) */}
                         (0)
                       </span>
                     </div>
