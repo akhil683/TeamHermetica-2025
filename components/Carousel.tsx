@@ -14,7 +14,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import { useDotButton } from './CarouselDot'
 
-import image1 from "../public/achievement-1.jpeg"
+import image1 from "../public/carousel_1.jpg"
 import image2 from "../public/achievement-2.jpeg"
 import image3 from "../public/achievement-3.jpeg"
 import image4 from "../public/achievement-4.jpeg"

@@ -24,6 +24,11 @@ const nextConfig: NextConfig = {
         hostname: "drive.google.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "img.freepik.com",
+        pathname: "/**",
+      },
     ]
   }
 };

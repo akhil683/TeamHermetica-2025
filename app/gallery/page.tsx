@@ -46,13 +46,13 @@ const GalleryPage = () => {
           >
             Hermetica Day
           </Button>
-          <Button
-            size={"sm"}
-            onClick={() => setFilteredGallery(hermeticaGallery.workshops)}
-            className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full'
-          >
-            Workshops
-          </Button>
+          {/* <Button */}
+          {/*   size={"sm"} */}
+          {/*   onClick={() => setFilteredGallery(hermeticaGallery.workshops)} */}
+          {/*   className='bg-gradient-to-b from-indigo-400 hover:from-indigo-600 to-indigo-700 rounded-full' */}
+          {/* > */}
+          {/*   Workshops */}
+          {/* </Button> */}
           <Button
             size={"sm"}
             onClick={() => setFilteredGallery(hermeticaGallery.awareness)}
@@ -87,7 +87,7 @@ const GalleryPage = () => {
           </div>
         ) : (
           <div className='flex justify-center items-center'>
-            <h2 className='text-5xl text-center mt-[30vh] text-transparent bg-clip-text bg-gradient-to-r from-pink-500 inline-block via-purple-300 to-indigo-300'>
+            <h2 className='md:text-7xl text-4xl text-center mt-[30vh] text-transparent bg-clip-text bg-gradient-to-r from-pink-500 inline-block via-purple-300 to-indigo-300'>
               Coming soon...
             </h2>
           </div>

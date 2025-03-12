@@ -21,7 +21,7 @@ const ProjectCard = ({ project }: any) => {
             {/* Project Image */}
             <div className="aspect-[4/3] overflow-hidden w-full">
               <Image
-                src={project.image}
+                src={project.image || "https://img.freepik.com/free-vector/coming-soon-banner-with-focus-lights_1017-33739.jpg"}
                 alt={project.name}
                 width={600}
                 height={600}

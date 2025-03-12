@@ -27,7 +27,7 @@ const GuestLecturesPage = () => {
               <Card className="min-h-96 group relative overflow-hidden rounded-xl border-transparent bg-gradient-to-tr from-gray-900 via-indigo-900/50 to-gray-900 bg-opacity-20 transition-all duration-300">
                 <button>
                   {/* Project Image */}
-                  <div className="aspect-square overflow-hidden w-full bg-red-500">
+                  <div className="aspect-square overflow-hidden w-full">
                     <Image
                       src={project.image}
                       alt={project.name}
