@@ -12,7 +12,7 @@ import { addSuggestions } from "@/actions/addSuggestion"
 
 const socialLinks = [
   { icon: Instagram, href: "https://instagram.com/teamhermetica", label: "Instagram" },
-  { icon: Linkedin, href: "https://linkedin.com/in/teamhermetica", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/teamhermetica/", label: "LinkedIn" },
   { icon: Youtube, href: "https://www.youtube.com/@teamhermetica4195/", label: "YouTube" },
 ]
 
@@ -199,8 +199,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="mb-2">Made with ❤️  by <span className="text-indigo-500 font-bold hover:text-indigo-300 duration-300">Team Hermetica</span></p>
-          <p>Copyright © 2024, All Rights Reserved</p>
+          <p>Copyright © 2025 Hermetica All Rights Reserved.</p>
         </motion.div>
       </div>
     </footer >

@@ -10,7 +10,7 @@ export default function AboutUs() {
       <main className="container mx-auto px-6 py-20">
         {/* Header Section */}
         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white text-center my-6">
-          Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Domains</span>
+          About <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Us</span>
         </h2>
 
         {/* About Cards Grid */}
@@ -58,15 +58,15 @@ export default function AboutUs() {
 
         {/* Video Section */}
         <div className="max-w-4xl mx-auto">
-          <a href="https://www.youtube.com/watch?v=UzC3rqu9Ysg" target='_blank' className="relative aspect-video group rounded-3xl overflow-hidden flex justify-center items-center">
+          <a href="https://www.youtube.com/@teamhermetica4195" target='_blank' className="relative aspect-video group rounded-3xl overflow-hidden flex justify-center items-center">
             <Image
               src={aboutImage}
               alt='About Us'
               width={1000}
               height={1000}
-              className='absolute w-full h-full object-cover group-hover:opacity-80 duration-300'
+              className='absolute w-full h-full object-cover group-hover:opacity-60 duration-300'
             />
-            <Image src={ytImage} alt='yt logo' className='group-hover:scale-110 w-[20%] z-10 duration-300' />
+            <Image src={ytImage} alt='yt logo' className='group-hover:scale-125 w-[20%] z-10 duration-300' />
           </a>
         </div>
       </main>

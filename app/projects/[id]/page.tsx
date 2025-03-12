@@ -72,7 +72,7 @@ export default async function ProjectDetail({ params }: Props) {
               {/* Project Image */}
               <div className="relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden bg-gray-600/60">
                 <Image
-                  src={project.image as string}
+                  src={project.image as string || "https://img.freepik.com/free-vector/coming-soon-banner-with-focus-lights_1017-33739.jpg"}
                   alt="Cementitious Material Project"
                   fill
                   className="object-cover"
