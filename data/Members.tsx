@@ -13,13 +13,23 @@ export interface MemberType {
 export const members = [
 
   {
-    id: 1,
-    name: "Ajay Sharma",
+    id: 100,
+    name: "Aditya Saroch",
     position: "Final Year Member",
-    image: "https://firebasestorage.googleapis.com/v0/b/hermetica-76788.appspot.com/o/Members%2F3rd%20year%2Fajay.jpg?alt=media&token=9b9f127a-79a7-41a6-acc1-972ed01f0b04",
+    image: "https://raw.githubusercontent.com/akhil683/Hermetica-Club/refs/heads/main/src/assets/CC/Aditya.jpeg",
     social: {
-      instagram: "https://www.instagram.com/whynot.aj/?igsh=bzRwNGZ2em1jdXll#",
-      linkedin: 'https://www.linkedin.com/authwall?trk=gf&trkInfo=AQHmDp2Sx2fsswAAAZSD9x4w3IhRJruoFASQ2bUZYWFIWSvegdA-XuPFq6GONNpFqC-lU4oD882fW31ZfKWbJNe5JrIHYdwh3TO1GmhJgKfudDI133BPZzW_pMhZApdg_MWz9l4=&original_referer=https://www.teamhermetica.in/&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fajay-sharma-270bb922a',
+      instagram: "https://www.instagram.com/adisaroch_02/?igshid=Mzc0YWU1OWY%3D",
+      linkedin: 'https://www.linkedin.com/in/aditya-saroch-75a458237/',
+    }
+  },
+  {
+    id: 200,
+    name: "Nikhil Jadon",
+    position: "Final Year Member",
+    image: "https://raw.githubusercontent.com/akhil683/Hermetica-Club/refs/heads/main/src/assets/CC/Nikhil.jpeg",
+    social: {
+      instagram: "https://www.instagram.com/jnikhil979/?igshid=Mzc0YWU1OWY%3D",
+      linkedin: 'https://www.linkedin.com/in/nikhil-singh-jadon-733845251/',
     }
   },
   {
